@@ -27,6 +27,11 @@ class ProviderConfig(BaseModel):
     # Уровень рассуждений для «думающих» моделей (Gemini 3: minimal/low/medium/high).
     # None — не передаём, модель берёт своё умолчание.
     reasoning_effort: str | None = None
+    # response_format = {"type": "json_object"} — JSON-режим провайдера (судья).
+    json_mode: bool = False
+    # Сколько токенов ответа (включая рассуждения) резервировать в TPM-лимитере до вызова:
+    # провайдеры считают в TPM и вход, и выход, а заранее известен только вход.
+    est_completion_tokens: int = 0
     # Лимиты провайдера; 0 — нет лимита или он неизвестен.
     rpm: int = 0
     tpm: int = 0

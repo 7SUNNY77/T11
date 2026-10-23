@@ -82,7 +82,10 @@ class LLMWrapper(LLMClient):
 
 
 def estimate_tokens(messages: list[dict], tools: list[dict] | None = None) -> int:
-    return len(json.dumps([messages, tools or []], ensure_ascii=False)) // 4
+    """Оценка до вызова: ~4 символа на токен для ASCII, ~2 для прочего (кириллица дороже)."""
+    s = json.dumps([messages, tools or []], ensure_ascii=False)
+    non_ascii = sum(1 for ch in s if ord(ch) > 127)
+    return (len(s) - non_ascii) // 4 + non_ascii // 2
 
 
 # --- OpenAI-совместимый клиент (gemini / groq / ollama) ---
@@ -131,7 +134,11 @@ class OpenAICompatClient(LLMClient):
         import openai
 
         self.provider, self.model, self.temperature = cfg.name, cfg.model, cfg.temperature
-        self.extra_params = {"reasoning_effort": cfg.reasoning_effort} if cfg.reasoning_effort else {}
+        self.extra_params = {}
+        if cfg.reasoning_effort:
+            self.extra_params["reasoning_effort"] = cfg.reasoning_effort
+        if cfg.json_mode:
+            self.extra_params["response_format"] = {"type": "json_object"}
         # Повторы делает RetryingLLM, у SDK они отключены, чтобы считать запросы самим.
         self._client = openai.OpenAI(
             base_url=cfg.base_url, api_key=cfg.api_key(), max_retries=0, timeout=cfg.timeout_s
@@ -196,7 +203,7 @@ def build_llm(cfg: ProviderConfig, cache_dir: Path | None, raw: LLMClient | None
             raw = PolicyFake(model=cfg.model)
         else:
             raw = OpenAICompatClient(cfg)
-    llm: LLMClient = RateLimitedLLM(raw, RateLimiter(rpm=cfg.rpm, tpm=cfg.tpm))
+    llm: LLMClient = RateLimitedLLM(raw, RateLimiter(rpm=cfg.rpm, tpm=cfg.tpm), est_completion=cfg.est_completion_tokens)
     llm = RetryingLLM(llm, max_retries=cfg.max_retries, base_s=cfg.backoff_base_s, max_s=cfg.backoff_max_s)
     if cfg.cache and cache_dir is not None:
         llm = CachedLLM(llm, DiskCache(cache_dir))

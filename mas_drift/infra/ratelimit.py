@@ -60,12 +60,13 @@ class RateLimiter:
 
 
 class RateLimitedLLM(LLMWrapper):
-    def __init__(self, inner: LLMClient, limiter: RateLimiter):
+    def __init__(self, inner: LLMClient, limiter: RateLimiter, est_completion: int = 0):
         super().__init__(inner)
         self.limiter = limiter
+        self.est_completion = est_completion
 
     def chat(self, messages: list[dict], tools: list[dict] | None = None, *, repeat_idx: int = 0) -> LLMResponse:
-        waited = self.limiter.acquire(estimate_tokens(messages, tools))
+        waited = self.limiter.acquire(estimate_tokens(messages, tools) + self.est_completion)
         response = self.inner.chat(messages, tools, repeat_idx=repeat_idx)
         self.limiter.record_tokens(response.usage.total)
         response.wait_s += waited
