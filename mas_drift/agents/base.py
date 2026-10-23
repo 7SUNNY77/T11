@@ -24,9 +24,12 @@ class RunStats:
     tool_errors: int = 0
     drift_affected_results: int = 0
     calls_by_agent: dict[str, int] = field(default_factory=dict)
+    models_reported: list[str] = field(default_factory=list)  # model id из ответов провайдера
 
     def add(self, agent: str, r: LLMResponse) -> None:
         self.llm_calls += 1
+        if r.model and r.model not in self.models_reported:
+            self.models_reported.append(r.model)
         self.calls_by_agent[agent] = self.calls_by_agent.get(agent, 0) + 1
         self.api_requests += r.api_requests
         self.cached_calls += int(r.cached)

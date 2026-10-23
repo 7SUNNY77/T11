@@ -66,6 +66,8 @@ class ExperimentConfig(BaseModel):
     )
     awareness: list[str] = Field(default_factory=lambda: ["A0", "A1"])
     executor_max_steps: int = 8
+    workers: int = 3
+    order_seed: int = 7
     runs_dir: Path = Path("runs")
     cache_dir: Path = Path("cache")
 

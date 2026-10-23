@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import random
+import threading
 import time
 from collections import deque
 from typing import Callable
@@ -25,6 +26,8 @@ class RateLimiter:
         self.clock, self.sleep = clock, sleep
         self._requests: deque[float] = deque()
         self._tokens: deque[tuple[float, int]] = deque()
+        # Один лимитер на все воркеры: состояние меняется только под замком, спим вне его.
+        self._lock = threading.Lock()
 
     def _purge(self, now: float) -> None:
         while self._requests and now - self._requests[0] >= WINDOW_S:
@@ -36,22 +39,24 @@ class RateLimiter:
         """Блокирует до появления квоты; возвращает время ожидания."""
         waited = 0.0
         while True:
-            now = self.clock()
-            self._purge(now)
-            wait = 0.0
-            if self.rpm and len(self._requests) >= self.rpm:
-                wait = self._requests[0] + WINDOW_S - now
-            if self.tpm and self._tokens and sum(n for _, n in self._tokens) + est_tokens > self.tpm:
-                wait = max(wait, self._tokens[0][0] + WINDOW_S - now)
-            if wait <= 0:
-                self._requests.append(now)
-                return waited
+            with self._lock:
+                now = self.clock()
+                self._purge(now)
+                wait = 0.0
+                if self.rpm and len(self._requests) >= self.rpm:
+                    wait = self._requests[0] + WINDOW_S - now
+                if self.tpm and self._tokens and sum(n for _, n in self._tokens) + est_tokens > self.tpm:
+                    wait = max(wait, self._tokens[0][0] + WINDOW_S - now)
+                if wait <= 0:
+                    self._requests.append(now)
+                    return waited
             self.sleep(wait)
             waited += wait
 
     def record_tokens(self, n: int) -> None:
         if self.tpm and n:
-            self._tokens.append((self.clock(), n))
+            with self._lock:
+                self._tokens.append((self.clock(), n))
 
 
 class RateLimitedLLM(LLMWrapper):

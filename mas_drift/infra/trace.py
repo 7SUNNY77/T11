@@ -53,7 +53,7 @@ class TraceWriter:
     def __enter__(self) -> "TraceWriter":
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self._fh = open(self.part, "w", encoding="utf-8")
-        self._write({"type": "run_start", **self.header, "started_at": _now()})
+        self._write({"type": "run_start", "started_at": _now(), **self.header})
         return self
 
     def __exit__(self, exc_type, exc, tb) -> bool:

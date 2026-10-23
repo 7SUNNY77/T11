@@ -58,10 +58,12 @@ def main() -> int:
 
     run_id = f"smoke_{cond.api_version}_{cond.awareness}_{task.task_id}_{time.strftime('%Y%m%d-%H%M%S')}"
     path = trace_path(exp.runs_dir / "smoke" / args.provider, run_id)
-    print(f"provider={pcfg.name} model={pcfg.model} condition={cond.id} task={task.task_id}")
+    print(f"provider={pcfg.name} model={pcfg.model} reasoning_effort={pcfg.reasoning_effort} "
+          f"condition={cond.id} task={task.task_id}")
     print(f"request: {task.request}\ngold: {task.gold.model_dump()}\n")
     with TraceWriter(path, {"run_id": run_id, "condition": cond.model_dump(), "task_id": task.task_id,
-                            "provider": pcfg.name, "model": pcfg.model}) as tw:
+                            "provider": pcfg.name, "model": pcfg.model,
+                            "reasoning_effort": pcfg.reasoning_effort}) as tw:
         res = run_mas(task, cond, world, llm, tw, args.repeat, exp.executor_max_steps)
         result = check(task, res.final_text)
         tw.finish(final_text=res.final_text, check=result.model_dump())
