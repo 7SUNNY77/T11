@@ -1,10 +1,14 @@
-"""Mock-API командировок в четырёх версиях.
+"""Mock-API командировок в пяти версиях.
 
-v1          — базовая.
-v2_contract — параметр nights → num_nights, выходное поле price → price_total (в обоих инструментах).
-v2_units    — схема и описания как в v1, но цены в центах (целые числа, ×100).
-v2_benign   — у search_hotels добавлены необязательные поля rating, amenities и параметр
-              sort_by (по умолчанию "price"); поведение по умолчанию как в v1.
+v1                — базовая.
+v2_contract       — параметр nights → num_nights, выходное поле price → price_total (в обоих инструментах).
+v2_contract_stale — API ведёт себя как v2_contract, но агенту отдаются схемы v1: вручную написанная
+                    обёртка инструмента, которую не обновили после изменения API.
+v2_units          — схема и описания как в v1, но цены в центах (целые числа, ×100).
+v2_benign         — у search_hotels добавлены необязательные поля rating, amenities и параметр
+                    sort_by (по умолчанию "price"); поведение по умолчанию как в v1.
+
+VersionSpec.schemas — то, что видит агент; поведение (валидация, поля ответа) задают остальные поля.
 """
 
 from __future__ import annotations
@@ -17,7 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError
 from mas_drift.domain.world import World, to_cents
 from mas_drift.tools import errors
 
-API_VERSIONS = ["v1", "v2_contract", "v2_units", "v2_benign"]
+API_VERSIONS = ["v1", "v2_contract", "v2_contract_stale", "v2_units", "v2_benign"]
 
 
 class _Args(BaseModel):
@@ -136,6 +140,10 @@ SPECS: dict[str, VersionSpec] = {
     "v2_contract": VersionSpec(
         "v2_contract", HotelsArgsContract, "num_nights", "price_total", False, False,
         [_hotels_schema("num_nights", "price_total", benign=False), _flights_schema("price_total")],
+    ),
+    # Поведение v2_contract, схемы v1.
+    "v2_contract_stale": VersionSpec(
+        "v2_contract_stale", HotelsArgsContract, "num_nights", "price_total", False, False, _V1_SCHEMAS
     ),
     "v2_units": VersionSpec("v2_units", HotelsArgsV1, "nights", "price", True, False, _V1_SCHEMAS),
     "v2_benign": VersionSpec(

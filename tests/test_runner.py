@@ -19,7 +19,8 @@ from mas_drift.runner import cli
 from mas_drift.runner.grid import build_grid, experiment_dir, make_run_id, run_setup
 
 N_TASKS = 30
-VERSIONS = ["v1", "v2_contract", "v2_units", "v2_benign"]
+VERSIONS = ["v1", "v2_contract", "v2_contract_stale", "v2_units", "v2_benign"]
+N_CONDS = 2 * len(VERSIONS)
 ALL_CONDS = [f"{v}:{a}" for v in VERSIONS for a in ("A0", "A1")]
 
 
@@ -71,6 +72,7 @@ def _results(config, name="fake"):
 EXPECTED = {  # (solvable, no_option) успехи на 25 + 5 задачах
     "v1:A0": (25, 5), "v1:A1": (25, 5), "v2_benign:A0": (25, 5), "v2_benign:A1": (25, 5),
     "v2_contract:A0": (0, 5), "v2_contract:A1": (25, 5), "v2_units:A0": (0, 5), "v2_units:A1": (25, 5),
+    "v2_contract_stale:A0": (0, 5), "v2_contract_stale:A1": (25, 5),
 }
 
 
@@ -78,7 +80,7 @@ def test_full_grid_end_to_end(config):
     code, llm = _run(config, "--conditions", "all", "--n-tasks", "30", "--repeats", "1")
     assert code == 0
     rows = _results(config)
-    assert len(rows) == 240
+    assert len(rows) == N_TASKS * N_CONDS
     got = Counter()
     for r in rows:
         got[(f"{r['api_version']}:{r['awareness']}", r["gold_kind"])] += r["success"] == "True"
@@ -87,7 +89,7 @@ def test_full_grid_end_to_end(config):
     # Фактические LLM-вызовы, модель, reasoning_effort и время начала есть в каждой строке.
     assert all(int(r["llm_calls"]) == 4 for r in rows)
     assert all(r["model"] == "policy-fake" and r["started_at"] and r["llm_latency_s"] != "" for r in rows)
-    assert llm.calls == 240 * 4
+    assert llm.calls == N_TASKS * N_CONDS * 4
     summary = (_exp_dir(config) / "summary.csv").read_text(encoding="utf-8")
     assert "v2_units:A0" in summary
 
@@ -123,10 +125,10 @@ def test_order_blocks_balanced_and_seeded():
                        changelog_to=[] if c.endswith("A0") else ["executor"]) for c in ALL_CONDS]
     setup = {"x": 1}
     specs = build_grid(conds, tasks, repeats=2, setup=setup, order_seed=7)
-    assert len(specs) == 6 * 8 * 2
+    assert len(specs) == 6 * N_CONDS * 2
     # Каждый блок — одна задача × все 8 условий, блоки идут подряд.
     for b in range(12):
-        block = specs[b * 8:(b + 1) * 8]
+        block = specs[b * N_CONDS:(b + 1) * N_CONDS]
         assert {s.block for s in block} == {b}
         assert len({s.task.task_id for s in block}) == 1
         assert {s.condition.id for s in block} == set(ALL_CONDS)
@@ -135,8 +137,8 @@ def test_order_blocks_balanced_and_seeded():
     other = build_grid(conds, tasks, repeats=2, setup=setup, order_seed=8)
     assert [s.run_id for s in again] == [s.run_id for s in specs]
     assert [s.run_id for s in other] != [s.run_id for s in specs]
-    assert [s.condition.id for s in specs[:8]] != [s.condition.id for s in specs[8:16]]
-    assert [s.task.task_id for s in specs[::8][:6]] != [t.task_id for t in tasks]
+    assert [s.condition.id for s in specs[:N_CONDS]] != [s.condition.id for s in specs[N_CONDS:2 * N_CONDS]]
+    assert [s.task.task_id for s in specs[::N_CONDS][:6]] != [t.task_id for t in tasks]
     # Любой префикс сбалансирован по условиям с точностью до одного блока.
     for cut in range(0, len(specs), 5):
         counts = Counter(s.condition.id for s in specs[:cut])
@@ -150,20 +152,20 @@ def test_resume_skips_completed_and_reruns_missing(config):
     victim = next((_exp_dir(config) / "traces").glob("*.jsonl"))
     victim.unlink()
     code, llm = _run(config, "--n-tasks", "4")
-    assert llm.calls == 4 and len(_results(config)) == 32
+    assert llm.calls == 4 and len(_results(config)) == 4 * N_CONDS
 
 
 def test_daily_quota_stops_and_resume_completes(config):
     code, llm = _run(config, "--n-tasks", "5", llm=Counting(quota_after=50))
     assert code == cli.EXIT_RESUME_LATER
     partial = _results(config)
-    assert 0 < len(partial) < 40
+    assert 0 < len(partial) < 5 * N_CONDS
     parts = list((_exp_dir(config) / "traces").glob("*.part"))
     assert parts and all(read_trace(p)[-1]["type"] == "run_aborted" for p in parts)
     code, llm = _run(config, "--n-tasks", "5")
-    assert code == 0 and llm.calls == (40 - len(partial)) * 4
+    assert code == 0 and llm.calls == (5 * N_CONDS - len(partial)) * 4
     rows = _results(config)
-    assert len(rows) == 40 and not list((_exp_dir(config) / "traces").glob("*.part"))
+    assert len(rows) == 5 * N_CONDS and not list((_exp_dir(config) / "traces").glob("*.part"))
 
 
 def test_workers_do_not_change_results(config, tmp_path):
@@ -209,7 +211,7 @@ def test_estimate_uses_experiment_traces(config, capsys):
     code = cli.main(["--config", str(config), "--provider", "fake", "--n-tasks", "4", "--estimate"],
                     log=lines.append)
     out = "\n".join(lines)
-    assert code == 0 and "runs_remaining: 16" in out and "трассы эксперимента" in out
+    assert code == 0 and f"runs_remaining: {2 * N_CONDS}" in out and "трассы эксперимента" in out
 
 
 def test_cache_in_flight_dedupe(tmp_path):
@@ -228,3 +230,33 @@ def test_cache_in_flight_dedupe(tmp_path):
     for t in threads:
         t.join()
     assert len(inner.calls) == 1 and {r.content for r in out} == {"a"}
+
+
+def test_adding_version_keeps_old_run_ids(monkeypatch):
+    from mas_drift.tools import versions
+
+    cond = Condition(api_version="v1", awareness="A0", changelog_to=[])
+    setup = run_setup(ProviderConfig(name="g", kind="openai_compat", model="m"), 8, "w", "t")
+    before = make_run_id(setup, cond, "T01", 0)
+    monkeypatch.setitem(versions.SPECS, "v9_new", versions.SPECS["v2_units"])
+    assert make_run_id(setup, cond, "T01", 0) == before
+
+
+def test_cache_hits_column(config):
+    _run(config, "--tasks", "T01", "--conditions", "v1:A0,v2_units:A0", workers=1)
+    rows = {r["api_version"]: r for r in _results(config)}
+    # Fake без кэша: попаданий нет, столбец есть.
+    assert rows["v1"]["cache_hits"] == "0" and "cached_calls" not in rows["v1"]
+
+
+def test_cache_hits_shared_planner_with_cache(config, tmp_path):
+    pcfg = ProviderConfig(name="fake", kind="fake", model="policy-fake", cache=True)
+    code = cli.main(["--config", str(config), "--provider", "fake", "--workers", "1", "--tasks", "T01",
+                     "--conditions", "v1:A0,v1:A1,v2_units:A0"],
+                    llm=build_llm(pcfg, tmp_path / "c", raw=Counting()), log=lambda s: None)
+    assert code == 0
+    hits = {r["api_version"] + ":" + r["awareness"]: int(r["cache_hits"]) for r in _results(config)}
+    # Первый по порядку прогон всё вызывает сам. Остальные делят с ним дословно одинаковые вызовы:
+    # Planner — всегда; v2_units:A0 с v1:A0 — первый шаг Executor (схемы совпадают);
+    # v1:A1 с v1:A0 — Verifier (у fake отчёт Executor одинаковый, значит и вход Verifier).
+    assert sorted(hits.values()) == [0, 2, 2] and sum(hits.values()) == 4

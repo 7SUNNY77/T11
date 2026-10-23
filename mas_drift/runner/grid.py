@@ -18,7 +18,7 @@ from mas_drift.agents.pipeline import Condition
 from mas_drift.agents.prompts import PROMPT_VERSION
 from mas_drift.domain.tasks import Task
 from mas_drift.infra.config import AppConfig, ProviderConfig
-from mas_drift.tools.changelogs import CHANGELOGS, IRRELEVANT_CHANGELOG
+from mas_drift.tools.changelogs import changelog_for
 from mas_drift.tools.versions import SPECS
 
 
@@ -37,10 +37,14 @@ def _sha(obj) -> str:
     return hashlib.sha256(blob.encode("utf-8")).hexdigest()
 
 
-def api_fingerprint() -> str:
-    """Определение API и changelog'и: их правка должна давать новые run_id."""
-    schemas = {name: spec.schemas for name, spec in SPECS.items()}
-    return _sha([schemas, CHANGELOGS, IRRELEVANT_CHANGELOG])[:16]
+def version_fingerprint(version: str) -> str:
+    """Определение одной версии API (видимые схемы, валидация, поля ответа) и её changelog.
+    Правка версии даёт новые run_id только у её прогонов; добавление новой версии старые не трогает."""
+    spec = SPECS[version]
+    return _sha([
+        spec.schemas, spec.hotel_args.model_json_schema(), spec.nights_param, spec.price_field,
+        spec.cents, spec.extra_hotel_fields, changelog_for(version),
+    ])[:16]
 
 
 def run_setup(pcfg: ProviderConfig, executor_max_steps: int, world_fp: str, tasks_fp: str) -> dict:
@@ -54,12 +58,11 @@ def run_setup(pcfg: ProviderConfig, executor_max_steps: int, world_fp: str, task
         "executor_max_steps": executor_max_steps,
         "world_fp": world_fp,
         "tasks_fp": tasks_fp,
-        "api_fp": api_fingerprint(),
     }
 
 
 def make_run_id(setup: dict, cond: Condition, task_id: str, repeat_idx: int) -> str:
-    h = _sha([setup, cond.model_dump(), task_id, repeat_idx])[:10]
+    h = _sha([setup, cond.model_dump(), version_fingerprint(cond.api_version), task_id, repeat_idx])[:10]
     return f"{cond.api_version}_{cond.awareness}_{task_id}_r{repeat_idx}_{h}"
 
 

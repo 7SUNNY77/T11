@@ -62,7 +62,7 @@ class ExperimentConfig(BaseModel):
     seed: int = 42
     task_pool: int = 30
     api_versions: list[str] = Field(
-        default_factory=lambda: ["v1", "v2_contract", "v2_units", "v2_benign"]
+        default_factory=lambda: ["v1", "v2_contract", "v2_contract_stale", "v2_units", "v2_benign"]
     )
     awareness: list[str] = Field(default_factory=lambda: ["A0", "A1"])
     executor_max_steps: int = 8

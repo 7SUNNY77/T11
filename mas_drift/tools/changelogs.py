@@ -35,7 +35,12 @@ IRRELEVANT_CHANGELOG = (
 )
 
 
+# Версия API -> чей changelog она получает. У stale изменение API то же, что у v2_contract;
+# отличается только устаревшая схема на стороне агента, о которой changelog не сообщает.
+CHANGELOG_ALIASES = {"v2_contract_stale": "v2_contract"}
+
+
 def changelog_for(version: str) -> str:
     if version == "v1":
         return IRRELEVANT_CHANGELOG
-    return CHANGELOGS[version]
+    return CHANGELOGS[CHANGELOG_ALIASES.get(version, version)]

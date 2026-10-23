@@ -15,7 +15,7 @@ from mas_drift.eval.checker import check
 from mas_drift.infra.errors import InfraError
 from mas_drift.infra.llm import LLMClient
 from mas_drift.infra.trace import TraceWriter, is_completed, trace_path
-from mas_drift.runner.grid import RunSpec
+from mas_drift.runner.grid import RunSpec, version_fingerprint
 from mas_drift.tools.versions import SPECS
 
 
@@ -33,6 +33,7 @@ def execute_run(
         "experiment": experiment,
         "started_at": datetime.now(timezone.utc).isoformat(timespec="milliseconds"),
         **setup,
+        "api_fp": version_fingerprint(cond.api_version),
         "condition": cond.model_dump(),
         "task_id": task.task_id,
         "repeat_idx": spec.repeat_idx,

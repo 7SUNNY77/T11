@@ -134,6 +134,7 @@ EXPECTED_ACCURACY = {
     ("v1", False): (1.0, 1.0), ("v1", True): (1.0, 1.0),
     ("v2_benign", False): (1.0, 1.0), ("v2_benign", True): (1.0, 1.0),
     ("v2_contract", False): (0.0, 1.0), ("v2_contract", True): (1.0, 1.0),
+    ("v2_contract_stale", False): (0.0, 1.0), ("v2_contract_stale", True): (1.0, 1.0),
     ("v2_units", False): (0.0, 1.0), ("v2_units", True): (1.0, 1.0),
 }
 

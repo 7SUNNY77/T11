@@ -137,8 +137,41 @@ def test_benign_sort_by(world, task):
 
 def test_schemas_match_arg_models():
     for spec in SPECS.values():
+        if spec.name == "v2_contract_stale":
+            continue  # расхождение схемы и валидации — суть этого условия
         props = spec.schemas[0]["function"]["parameters"]["properties"]
         assert set(props) == set(spec.hotel_args.model_fields), spec.name
+
+
+# --- v2_contract_stale ---
+
+def test_stale_agent_sees_v1_schema():
+    assert SPECS["v2_contract_stale"].schemas == SPECS["v1"].schemas
+    props = SPECS["v2_contract_stale"].schemas[0]["function"]["parameters"]["properties"]
+    assert "nights" in props and "num_nights" not in props
+    assert get_toolset("v2_contract_stale", generate_world(42)).schemas() == SPECS["v1"].schemas
+
+
+def test_stale_api_validates_as_v2(world, task):
+    err = _hotels(world, "v2_contract_stale", city=task.city, nights=2)
+    assert is_error(err) and err["status"] == 422
+    assert err == _hotels(world, "v2_contract", city=task.city, nights=2)
+    by_loc = {tuple(d["loc"]): d["type"] for d in err["detail"]}
+    assert by_loc == {("body", "nights"): "extra_forbidden", ("body", "num_nights"): "missing"}
+    ok = _hotels(world, "v2_contract_stale", city=task.city, num_nights=2)
+    assert ok == _hotels(world, "v2_contract", city=task.city, num_nights=2)
+    assert all("price_total" in r and "price" not in r for r in ok)
+    assert _flights(world, "v2_contract_stale", task) == _flights(world, "v2_contract", task)
+
+
+def test_stale_uses_contract_changelog():
+    assert changelog_for("v2_contract_stale") == changelog_for("v2_contract")
+
+
+def test_stale_drift_annotation(world, task):
+    a = DriftObservedToolSet.for_version("v2_contract_stale", world).call(
+        "search_hotels", {"city": task.city, "nights": 2})
+    assert a.drift_type == "input_rejected" and a.drift_affected
 
 
 # --- changelogs ---

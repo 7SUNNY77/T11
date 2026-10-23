@@ -15,7 +15,7 @@ COLUMNS = [
     "run_id", "experiment", "provider", "model", "models_reported", "reasoning_effort", "temperature",
     "prompt_version", "api_version", "awareness", "changelog_to", "task_id", "repeat_idx", "block", "order",
     "gold_kind", "designed_as", "success", "reason", "answer_kind", "pair_ok", "total_ok", "json_fenced",
-    "executor_status", "executor_steps", "llm_calls", "api_requests", "cached_calls",
+    "executor_status", "executor_steps", "llm_calls", "api_requests", "cache_hits",
     "prompt_tokens", "completion_tokens", "reasoning_tokens", "total_tokens",
     "llm_latency_s", "wait_s", "duration_s", "tool_calls", "tool_errors", "drift_affected_results",
     "changelog_planner", "changelog_executor", "changelog_verifier", "started_at", "ended_at",
@@ -33,7 +33,7 @@ def changelog_seen(records: list[dict], agent: str, api_version: str) -> str:
                 return "none"
             if IRRELEVANT_CHANGELOG in system:
                 return "irrelevant"
-            if api_version != "v1" and changelog_for(api_version) in system:
+            if api_version != "v1" and changelog_for(api_version) in system:  # для stale — changelog v2_contract
                 return "own"
             return "other"
     return "absent"
@@ -55,9 +55,10 @@ def row_from_trace(records: list[dict]) -> dict:
         "executor_status": end["executor_status"], "executor_steps": end["executor_steps"],
         "duration_s": end["duration_s"], "started_at": start["started_at"], "ended_at": end["ended_at"],
     }
-    for k in ("llm_calls", "api_requests", "cached_calls", "prompt_tokens", "completion_tokens",
+    for k in ("llm_calls", "api_requests", "prompt_tokens", "completion_tokens",
               "reasoning_tokens", "total_tokens", "tool_calls", "tool_errors", "drift_affected_results"):
         row[k] = st[k]
+    row["cache_hits"] = st["cached_calls"]  # LLM-вызовы этого прогона, ответ на которые взят из кэша
     row["llm_latency_s"] = round(st["llm_latency_s"], 3)
     row["wait_s"] = round(st["wait_s"], 3)
     for agent in AGENTS:
