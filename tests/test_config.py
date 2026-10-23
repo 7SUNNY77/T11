@@ -9,7 +9,7 @@ def test_default_config_loads():
     cfg = load_config(DEFAULT_CONFIG, env_path=None)
     assert set(cfg.providers) == {"fake", "gemini", "groq", "ollama"}
     assert cfg.provider("fake").kind == "fake"
-    assert cfg.provider("gemini").model == "gemini-2.5-flash-lite"
+    assert cfg.provider("gemini").model == "gemini-3.5-flash-lite"
     assert cfg.provider("groq").tpd == 200000
     assert cfg.experiment.task_pool == 30
     assert cfg.experiment.runs_dir.is_absolute()
