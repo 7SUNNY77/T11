@@ -53,8 +53,11 @@ def _table(header: list[str], rows: list[list]) -> str:
     return "\n".join(lines)
 
 
-def plot(succ: list[dict], versions: list[str], path: Path) -> None:
-    fig, axes = plt.subplots(1, len(SUBSETS), figsize=(12, 4.6), sharey=True, facecolor=SURFACE)
+LEGEND = {"A0": "A0 — без changelog", "A1": "A1 — changelog у Executor"}
+
+
+def plot(succ: list[dict], versions: list[str], path: Path, note: str = "") -> None:
+    fig, axes = plt.subplots(1, len(SUBSETS), figsize=(12, 5.0), sharey=True, facecolor=SURFACE)
     width = 0.38
     for ax, subset in zip(axes, SUBSETS):
         ax.set_facecolor(SURFACE)
@@ -67,11 +70,12 @@ def plot(succ: list[dict], versions: list[str], path: Path) -> None:
                     ax.text(x, 0.02, "нет\nданных", ha="center", va="bottom", fontsize=7, color=INK_2)
                     continue
                 m, lo, hi = ci
-                ax.bar(x, m, width, color=COLORS[aw], label=aw if i == 0 else None, zorder=2)
+                ax.bar(x, m, width, color=COLORS[aw], label=LEGEND[aw] if i == 0 else None, zorder=2)
                 ax.errorbar(x, m, yerr=[[m - lo], [hi - m]], fmt="none", ecolor=INK_2, elinewidth=1.2,
                             capsize=3, zorder=3)
                 ax.text(x, min(hi, 1.0) + 0.025, f"n={n}", ha="center", va="bottom", fontsize=7, color=INK_2)
         ax.set_xticks(range(len(versions)), versions, fontsize=9, color=INK)
+        ax.set_xlabel("Версия API", color=INK_2, fontsize=9)
         ax.set_ylim(0, 1.12)
         ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0], ["0%", "25%", "50%", "75%", "100%"], color=INK_2, fontsize=9)
         ax.grid(axis="y", color=GRID, linewidth=0.8, zorder=0)
@@ -82,9 +86,12 @@ def plot(succ: list[dict], versions: list[str], path: Path) -> None:
         ax.set_title({"все задачи": "Все задачи", "с решением": "Задачи с решением (gold_kind = pairs)"}[subset],
                      fontsize=11, color=INK, loc="left")
     axes[0].set_ylabel("Успешность (95% бутстрап-ДИ)", color=INK_2, fontsize=9)
-    axes[-1].legend(title="Осведомлённость", frameon=False, fontsize=9, title_fontsize=9, loc="upper right",
-                    bbox_to_anchor=(1.0, 1.12), ncols=2)
-    fig.tight_layout()
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, title="Осведомлённость", frameon=False, fontsize=9, title_fontsize=9,
+               loc="upper center", bbox_to_anchor=(0.5, 1.0), ncols=2)
+    fig.text(0.01, 0.01, "n — число задач в условии; столбец — доля успешных прогонов; усы — 95% перцентильный "
+             "бутстрап по задачам." + (f" {note}" if note else ""), fontsize=8, color=INK_2, ha="left", va="bottom")
+    fig.tight_layout(rect=(0, 0.04, 1, 0.9))
     path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(path, dpi=150, facecolor=SURFACE)
     plt.close(fig)
@@ -225,7 +232,9 @@ def main(argv: list[str] | None = None) -> int:
     plot_name = "success_by_condition.png"
     md, succ, versions = render(rows, exp_dir, args, plot_name, source, blocks_info)
     args.out.mkdir(parents=True, exist_ok=True)
-    plot(succ, versions, args.out / plot_name)
+    note = (f"Полных блоков: {blocks_info['complete']} из {blocks_info['blocks']}."
+            if not args.include_partial else "Включены неполные блоки.")
+    plot(succ, versions, args.out / plot_name, note)
     (args.out / "analysis.md").write_text(md, encoding="utf-8")
     print(f"{args.out / 'analysis.md'}\n{args.out / plot_name}")
     return 0
