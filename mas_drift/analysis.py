@@ -57,6 +57,18 @@ def rows_from_traces(traces_dir: Path) -> tuple[list[dict], int]:
     return list(latest.values()), dupes
 
 
+def complete_blocks_only(rows: list[dict], conditions: list[str]) -> tuple[list[dict], set, set]:
+    """Оставляет прогоны только тех блоков (задача × повтор), что пройдены во ВСЕХ условиях сетки.
+    Возвращает (строки, полные блоки, все блоки)."""
+    have: dict[tuple, set] = defaultdict(set)
+    for r in rows:
+        have[(r["task_id"], r["repeat_idx"])].add(r["condition"])
+    need = set(conditions)
+    complete = {b for b, cs in have.items() if need <= cs}
+    kept = [r for r in rows if (r["task_id"], r["repeat_idx"]) in complete and r["condition"] in need]
+    return kept, complete, set(have)
+
+
 def _subset(rows: list[dict], gold_kind: str | None) -> list[dict]:
     return [r for r in rows if gold_kind is None or r["gold_kind"] == gold_kind]
 

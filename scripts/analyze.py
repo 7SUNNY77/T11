@@ -21,10 +21,10 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
 from mas_drift.analysis import (  # noqa: E402
-    SUBSETS, _version_key, all_paired, condition_order, load_results, ops_table, rows_from_traces,
-    success_table, understood_not_done,
+    SUBSETS, _version_key, all_paired, complete_blocks_only, condition_order, load_results, ops_table,
+    rows_from_traces, success_table, understood_not_done,
 )
-from mas_drift.infra.config import PROJECT_ROOT  # noqa: E402
+from mas_drift.infra.config import DEFAULT_CONFIG, PROJECT_ROOT, load_config  # noqa: E402
 
 # Категориальные слоты 1–2 эталонной палитры (проверены validate_palette: CVD ΔE 24.7, контраст ≥ 3:1).
 COLORS = {"A0": "#2a78d6", "A1": "#eb6834"}
@@ -90,7 +90,7 @@ def plot(succ: list[dict], versions: list[str], path: Path) -> None:
     plt.close(fig)
 
 
-def render(rows, exp_dir: Path, args, plot_name: str, source: str) -> str:
+def render(rows, exp_dir: Path, args, plot_name: str, source: str, blocks_info: dict) -> str:
     versions = sorted({r["api_version"] for r in rows}, key=_version_key)
     conds = condition_order(rows, versions)
     succ = success_table(rows, conds, args.n_boot, args.seed)
@@ -100,13 +100,19 @@ def render(rows, exp_dir: Path, args, plot_name: str, source: str) -> str:
 
     blocks = {(r["task_id"], r["repeat_idx"]) for r in rows}
     per_cond = {c: sum(r["condition"] == c for r in rows) for c in conds}
-    complete = sum(1 for b in blocks if sum((r["task_id"], r["repeat_idx"]) == b for r in rows) == len(conds))
     partial = any(n < len(blocks) for n in per_cond.values())
+    bi = blocks_info
 
     out = [f"# Анализ эксперимента `{args.experiment}` ({args.provider})", "",
-           f"Сгенерировано {datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC; источник: {source}.",
-           f"Прогонов: **{len(rows)}**; задач (task × repeat): {len(blocks)}; "
-           f"полных блоков (задача во всех {len(conds)} условиях): {complete}.", ""]
+           f"Сгенерировано {datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC; источник: {source}.", "",
+           f"**Полных блоков (задача во всех {bi['n_conditions']} условиях сетки): {bi['complete']}** "
+           f"из {bi['blocks']} начатых; завершённых прогонов всего: {bi['runs_total']}.", ""]
+    if bi["include_partial"]:
+        out += [f"В статистику включены **все** завершённые прогоны ({len(rows)}), в том числе из неполных "
+                "блоков (`--include-partial`).", ""]
+    else:
+        out += [f"В статистику включены только полные блоки: **{len(rows)}** прогонов; исключено прогонов "
+                f"из неполных блоков: {bi['runs_total'] - len(rows)}. Все неполные — флаг `--include-partial`.", ""]
     if partial:
         out += ["> ⚠ **Данные частичные.** Число прогонов по условиям различается; парные сравнения "
                 "используют только задачи, пройденные в обоих условиях.", ""]
@@ -174,6 +180,9 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--out", type=Path, default=PROJECT_ROOT / "reports")
     ap.add_argument("--n-boot", type=int, default=10_000)
     ap.add_argument("--seed", type=int, default=20261023)
+    ap.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
+    ap.add_argument("--include-partial", action="store_true",
+                    help="включать прогоны неполных блоков (по умолчанию — только задачи, пройденные во всех условиях)")
     ap.add_argument("--csv", action="store_true",
                     help="читать results.csv вместо трасс (раннер пишет его только в конце или при остановке)")
     args = ap.parse_args(argv)
@@ -193,8 +202,18 @@ def main(argv: list[str] | None = None) -> int:
     if not rows:
         print(f"Нет завершённых прогонов в {exp_dir}")
         return 1
+    exp_cfg = load_config(args.config, env_path=None).experiment
+    grid = [f"{v}:{a}" for v in exp_cfg.api_versions for a in exp_cfg.awareness]
+    kept, complete, started = complete_blocks_only(rows, grid)
+    blocks_info = {"n_conditions": len(grid), "complete": len(complete), "blocks": len(started),
+                   "runs_total": len(rows), "include_partial": args.include_partial}
+    if not args.include_partial:
+        rows = kept
+    if not rows:
+        print(f"Нет ни одного полного блока ({len(started)} начатых); используйте --include-partial")
+        return 1
     plot_name = "success_by_condition.png"
-    md, succ, versions = render(rows, exp_dir, args, plot_name, source)
+    md, succ, versions = render(rows, exp_dir, args, plot_name, source, blocks_info)
     args.out.mkdir(parents=True, exist_ok=True)
     plot(succ, versions, args.out / plot_name)
     (args.out / "analysis.md").write_text(md, encoding="utf-8")

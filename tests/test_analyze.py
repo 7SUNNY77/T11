@@ -127,6 +127,19 @@ def test_analyze_end_to_end_on_partial_fake(tmp_path):
                          "--out", str(out), "--n-boot", "500"])
     assert code == 0
     md = (out / "analysis.md").read_text(encoding="utf-8")
-    assert "Данные частичные" in md and "Прогонов: **25**" in md
-    assert "`v2_contract_stale:A0` =" in md and "Понял, но не сделал" in md
+    # 25 прогонов при 10 условиях: 2 полных блока (20 прогонов), 5 прогонов неполного блока исключены.
+    assert "Полных блоков (задача во всех 10 условиях сетки): 2**" in md
+    assert "только полные блоки: **20** прогонов; исключено прогонов из неполных блоков: 5" in md
+    assert "`v2_contract_stale:A0` = 2" in md and "Понял, но не сделал" in md
     assert (out / "success_by_condition.png").stat().st_size > 10_000
+    code = analyze.main(["--experiment", "fake", "--provider", "fake", "--runs-dir", str(tmp_path / "runs"),
+                         "--out", str(out), "--n-boot", "500", "--include-partial"])
+    md = (out / "analysis.md").read_text(encoding="utf-8")
+    assert code == 0 and "включены **все** завершённые прогоны (25)" in md and "Данные частичные" in md
+
+
+def test_complete_blocks_only():
+    from mas_drift.analysis import complete_blocks_only
+    rows = [_row(c, t, True) for t in ("T1", "T2") for c in ("v1:A0", "v1:A1")] + [_row("v1:A0", "T3", True)]
+    kept, complete, started = complete_blocks_only(rows, ["v1:A0", "v1:A1"])
+    assert complete == {("T1", 0), ("T2", 0)} and len(started) == 3 and len(kept) == 4
