@@ -7,11 +7,14 @@ import tomllib
 from pathlib import Path
 from typing import Literal
 
+from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_CONFIG = PROJECT_ROOT / "config" / "default.toml"
 DEFAULT_ENV = PROJECT_ROOT / ".env"
+
+AgentName = Literal["planner", "executor", "verifier"]
 
 
 class ProviderConfig(BaseModel):
@@ -21,7 +24,11 @@ class ProviderConfig(BaseModel):
     base_url: str | None = None
     api_key_env: str | None = None
     temperature: float = 0.0
+    # Лимиты провайдера; 0 — нет лимита или он неизвестен.
     rpm: int = 0
+    tpm: int = 0
+    tpd: int = 0
+    rpd: int = 0
     cache: bool = True
     timeout_s: float = 60.0
     max_retries: int = 6
@@ -39,8 +46,16 @@ class ProviderConfig(BaseModel):
         return key
 
 
+class AwarenessConfig(BaseModel):
+    name: str
+    # Каким агентам changelog текущей версии добавляется в системный промпт.
+    changelog_to: list[AgentName] = []
+
+
 class ExperimentConfig(BaseModel):
     name: str = "stage1"
+    # Отдельный эксперимент для fake-провайдера: его трассы никогда не смешиваются с реальными.
+    fake_name: str = "fake"
     seed: int = 42
     task_pool: int = 30
     api_versions: list[str] = Field(
@@ -54,6 +69,7 @@ class ExperimentConfig(BaseModel):
 
 class AppConfig(BaseModel):
     experiment: ExperimentConfig
+    awareness: dict[str, AwarenessConfig]
     providers: dict[str, ProviderConfig]
 
     def provider(self, name: str) -> ProviderConfig:
@@ -62,32 +78,24 @@ class AppConfig(BaseModel):
         return self.providers[name]
 
 
-def load_dotenv(path: Path = DEFAULT_ENV) -> None:
-    """Минимальный парсер .env: KEY=VALUE, комментарии #, кавычки. Не перезаписывает окружение."""
-    if not path.exists():
-        return
-    for line in path.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-        key, value = line.split("=", 1)
-        key, value = key.strip(), value.strip()
-        if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
-            value = value[1:-1]
-        os.environ.setdefault(key, value)
-
-
 def load_config(path: Path = DEFAULT_CONFIG, env_path: Path | None = DEFAULT_ENV) -> AppConfig:
-    if env_path is not None:
-        load_dotenv(env_path)
+    if env_path is not None and env_path.exists():
+        load_dotenv(env_path, override=False)
     raw = tomllib.loads(Path(path).read_text(encoding="utf-8"))
     cfg = AppConfig(
         experiment=ExperimentConfig(**raw.get("experiment", {})),
+        awareness={
+            name: AwarenessConfig(name=name, **body)
+            for name, body in raw.get("awareness", {}).items()
+        },
         providers={
             name: ProviderConfig(name=name, **body)
             for name, body in raw.get("providers", {}).items()
         },
     )
+    unknown = set(cfg.experiment.awareness) - set(cfg.awareness)
+    if unknown:
+        raise ValueError(f"Условия осведомлённости без описания в [awareness.*]: {sorted(unknown)}")
     # Относительные пути считаем от корня проекта, а не от текущей директории.
     exp = cfg.experiment
     if not exp.runs_dir.is_absolute():
