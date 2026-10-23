@@ -189,3 +189,10 @@ def test_judge_one_and_reports(traces, tmp_path, monkeypatch):
     assert "temperature = 0.0" in md and "1/1 (100%)" in md
     assert "judge_results.csv" in [p.name for p in (tmp_path / "rep").iterdir()]
     assert recs[0]["run_id"] in (tmp_path / "rep" / "judge_samples.md").read_text(encoding="utf-8")
+
+
+def test_step_limit_note_before_verifier(traces):
+    recs = json.loads(json.dumps(_by_cond(traces, "v1:A0")))
+    recs[-1]["executor_status"] = "step_limit"
+    txt = compress_trace(recs).text
+    assert txt.index("[система] executor исчерпал лимит шагов") < txt.index("verifier → ответ")

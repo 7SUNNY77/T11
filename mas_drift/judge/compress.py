@@ -90,11 +90,12 @@ def _render(records: list[dict], text_limit: int) -> Compressed:
         elif agent == "executor":
             lines += [f"[шаг {n}] executor → отчёт для verifier:", _cut(content, text_limit)]
         else:
+            if end.get("executor_status") == "step_limit":
+                # В порядке трассы: между последним шагом executor и verifier.
+                lines += ["[система] executor исчерпал лимит шагов и не сформировал отчёт; verifier получил "
+                          "сообщение об этом вместо отчёта.", ""]
             lines += [f"[шаг {n}] verifier → ответ:", _cut(content, text_limit)]
         lines.append("")
-    if end.get("executor_status") == "step_limit":
-        lines += ["[система] executor исчерпал лимит шагов и не сформировал отчёт; verifier получил "
-                  "сообщение об этом вместо отчёта.", ""]
     lines += ["ФИНАЛЬНЫЙ ОТВЕТ СИСТЕМЫ:", _cut(end.get("final_text"), text_limit)]
     text = "\n".join(lines)
     return Compressed(text=text, steps=steps, text_limit=text_limit, est_tokens=estimate_tokens(text))
