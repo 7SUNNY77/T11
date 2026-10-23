@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 
 from mas_drift.analysis import (  # noqa: E402
     SUBSETS, _version_key, all_paired, complete_blocks_only, condition_order, load_results, ops_table,
-    rows_from_traces, success_table, understood_not_done,
+    UNDERSTOOD_CONDITIONS, rows_from_traces, success_table, understood_not_done,
 )
 from mas_drift.infra.config import DEFAULT_CONFIG, PROJECT_ROOT, load_config  # noqa: E402
 
@@ -96,7 +96,7 @@ def render(rows, exp_dir: Path, args, plot_name: str, source: str, blocks_info: 
     succ = success_table(rows, conds, args.n_boot, args.seed)
     pairs = all_paired(rows, versions)
     ops = ops_table(rows, conds)
-    gap = understood_not_done(rows, exp_dir / "traces")
+    gaps = [understood_not_done(rows, exp_dir / "traces", c) for c in UNDERSTOOD_CONDITIONS]
 
     blocks = {(r["task_id"], r["repeat_idx"]) for r in rows}
     per_cond = {c: sum(r["condition"] == c for r in rows) for c in conds}
@@ -154,21 +154,31 @@ def render(rows, exp_dir: Path, args, plot_name: str, source: str, blocks_info: 
           f"{o['mean_cache_hits']:.1f}" if o["n"] else "—", o["json_fenced"]] for o in ops]))
     out.append("")
 
-    c = gap["counts"]
-    out += [f"## 4. «Понял, но не сделал»: провалы `{gap['condition']}`", "",
-            "Эвристика по тексту финального отчёта Executor (без LLM): упоминание `num_nights` или "
-            "несовпадения схемы при том, что ни одного вызова с `num_nights` не было.", ""]
-    out.append(_table(["Показатель", "Прогонов"], [
-        ["Провалов условия", gap["failures"]],
-        ["Отчёт упоминает `num_nights`", c["упоминает num_nights"]],
-        ["Отчёт упоминает схему / несовпадение", c["упоминает схему/несовпадение"]],
-        ["Был вызов с `num_nights`", c["вызывал num_nights"]],
-        ["**Понял, но не сделал**", c["понял, но не сделал"]],
-        ["Нет отчёта (лимит шагов)", c["нет отчёта (лимит шагов)"]],
-    ]))
-    if gap["examples"]:
-        out += ["", "Примеры отчётов:", ""] + [f"- {e}" for e in gap["examples"]]
-    out.append("")
+    out += ["## 4. «Понял, но не сделал»", "",
+            "Эвристика по тексту финального отчёта Executor (без LLM).",
+            "- `v2_contract_stale:A0`: отчёт упоминает `num_nights` или несовпадение схемы, а вызова с "
+            "`num_nights` не было ни разу.",
+            "- `v2_units:A0`: отчёт упоминает центы / minor units / неверные единицы, а цены в отчёте или "
+            "финальном ответе остались непереведёнными (совпадают с сырыми ценами инструмента).", ""]
+    rows_by_key = {
+        "v2_contract_stale:A0": [("Отчёт упоминает `num_nights`", "упоминает num_nights"),
+                                 ("Отчёт упоминает схему / несовпадение", "упоминает схему/несовпадение"),
+                                 ("Был вызов с `num_nights`", "вызывал num_nights")],
+        "v2_units:A0": [("Отчёт упоминает центы / единицы", "упоминает центы/единицы"),
+                        ("Цены не переведены", "цены не переведены")],
+    }
+    for gap in gaps:
+        c = gap["counts"]
+        out += [f"### Провалы `{gap['condition']}`", ""]
+        out.append(_table(["Показатель", "Прогонов"], [
+            ["Провалов условия", gap["failures"]],
+            *[[label, c[key]] for label, key in rows_by_key[gap["condition"]]],
+            ["**Понял, но не сделал**", c["понял, но не сделал"]],
+            ["Нет отчёта (лимит шагов)", c["нет отчёта (лимит шагов)"]],
+        ]))
+        if gap["examples"]:
+            out += ["", "Примеры отчётов:", ""] + [f"- {e}" for e in gap["examples"]]
+        out.append("")
     return "\n".join(out), succ, versions
 
 

@@ -216,6 +216,7 @@ def ops_table(rows: list[dict], conditions: list[str]) -> list[dict]:
 
 MENTION_PARAM = re.compile(r"num_nights", re.IGNORECASE)
 MENTION_SCHEMA = re.compile(r"schema|mismatch|несоответств|несовпад|renamed|переименован", re.IGNORECASE)
+MENTION_UNITS = re.compile(r"\bcents?\b|minor units?|currency units?|wrong units?|цент|единиц", re.IGNORECASE)
 
 
 def _executor_report(records: list[dict]) -> str | None:
@@ -239,11 +240,50 @@ def _called_param(records: list[dict], param: str) -> bool:
     return False
 
 
+def _raw_prices(records: list[dict]) -> dict[str, float]:
+    """id → цена в том виде, в каком её вернул инструмент."""
+    out = {}
+    for r in records:
+        if r.get("type") == "step" and r.get("agent") == "executor":
+            for tr in r["tool_results"]:
+                if isinstance(tr["result"], list):
+                    for item in tr["result"]:
+                        price = item.get("price", item.get("price_total"))
+                        if "id" in item and isinstance(price, (int, float)):
+                            out[item["id"]] = float(price)
+    return out
+
+
+def _unconverted(records: list[dict], report: str, final_text: str) -> bool:
+    """Цены не переведены: в отчёте цена совпадает с сырой ценой инструмента (центы), либо сумма
+    в финальном ответе равна сумме сырых цен выбранной пары."""
+    from mas_drift.agents.jsonutil import extract_json
+
+    raw = _raw_prices(records)
+    rep = extract_json(report)
+    if isinstance(rep, dict):
+        for key in ("hotels", "flights"):
+            for item in rep.get(key) or []:
+                if isinstance(item, dict) and item.get("id") in raw and isinstance(item.get("price_usd"), (int, float)):
+                    if abs(item["price_usd"] - raw[item["id"]]) < 0.5:
+                        return True
+    fin = extract_json(final_text)
+    if isinstance(fin, dict) and fin.get("hotel_id") in raw and fin.get("flight_id") in raw:
+        total = fin.get("total_usd")
+        if isinstance(total, (int, float)) and abs(total - raw[fin["hotel_id"]] - raw[fin["flight_id"]]) < 0.5:
+            return True
+    return False
+
+
 def understood_not_done(rows: list[dict], traces_dir: Path, condition: str = "v2_contract_stale:A0") -> dict:
-    """Провалы условия: упоминает ли отчёт Executor num_nights / несовпадение схемы, и был ли
-    хоть один вызов с num_nights. Эвристика по тексту, без LLM."""
+    """Разрыв «понял, но не сделал» по провалам условия (эвристика по тексту, без LLM):
+    - контрактные версии: отчёт Executor упоминает num_nights / несовпадение схемы, а вызова с
+      num_nights не было ни разу;
+    - v2_units: отчёт упоминает центы / minor units / неверные единицы, а цены в отчёте или
+      финальном ответе остались непереведёнными."""
     from mas_drift.infra.trace import read_trace
 
+    units = condition.startswith("v2_units:")
     fails = [r for r in rows if r["condition"] == condition and not r["success"]]
     res = Counter()
     examples: list[str] = []
@@ -254,16 +294,26 @@ def understood_not_done(rows: list[dict], traces_dir: Path, condition: str = "v2
             continue
         recs = read_trace(path)
         report = _executor_report(recs)
-        called = _called_param(recs, "num_nights")
         if report is None:
             res["нет отчёта (лимит шагов)"] += 1
             continue
-        param, schema = bool(MENTION_PARAM.search(report)), bool(MENTION_SCHEMA.search(report))
-        res["упоминает num_nights"] += param
-        res["упоминает схему/несовпадение"] += schema
-        res["вызывал num_nights"] += called
-        if (param or schema) and not called:
+        if units:
+            mention = bool(MENTION_UNITS.search(report))
+            not_done = _unconverted(recs, report, recs[-1].get("final_text") or "")
+            res["упоминает центы/единицы"] += mention
+            res["цены не переведены"] += not_done
+        else:
+            param, schema = bool(MENTION_PARAM.search(report)), bool(MENTION_SCHEMA.search(report))
+            mention = param or schema
+            not_done = not _called_param(recs, "num_nights")
+            res["упоминает num_nights"] += param
+            res["упоминает схему/несовпадение"] += schema
+            res["вызывал num_nights"] += not not_done
+        if mention and not_done:
             res["понял, но не сделал"] += 1
             if len(examples) < 3:
                 examples.append(f"{r['task_id']}: {report.replace(chr(10), ' ')[:240]}")
     return {"condition": condition, "failures": len(fails), "counts": res, "examples": examples}
+
+
+UNDERSTOOD_CONDITIONS = ("v2_contract_stale:A0", "v2_units:A0")

@@ -30,8 +30,8 @@ ROOT_CAUSE_KEYWORDS = {
 }
 
 
-def judge_setup(pcfg: ProviderConfig) -> dict:
-    return {"provider": pcfg.name, "model": pcfg.model, "temperature": pcfg.temperature,
+def judge_setup(pcfg: ProviderConfig, view: str = "full") -> dict:
+    return {"view": view, "provider": pcfg.name, "model": pcfg.model, "temperature": pcfg.temperature,
             "reasoning_effort": pcfg.reasoning_effort, "json_mode": pcfg.json_mode,
             "prompt_version": JUDGE_PROMPT_VERSION, "max_items": MAX_ITEMS, "max_text": MAX_TEXT,
             "token_budget": TOKEN_BUDGET}
@@ -55,12 +55,14 @@ def failed_traces(traces_dir: Path) -> list[Path]:
 def judge_one(trace: Path, llm: LLMClient, setup: dict) -> dict:
     records = read_trace(trace)
     start, end = records[0], records[-1]
-    comp = compress_trace(records)
+    view = setup["view"]
+    comp = compress_trace(records, view)
     leaked = leaks(comp.text, records)
-    r = llm.chat(judge_messages(comp.text))
+    r = llm.chat(judge_messages(comp.text, view))
     verdict, parse_error = parse_verdict(r.content)
     return {
         "run_id": start["run_id"],
+        "view": view,
         # Поля ниже — для анализа; судья их не видел.
         "api_version": start["condition"]["api_version"],
         "awareness": start["condition"]["awareness"],
@@ -97,8 +99,14 @@ def save(result: dict, out_dir: Path) -> None:
     os.replace(tmp, path)
 
 
-def load_results(out_dir: Path) -> list[dict]:
-    return [json.loads(p.read_text(encoding="utf-8")) for p in sorted(Path(out_dir).glob("*.json"))]
+def load_results(out_dir: Path, traces_dir: Path | None = None) -> list[dict]:
+    """Вердикты; если задан traces_dir, истина пересчитывается из трасс по текущему определению
+    (смена определения истины не требует новых вызовов судьи)."""
+    results = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(Path(out_dir).glob("*.json"))]
+    if traces_dir is not None:
+        for res in results:
+            res["truth"] = ground_truth(read_trace(Path(traces_dir) / f"{res['run_id']}.jsonl"))
+    return results
 
 
 # --- метрики ---
@@ -110,8 +118,11 @@ class Scores:
     n_truth: int = 0       # из них с истиной (в метрики точности)
     parse_fail: int = 0
     agent_ok: int = 0
-    step_exact: int = 0
+    step_exact: int = 0    # основная метрика: шаг = agent_error_step
     step_pm1: int = 0
+    entry_exact: int = 0   # вспомогательная: шаг = drift_entry_step
+    entry_pm1: int = 0
+    blamed_verifier: int = 0
     downstream: int = 0    # винит verifier, а истина — executor
     cause_ok: int = 0      # root_cause называет механизм (эвристика)
     cause_n: int = 0       # для скольких применима эвристика
@@ -136,8 +147,11 @@ class Scores:
             return  # неразобранный вердикт — ошибка по всем метрикам точности
         agent_ok = v["blamed_agent"] == t["agent"]
         self.agent_ok += agent_ok
-        self.step_exact += agent_ok and v["blamed_step"] == t["step"]
-        self.step_pm1 += agent_ok and abs(v["blamed_step"] - t["step"]) <= 1
+        self.step_exact += agent_ok and v["blamed_step"] == t["agent_error_step"]
+        self.step_pm1 += agent_ok and abs(v["blamed_step"] - t["agent_error_step"]) <= 1
+        self.entry_exact += agent_ok and v["blamed_step"] == t["drift_entry_step"]
+        self.entry_pm1 += agent_ok and abs(v["blamed_step"] - t["drift_entry_step"]) <= 1
+        self.blamed_verifier += v["blamed_agent"] == "verifier"
         self.downstream += v["blamed_agent"] == "verifier" and t["agent"] == "executor"
         kw = ROOT_CAUSE_KEYWORDS.get(res["api_version"])
         if kw is not None:

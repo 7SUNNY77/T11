@@ -143,3 +143,16 @@ def test_complete_blocks_only():
     rows = [_row(c, t, True) for t in ("T1", "T2") for c in ("v1:A0", "v1:A1")] + [_row("v1:A0", "T3", True)]
     kept, complete, started = complete_blocks_only(rows, ["v1:A0", "v1:A1"])
     assert complete == {("T1", 0), ("T2", 0)} and len(started) == 3 and len(kept) == 4
+
+
+def test_units_understood_not_done():
+    from mas_drift.analysis import MENTION_UNITS, _unconverted
+    recs = [{"type": "run_start"},
+            {"type": "step", "agent": "executor", "tool_calls": [{"arguments": "{}"}],
+             "tool_results": [{"result": [{"id": "H1", "price": 24450}]}, {"result": [{"id": "F1", "price": 18570}]}]}]
+    raw_report = '{"hotels": [{"id": "H1", "price_usd": 24450.0}], "notes": "prices appear to be in cents"}'
+    fixed_report = '{"hotels": [{"id": "H1", "price_usd": 244.50}], "flights": [{"id": "F1", "price_usd": 185.70}]}'
+    assert _unconverted(recs, raw_report, '{"no_option": true}')
+    assert not _unconverted(recs, fixed_report, '{"no_option": true}')
+    assert _unconverted(recs, fixed_report, '{"hotel_id": "H1", "flight_id": "F1", "total_usd": 43020}')
+    assert MENTION_UNITS.search(raw_report) and not MENTION_UNITS.search("50 percent of recent center")

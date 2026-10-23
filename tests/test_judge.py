@@ -11,8 +11,8 @@ from mas_drift.infra.fake import ScriptedFake, text
 from mas_drift.infra.llm import build_llm
 from mas_drift.infra.ratelimit import RateLimitedLLM, RateLimiter
 from mas_drift.infra.trace import read_trace
-from mas_drift.judge.compress import MAX_TEXT, compress_trace, leaks
-from mas_drift.judge.prompt import JUDGE_SYSTEM, parse_verdict
+from mas_drift.judge.compress import MAX_TEXT, VIEWS, compress_trace, leaks
+from mas_drift.judge.prompt import JUDGE_SYSTEM, judge_system, parse_verdict
 from mas_drift.judge.run import judge_one, judge_setup, score
 from mas_drift.judge.truth import ground_truth
 from mas_drift.runner import cli
@@ -50,10 +50,11 @@ def _forbidden_explicit() -> list[str]:
             EXP, CHANGELOG_HEADER, "changelog", "Changelog", "You are the", *lines]
 
 
-def test_judge_input_has_no_forbidden_strings(traces):
+@pytest.mark.parametrize("view", VIEWS)
+def test_judge_input_has_no_forbidden_strings(traces, view):
     forbidden = _forbidden_explicit()
     for run_id, recs in traces.items():
-        txt = compress_trace(recs).text
+        txt = compress_trace(recs, view).text
         hits = [s for s in forbidden if s in txt]
         assert hits == [], (run_id, hits)
         assert leaks(txt, recs) == [], run_id
@@ -63,9 +64,27 @@ def test_judge_input_has_no_forbidden_strings(traces):
                 assert r["messages"][0]["content"] not in txt
 
 
-def test_judge_system_prompt_is_condition_blind():
+@pytest.mark.parametrize("view", VIEWS)
+def test_judge_system_prompt_is_condition_blind(view):
     for s in [*API_VERSIONS[1:], "drift", "changelog", "A0", "A1", "cent", "num_nights", "schema"]:
-        assert s not in JUDGE_SYSTEM, s
+        assert s not in judge_system(view), s
+    assert ("ответы инструментов НЕ показаны" in judge_system(view)) == (view == "messages_only")
+    assert judge_system("full") == JUDGE_SYSTEM
+
+
+def test_messages_only_hides_tool_responses(traces):
+    for cond in ("v2_units:A0", "v2_contract_stale:A0"):
+        recs = _by_cond(traces, cond)
+        full, mo = compress_trace(recs, "full").text, compress_trace(recs, "messages_only").text
+        assert "ответ: список" in full or "ОШИБКА" in full
+        # Ответ инструмента в full печатается строкой «    ответ: …» под вызовом.
+        assert "\n    ответ:" not in mo and "ОШИБКА" not in mo and "Unprocessable" not in mo
+        assert '"name":' not in mo  # элементы ответов search_hotels не протекают
+        # Вызовы с аргументами, отчёт executor и ответ verifier остаются.
+        assert 'search_hotels({"city"' in mo and "отчёт для verifier" in mo and "verifier → ответ" in mo
+        assert compress_trace(recs, "messages_only").steps == compress_trace(recs, "full").steps
+    with pytest.raises(ValueError):
+        compress_trace(recs, "everything")
 
 
 def test_leak_detector_catches_and_word_boundary(traces):
@@ -107,10 +126,14 @@ def test_compression_truncates_long_text(traces):
 
 
 def test_ground_truth(traces):
+    # Отклонённый вызов: агент ошибся на том же шаге, где отправил вызов.
     assert ground_truth(_by_cond(traces, "v2_contract_stale:A0")) == {
-        "status": "ok", "agent": "executor", "step": 2, "trigger": "output_renamed+tool_error"}
+        "status": "ok", "agent": "executor", "drift_entry_step": 2, "agent_error_step": 2,
+        "rule": "rejected_call", "trigger": "output_renamed+tool_error"}
+    # Изменённый выход: дрейф вошёл на шаге 2, агент действовал на нём на следующем шаге executor.
     t = ground_truth(_by_cond(traces, "v2_units:A0"))
-    assert (t["status"], t["step"], t["trigger"]) == ("ok", 2, "output_units")
+    assert (t["drift_entry_step"], t["agent_error_step"], t["rule"], t["trigger"]) == (
+        2, 3, "next_executor_step", "output_units")
     assert ground_truth(_by_cond(traces, "v1:A0"))["status"] == "no_ground_truth"
     assert ground_truth(_by_cond(traces, "v2_benign:A0"))["status"] == "no_ground_truth"
 
@@ -127,26 +150,28 @@ def test_parse_verdict(raw, ok):
     assert (v is not None) == ok and (err is None) == ok
 
 
-def _res(api, agent, step, cause, truth_step=2, truth=True):
+def _res(api, agent, step, cause, error_step=3, entry_step=2, truth=True):
     return {"api_version": api, "awareness": "A0", "usage": {"prompt_tokens": 1000},
-            "truth": {"status": "ok", "agent": "executor", "step": truth_step} if truth else {"status": "no_ground_truth"},
+            "truth": {"status": "ok", "agent": "executor", "agent_error_step": error_step,
+                      "drift_entry_step": entry_step} if truth else {"status": "no_ground_truth"},
             "verdict": None if agent is None else {"blamed_agent": agent, "blamed_step": step, "confidence": 0.5,
                                                    "error_category": "other", "root_cause": cause}}
 
 
 def test_score_metrics():
     results = [
-        _res("v2_units", "executor", 2, "Prices were in cents."),
-        _res("v2_units", "executor", 3, "Executor misread values."),
+        _res("v2_units", "executor", 2, "Prices were in cents."),     # шаг входа точно, шаг ошибки ±1
+        _res("v2_units", "executor", 3, "Executor misread values."),  # шаг ошибки точно
         _res("v2_units", "verifier", 4, "Verifier wrongly said no option."),
         _res("v2_units", None, 0, ""),
-        _res("v2_contract_stale", "executor", 2, "Неверное имя параметра num_nights."),
+        _res("v2_contract_stale", "executor", 2, "Неверное имя параметра num_nights.", error_step=2),
         _res("v1", "executor", 2, "x", truth=False),
     ]
     by = {s.group: s for s in score(results)}
     u = by["v2_units:A0"]
     assert (u.n, u.n_truth, u.parse_fail) == (4, 4, 1)
-    assert (u.agent_ok, u.step_exact, u.step_pm1, u.downstream) == (2, 1, 2, 1)
+    assert (u.agent_ok, u.step_exact, u.step_pm1, u.downstream, u.blamed_verifier) == (2, 1, 2, 1, 1)
+    assert (u.entry_exact, u.entry_pm1) == (1, 2)
     assert (u.cause_ok, u.cause_n) == (1, 3)
     assert by["v2_contract_stale:A0"].cause_ok == 1
     assert by["v1:A0"].n_truth == 0 and by["ВСЕ"].n == 6 and by["ВСЕ"].n_truth == 5
@@ -179,14 +204,21 @@ def test_judge_one_and_reports(traces, tmp_path, monkeypatch):
     answer = ('{"blamed_agent":"executor","blamed_step":2,"error_category":"wrong_tool_call",'
               '"root_cause":"Executor передаёт nights вместо num_nights.","confidence":0.9}')
     fake = ScriptedFake([text(answer)])
-    res = judge_one(trace_file, fake, judge_setup(pcfg))
-    sent = fake.calls[0]["messages"]
-    assert sent[0]["content"] == JUDGE_SYSTEM and sent[1]["content"] == res["input_text"]
-    assert res["verdict"]["blamed_step"] == 2 and res["truth"]["step"] == 2 and res["input_leaks"] == []
-    assert res["judge"]["temperature"] == 0.0 and res["judge"]["reasoning_effort"] == "low"
-    judge_cli.write_reports([res], tmp_path / "rep", res["judge"], "h", 1, seed=7)
+    by_view = {}
+    for view in VIEWS:
+        fake = ScriptedFake([text(answer)])
+        res = judge_one(trace_file, fake, judge_setup(pcfg, view))
+        sent = fake.calls[0]["messages"]
+        assert sent[0]["content"] == judge_system(view) and sent[1]["content"] == res["input_text"]
+        assert res["view"] == view and res["judge"]["view"] == view and res["input_leaks"] == []
+        assert res["verdict"]["blamed_step"] == 2 and res["truth"]["agent_error_step"] == 2
+        assert res["judge"]["temperature"] == 0.0 and res["judge"]["reasoning_effort"] == "low"
+        by_view[view] = [res]
+    setups = {v: rs[0]["judge"] for v, rs in by_view.items()}
+    judge_cli.write_reports(by_view, tmp_path / "rep", setups, {v: v for v in VIEWS}, 1, seed=7)
     md = (tmp_path / "rep" / "judge.md").read_text(encoding="utf-8")
     assert "temperature = 0.0" in md and "1/1 (100%)" in md
+    assert "## Режим `full`" in md and "## Режим `messages_only`" in md and "Винит verifier" in md
     assert "judge_results.csv" in [p.name for p in (tmp_path / "rep").iterdir()]
     assert recs[0]["run_id"] in (tmp_path / "rep" / "judge_samples.md").read_text(encoding="utf-8")
 

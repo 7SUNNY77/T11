@@ -42,6 +42,17 @@ JUDGE_SYSTEM = """Ты — эксперт по отладке мультиаге
  "root_cause": "<1–2 предложения>", "confidence": <число от 0 до 1>}"""
 
 
+MESSAGES_ONLY_NOTE = """
+
+ВАЖНО: в этой трассе ответы инструментов НЕ показаны. Ты видишь только сообщения агентов (план,
+текстовые ответы и отчёт executor, ответ verifier) и вызовы инструментов с аргументами. Делай выводы
+по тому, что агенты написали и как вызывали инструменты."""
+
+
+def judge_system(view: str) -> str:
+    return JUDGE_SYSTEM + (MESSAGES_ONLY_NOTE if view == "messages_only" else "")
+
+
 class Verdict(BaseModel):
     blamed_agent: Literal["planner", "executor", "verifier"]
     blamed_step: int
@@ -73,5 +84,5 @@ def parse_verdict(text: str | None) -> tuple[Verdict | None, str | None]:
         return None, f"схема: {exc.errors(include_url=False)[0]['msg']}"
 
 
-def judge_messages(compressed_text: str) -> list[dict]:
-    return [{"role": "system", "content": JUDGE_SYSTEM}, {"role": "user", "content": compressed_text}]
+def judge_messages(compressed_text: str, view: str = "full") -> list[dict]:
+    return [{"role": "system", "content": judge_system(view)}, {"role": "user", "content": compressed_text}]

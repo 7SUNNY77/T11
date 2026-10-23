@@ -18,6 +18,12 @@ MAX_TEXT = 1500
 TOKEN_BUDGET = 3000
 FALLBACK_TEXT_LIMITS = (MAX_TEXT, 800, 400)  # если вход не влезает в бюджет, урезаем только тексты агентов
 
+# Режимы наблюдаемости судьи:
+#   full          — сообщения агентов, вызовы инструментов и ответы инструментов (включая ошибки);
+#   messages_only — только сообщения агентов и имена/аргументы вызовов, БЕЗ ответов инструментов —
+#                   примерно то, что доступно по переписке агентов (Verifier ответов тоже не видит).
+VIEWS = ("full", "messages_only")
+
 
 @dataclass
 class Compressed:
@@ -64,7 +70,7 @@ def gold_line(gold: dict) -> str:
     return f"любая из равноценных пар (hotel_id, flight_id): {alts}; total_usd={total}"
 
 
-def _render(records: list[dict], text_limit: int) -> Compressed:
+def _render(records: list[dict], text_limit: int, view: str) -> Compressed:
     start, end = records[0], records[-1]
     lines = ["ЗАПРОС ПОЛЬЗОВАТЕЛЯ:", start["request"], "",
              "ЭТАЛОННЫЙ ОТВЕТ (прогон провален: финальный ответ системы с эталоном не совпал):",
@@ -85,8 +91,9 @@ def _render(records: list[dict], text_limit: int) -> Compressed:
             results = {tr["tool_call_id"]: tr for tr in r["tool_results"]}
             for tc in r["tool_calls"]:
                 lines.append(f"  {tc['name']}({tc['arguments']})")
-                tr = results.get(tc["id"])
-                lines += _tool_result(tr["result"]) if tr else ["    ответ: (нет)"]
+                if view == "full":
+                    tr = results.get(tc["id"])
+                    lines += _tool_result(tr["result"]) if tr else ["    ответ: (нет)"]
         elif agent == "executor":
             lines += [f"[шаг {n}] executor → отчёт для verifier:", _cut(content, text_limit)]
         else:
@@ -101,9 +108,11 @@ def _render(records: list[dict], text_limit: int) -> Compressed:
     return Compressed(text=text, steps=steps, text_limit=text_limit, est_tokens=estimate_tokens(text))
 
 
-def compress_trace(records: list[dict]) -> Compressed:
+def compress_trace(records: list[dict], view: str = "full") -> Compressed:
+    if view not in VIEWS:
+        raise ValueError(f"view должен быть одним из {VIEWS}")
     for limit in FALLBACK_TEXT_LIMITS:
-        c = _render(records, limit)
+        c = _render(records, limit, view)
         if c.est_tokens <= TOKEN_BUDGET:
             return c
     return c  # не влезло и при минимальном лимите — отдаём как есть, размер логируется
