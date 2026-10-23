@@ -1,0 +1,46 @@
+# Конфиг эксперимента. Ключи API — только в .env (см. .env.example).
+
+[experiment]
+name = "stage1"
+seed = 42
+task_pool = 30            # размер пула задач; --n-tasks берёт префикс пула
+api_versions = ["v1", "v2_contract", "v2_units", "v2_benign"]
+awareness = ["A0", "A1"]
+executor_max_steps = 8
+runs_dir = "runs"
+cache_dir = "cache"
+
+# kind = "fake" | "openai_compat"
+# rpm = 0 — без ограничения частоты.
+
+[providers.fake]
+kind = "fake"
+model = "policy-fake"
+temperature = 0.0
+rpm = 0
+cache = false
+
+[providers.gemini]
+kind = "openai_compat"
+base_url = "https://generativelanguage.googleapis.com/v1beta/openai/"
+api_key_env = "GEMINI_API_KEY"
+model = "gemini-2.5-flash"
+temperature = 0.7
+rpm = 10
+
+[providers.groq]
+kind = "openai_compat"
+base_url = "https://api.groq.com/openai/v1"
+api_key_env = "GROQ_API_KEY"
+model = "llama-3.3-70b-versatile"
+temperature = 0.7
+rpm = 30
+
+[providers.ollama]
+kind = "openai_compat"
+base_url = "http://localhost:11434/v1"
+api_key_env = "OLLAMA_API_KEY"
+model = "qwen2.5:7b"
+temperature = 0.7
+rpm = 0
+timeout_s = 300
