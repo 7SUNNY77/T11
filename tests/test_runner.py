@@ -190,7 +190,7 @@ def test_fake_isolation():
     fake = ProviderConfig(name="fake", kind="fake", model="m")
     real = ProviderConfig(name="gemini", kind="openai_compat", model="m")
     with pytest.raises(ValueError):
-        experiment_dir(Path("runs"), "stage1", "fake", fake)
+        experiment_dir(Path("runs"), "main", "fake", fake)
     with pytest.raises(ValueError):
         experiment_dir(Path("runs"), "fake", "fake", real)
     assert experiment_dir(Path("runs"), "fake-x", "fake", fake) == Path("runs/fake-x/fake")
@@ -260,3 +260,10 @@ def test_cache_hits_shared_planner_with_cache(config, tmp_path):
     # Planner — всегда; v2_units:A0 с v1:A0 — первый шаг Executor (схемы совпадают);
     # v1:A1 с v1:A0 — Verifier (у fake отчёт Executor одинаковый, значит и вход Verifier).
     assert sorted(hits.values()) == [0, 2, 2] and sum(hits.values()) == 4
+
+
+def test_cache_dir_is_per_experiment(config):
+    lines = []
+    cli.main(["--config", str(config), "--provider", "gemini", "--tasks", "T01", "--experiment", "main",
+              "--estimate"], log=lines.append)
+    assert str(Path("cache") / "main") in lines[0]

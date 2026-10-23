@@ -56,7 +56,7 @@ class AwarenessConfig(BaseModel):
 
 
 class ExperimentConfig(BaseModel):
-    name: str = "stage1"
+    name: str = "main"
     # Отдельный эксперимент для fake-провайдера: его трассы никогда не смешиваются с реальными.
     fake_name: str = "fake"
     seed: int = 42

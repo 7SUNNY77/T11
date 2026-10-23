@@ -1,7 +1,7 @@
 # Конфиг эксперимента. Ключи API — только в .env (см. .env.example).
 
 [experiment]
-name = "stage1"
+name = "main"              # основной эксперимент; кэш — cache/<name>
 fake_name = "fake"        # fake-провайдер всегда пишет в runs/<fake_name>/
 seed = 42
 task_pool = 30            # размер пула задач; --n-tasks берёт префикс пула

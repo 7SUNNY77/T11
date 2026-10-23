@@ -30,6 +30,8 @@ def parse_args(argv: list[str] | None) -> argparse.Namespace:
     ap.add_argument("--repeats", type=int, default=1)
     ap.add_argument("--workers", type=int, default=None, help="по умолчанию из конфига")
     ap.add_argument("--experiment", default=None, help="имя эксперимента (папка в runs/)")
+    ap.add_argument("--cache-dir", type=Path, default=None,
+                    help="кэш LLM-ответов (по умолчанию <cache_dir>/<эксперимент>)")
     ap.add_argument("--max-runs", type=int, default=None, help="выполнить не больше N новых прогонов")
     ap.add_argument("--estimate", action="store_true", help="только оценить бюджет, без вызовов")
     return ap.parse_args(argv)
@@ -73,6 +75,9 @@ def main(argv: list[str] | None = None, llm: LLMClient | None = None, log=print)
     except ValueError as exc:
         raise SystemExit(str(exc)) from None
     traces_dir = exp_dir / "traces"
+    # Свой кэш у каждого эксперимента: данные эксперимента не подмешивают ответы из пилотов.
+    # Внутри эксперимента кэш общий для всех условий намеренно (common random numbers).
+    cache_dir = args.cache_dir or exp.cache_dir / exp_name
     world_fp, pool_fp = world.fingerprint(), tasks_fingerprint(pool)
     conditions = conditions_from_config(cfg, args.conditions)
     setup = run_setup(pcfg, exp.executor_max_steps, world_fp, pool_fp)
@@ -80,7 +85,7 @@ def main(argv: list[str] | None = None, llm: LLMClient | None = None, log=print)
 
     log(f"Эксперимент {exp_name} | провайдер {pcfg.name} ({pcfg.model}, reasoning_effort={pcfg.reasoning_effort}) | "
         f"{len(conditions)} условий × {len(tasks)} задач × {args.repeats} повт. = {len(specs)} прогонов | "
-        f"воркеров {workers}")
+        f"воркеров {workers} | кэш {cache_dir if pcfg.cache else 'выключен'}")
 
     if args.estimate:
         est = estimate(specs, traces_dir, exp.runs_dir / "smoke" / pcfg.name, pcfg, workers)
@@ -94,7 +99,7 @@ def main(argv: list[str] | None = None, llm: LLMClient | None = None, log=print)
         json.dumps([t.model_dump() for t in pool], ensure_ascii=False, indent=1), encoding="utf-8")
 
     if llm is None:
-        llm = build_llm(pcfg, exp.cache_dir)
+        llm = build_llm(pcfg, cache_dir)
     report = run_grid(specs, world, llm, traces_dir, exp_name, setup, workers, args.max_runs, log=log)
 
     rows = collect_rows(specs, traces_dir)
