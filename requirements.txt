@@ -2,3 +2,6 @@ openai>=3.37
 pydantic>=2.14
 python-dotenv>=1.2
 pytest>=9.1
+# анализ (этап 2а)
+numpy>=2.4
+matplotlib>=3.11
