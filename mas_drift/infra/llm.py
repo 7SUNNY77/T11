@@ -19,15 +19,21 @@ class ToolCall(BaseModel):
     id: str
     name: str
     arguments: str  # сырой JSON-текст, как его выдала модель
+    # Нестандартные поля провайдера внутри tool_call (у Gemini 3 — extra_content с thought_signature).
+    # Возвращаются в историю дословно: без них Gemini отвечает 400 на следующем шаге.
+    extra: dict[str, Any] = {}
 
 
 class Usage(BaseModel):
     prompt_tokens: int = 0
     completion_tokens: int = 0
+    reasoning_tokens: int = 0              # если провайдер сообщает их отдельно
+    provider_total_tokens: int | None = None  # total_tokens от провайдера (может включать reasoning)
 
     @property
     def total(self) -> int:
-        return self.prompt_tokens + self.completion_tokens
+        summed = self.prompt_tokens + self.completion_tokens
+        return max(summed, self.provider_total_tokens or 0)
 
 
 class LLMResponse(BaseModel):
@@ -40,13 +46,17 @@ class LLMResponse(BaseModel):
     cached: bool = False
     api_requests: int = 1  # фактические запросы к провайдеру, включая повторы; 0 при попадании в кэш
     wait_s: float = 0.0    # ожидание rate limiter'а и пауз retry
+    # Нестандартные поля сообщения — только для трассы. В историю НЕ возвращаются:
+    # часть провайдеров (например, Groq с полем reasoning) отвергает их во входных сообщениях.
+    message_extra: dict[str, Any] = {}
 
     def assistant_message(self) -> dict:
         """Сообщение ассистента для истории диалога в формате OpenAI."""
         msg: dict[str, Any] = {"role": "assistant", "content": self.content}
         if self.tool_calls:
             msg["tool_calls"] = [
-                {"id": tc.id, "type": "function", "function": {"name": tc.name, "arguments": tc.arguments}}
+                {"id": tc.id, "type": "function", "function": {"name": tc.name, "arguments": tc.arguments},
+                 **tc.extra}
                 for tc in self.tool_calls
             ]
         return msg
@@ -56,6 +66,8 @@ class LLMClient(ABC):
     provider: str
     model: str
     temperature: float
+    # Прочие параметры генерации (например, reasoning_effort); входят в ключ кэша.
+    extra_params: dict[str, Any] = {}
 
     @abstractmethod
     def chat(self, messages: list[dict], tools: list[dict] | None = None, *, repeat_idx: int = 0) -> LLMResponse:
@@ -66,6 +78,7 @@ class LLMWrapper(LLMClient):
     def __init__(self, inner: LLMClient):
         self.inner = inner
         self.provider, self.model, self.temperature = inner.provider, inner.model, inner.temperature
+        self.extra_params = inner.extra_params
 
 
 def estimate_tokens(messages: list[dict], tools: list[dict] | None = None) -> int:
@@ -118,13 +131,15 @@ class OpenAICompatClient(LLMClient):
         import openai
 
         self.provider, self.model, self.temperature = cfg.name, cfg.model, cfg.temperature
+        self.extra_params = {"reasoning_effort": cfg.reasoning_effort} if cfg.reasoning_effort else {}
         # Повторы делает RetryingLLM, у SDK они отключены, чтобы считать запросы самим.
         self._client = openai.OpenAI(
             base_url=cfg.base_url, api_key=cfg.api_key(), max_retries=0, timeout=cfg.timeout_s
         )
 
     def chat(self, messages: list[dict], tools: list[dict] | None = None, *, repeat_idx: int = 0) -> LLMResponse:
-        kwargs: dict[str, Any] = dict(model=self.model, messages=messages, temperature=self.temperature)
+        kwargs: dict[str, Any] = dict(model=self.model, messages=messages, temperature=self.temperature,
+                                      **self.extra_params)
         if tools:
             kwargs["tools"] = tools
         t0 = time.perf_counter()
@@ -147,10 +162,12 @@ class OpenAICompatClient(LLMClient):
                 id=tc.id or f"call_{i}",
                 name=tc.function.name,
                 arguments=tc.function.arguments or "{}",
+                extra=dict(tc.model_extra or {}),
             )
             for i, tc in enumerate(msg.tool_calls or [])
         ]
         usage = resp.usage
+        details = getattr(usage, "completion_tokens_details", None)
         return LLMResponse(
             content=msg.content,
             tool_calls=calls,
@@ -158,9 +175,12 @@ class OpenAICompatClient(LLMClient):
             usage=Usage(
                 prompt_tokens=getattr(usage, "prompt_tokens", 0) or 0,
                 completion_tokens=getattr(usage, "completion_tokens", 0) or 0,
+                reasoning_tokens=getattr(details, "reasoning_tokens", 0) or 0,
+                provider_total_tokens=getattr(usage, "total_tokens", None),
             ),
             model=resp.model or "",
             latency_s=latency,
+            message_extra=dict(msg.model_extra or {}),
         )
 
 

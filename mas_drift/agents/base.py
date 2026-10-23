@@ -16,6 +16,8 @@ class RunStats:
     cached_calls: int = 0
     prompt_tokens: int = 0
     completion_tokens: int = 0
+    reasoning_tokens: int = 0
+    total_tokens: int = 0     # с учётом reasoning, если провайдер его сообщает
     llm_latency_s: float = 0.0
     wait_s: float = 0.0
     tool_calls: int = 0
@@ -30,6 +32,8 @@ class RunStats:
         self.cached_calls += int(r.cached)
         self.prompt_tokens += r.usage.prompt_tokens
         self.completion_tokens += r.usage.completion_tokens
+        self.reasoning_tokens += r.usage.reasoning_tokens
+        self.total_tokens += r.usage.total
         self.llm_latency_s += r.latency_s
         self.wait_s += r.wait_s
 
@@ -52,6 +56,7 @@ def response_record(r: LLMResponse) -> dict[str, Any]:
         "cached": r.cached,
         "api_requests": r.api_requests,
         "wait_s": round(r.wait_s, 4),
+        "message_extra": r.message_extra,
     }
 
 

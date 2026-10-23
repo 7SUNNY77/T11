@@ -30,6 +30,14 @@ def _short(obj, n=300) -> str:
     return s if len(s) <= n else s[:n] + f"... (+{len(s) - n})"
 
 
+def _extra_keys(d, prefix="") -> list[str]:
+    """Пути ключей без значений (подписи — длинные непрозрачные строки)."""
+    out = []
+    for k, v in d.items():
+        out += _extra_keys(v, f"{prefix}{k}.") if isinstance(v, dict) else [f"{prefix}{k}"]
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--provider", default="fake")
@@ -66,7 +74,10 @@ def main() -> int:
         if r["response"]["content"]:
             print("    content:", _short(r["response"]["content"]))
         for tc in r["tool_calls"]:
-            print(f"    tool_call {tc['id']!r}: {tc['name']}({tc['arguments']})")
+            extra = f"  extra keys: {_extra_keys(tc['extra'])}" if tc.get("extra") else ""
+            print(f"    tool_call {tc['id']!r}: {tc['name']}({tc['arguments']}){extra}")
+        if r.get("message_extra"):
+            print(f"    message extra keys: {_extra_keys(r['message_extra'])}")
         for tr in r["tool_results"]:
             print(f"    result [{tr['drift_type']}]: {_short(tr['result'], 200)}")
     print(f"\nfinal: {res.final_text!r}")

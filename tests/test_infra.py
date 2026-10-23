@@ -185,6 +185,60 @@ def test_openai_client_parses_tool_calls(monkeypatch):
         client.chat(MSGS)
 
 
+def _gemini_like_completion():
+    """Ответ в форме Gemini 3 через OpenAI-совместимый endpoint: подпись мысли внутри tool_call,
+    параллельные вызовы, reasoning-токены в usage."""
+    return ChatCompletion.model_validate({
+        "id": "1", "object": "chat.completion", "created": 0, "model": "gemini-x",
+        "choices": [{"index": 0, "finish_reason": "tool_calls", "message": {
+            "role": "assistant", "content": None,
+            "extra_content": {"google": {"note": "message-level"}},
+            "tool_calls": [
+                {"id": "c1", "type": "function", "extra_content": {"google": {"thought_signature": "SIG_A"}},
+                 "function": {"name": "search_flights", "arguments": "{}"}},
+                {"id": "c2", "type": "function", "function": {"name": "search_hotels", "arguments": "{}"}},
+            ]}}],
+        "usage": {"prompt_tokens": 100, "completion_tokens": 20, "total_tokens": 300,
+                  "completion_tokens_details": {"reasoning_tokens": 180}},
+    })
+
+
+def test_provider_tool_call_extras_round_trip():
+    r = OpenAICompatClient.parse_response(_gemini_like_completion(), latency=0.1)
+    assert r.tool_calls[0].extra == {"extra_content": {"google": {"thought_signature": "SIG_A"}}}
+    assert r.tool_calls[1].extra == {}
+    hist = r.assistant_message()["tool_calls"]
+    assert hist[0]["extra_content"]["google"]["thought_signature"] == "SIG_A"
+    assert "extra_content" not in hist[1]
+    # Поля уровня сообщения остаются только в трассе.
+    assert r.message_extra == {"extra_content": {"google": {"note": "message-level"}}}
+    assert "extra_content" not in r.assistant_message()
+    # Переживает кэш (сериализацию).
+    again = type(r).model_validate_json(r.model_dump_json())
+    assert again.assistant_message() == r.assistant_message()
+
+
+def test_usage_counts_reasoning_tokens():
+    r = OpenAICompatClient.parse_response(_gemini_like_completion(), latency=0.1)
+    assert r.usage.reasoning_tokens == 180 and r.usage.provider_total_tokens == 300
+    assert r.usage.total == 300
+
+
+def test_reasoning_effort_passed_and_in_cache_key(monkeypatch):
+    monkeypatch.setenv("MASX_KEY", "k")
+    cfg = ProviderConfig(name="p", kind="openai_compat", model="m", base_url="http://localhost:1/v1",
+                         api_key_env="MASX_KEY", reasoning_effort="low")
+    client = OpenAICompatClient(cfg)
+    seen = {}
+    monkeypatch.setattr(client._client.chat.completions, "create",
+                        lambda **kw: seen.update(kw) or _gemini_like_completion())
+    client.chat(MSGS)
+    assert seen["reasoning_effort"] == "low"
+    base = dict(provider="p", model="m", messages=MSGS, tools=None, temperature=0.7, repeat_idx=0)
+    assert cache_key(**base) == cache_key(**base, extra_params={})
+    assert cache_key(**base, extra_params={"reasoning_effort": "low"}) != cache_key(**base)
+
+
 def test_scripted_fake_helpers():
     r = ScriptedFake([tool_calls(("a", {"x": 1}), ("b", {}))]).chat(MSGS)
     assert [tc.name for tc in r.tool_calls] == ["a", "b"] and json.loads(r.tool_calls[0].arguments) == {"x": 1}

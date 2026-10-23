@@ -39,6 +39,7 @@ base_url = "https://generativelanguage.googleapis.com/v1beta/openai/"
 api_key_env = "GEMINI_API_KEY"
 model = "gemini-3.5-flash-lite"
 temperature = 0.7
+# reasoning_effort = "low"  # minimal | low | medium | high; не задан — умолчание модели
 rpm = 10                  # лимиты заданы для 2.5-flash-lite; для 3.5 не проверены
 tpm = 250000
 rpd = 0                   # дневной лимит неизвестен — опираемся на возобновляемость

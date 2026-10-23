@@ -24,6 +24,9 @@ class ProviderConfig(BaseModel):
     base_url: str | None = None
     api_key_env: str | None = None
     temperature: float = 0.0
+    # Уровень рассуждений для «думающих» моделей (Gemini 3: minimal/low/medium/high).
+    # None — не передаём, модель берёт своё умолчание.
+    reasoning_effort: str | None = None
     # Лимиты провайдера; 0 — нет лимита или он неизвестен.
     rpm: int = 0
     tpm: int = 0

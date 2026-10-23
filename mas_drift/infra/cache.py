@@ -15,17 +15,26 @@ from mas_drift.infra.llm import LLMClient, LLMResponse, LLMWrapper
 
 
 def cache_key(
-    provider: str, model: str, messages: list[dict], tools: list[dict] | None, temperature: float, repeat_idx: int
+    provider: str,
+    model: str,
+    messages: list[dict],
+    tools: list[dict] | None,
+    temperature: float,
+    repeat_idx: int,
+    extra_params: dict | None = None,
 ) -> str:
+    payload = {
+        "provider": provider,
+        "model": model,
+        "messages": messages,
+        "tools": tools or [],
+        "temperature": temperature,
+        "repeat_idx": repeat_idx,
+    }
+    if extra_params:  # только если заданы — ключи без них не меняются
+        payload["extra_params"] = extra_params
     blob = json.dumps(
-        {
-            "provider": provider,
-            "model": model,
-            "messages": messages,
-            "tools": tools or [],
-            "temperature": temperature,
-            "repeat_idx": repeat_idx,
-        },
+        payload,
         sort_keys=True,
         ensure_ascii=False,
         separators=(",", ":"),
@@ -60,7 +69,7 @@ class CachedLLM(LLMWrapper):
         self.cache = cache
 
     def chat(self, messages: list[dict], tools: list[dict] | None = None, *, repeat_idx: int = 0) -> LLMResponse:
-        key = cache_key(self.provider, self.model, messages, tools, self.temperature, repeat_idx)
+        key = cache_key(self.provider, self.model, messages, tools, self.temperature, repeat_idx, self.extra_params)
         hit = self.cache.get(key)
         if hit is not None:
             return hit.model_copy(update={"cached": True, "api_requests": 0, "wait_s": 0.0})
