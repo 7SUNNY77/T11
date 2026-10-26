@@ -35,7 +35,7 @@ from mas_drift.infra.config import DEFAULT_CONFIG, load_config  # noqa: E402
 from mas_drift.infra.trace import read_trace  # noqa: E402
 from mas_drift.judge.compress import VIEWS  # noqa: E402
 from mas_drift.judge.prompt import JUDGE_PROMPT_VERSION  # noqa: E402
-from mas_drift.judge.run import judge_setup, load_results, score, setup_hash  # noqa: E402
+from mas_drift.judge.run import judge_setup, load_results, score, self_report_crosstab, setup_hash  # noqa: E402
 from mas_drift.runner.grid import version_fingerprint  # noqa: E402
 from mas_drift.runner.results import COLUMNS, write_csv  # noqa: E402
 
@@ -215,6 +215,25 @@ def build_summary(cfg, args, exp_dir: Path, judge_rc: int) -> tuple[str, dict]:
         md.append("Вердиктов нет.")
     md.append("")
 
+    mo = jres.get("messages_only")
+    if mo:
+        ct = self_report_crosstab(mo)
+        md += ["### Судья в `messages_only` и самодиагностика Executor", "",
+               "Назвал ли судья причину (`cause_named`) в зависимости от того, назвал ли её сам Executor в "
+               "финальном отчёте (`executor_self_reported`; нет отчёта — «не назвал»). Источник: "
+               "`reports/judge_results.csv`, строки `view = messages_only`, столбцы `cause_named`, "
+               "`executor_self_reported`; шаблоны — `ROOT_CAUSE_KEYWORDS` в `mas_drift/judge/run.py` и "
+               "`MENTION_*` в `mas_drift/analysis.py`.", ""]
+        rows4 = []
+        for key in sorted(ct, key=lambda k: (k == "ВСЕ", k)):
+            c = ct[key]
+            yes, no = c[(True, True)] + c[(True, False)], c[(False, True)] + c[(False, False)]
+            rows4.append([f"`{key}`", c[(True, True)], c[(True, False)], c[(False, True)], c[(False, False)],
+                          _frac(c[(True, True)], yes), _frac(c[(False, True)], no)])
+        md.append(_table(["Условие", "сам ✓ / судья ✓", "сам ✓ / судья ✗", "сам ✗ / судья ✓", "сам ✗ / судья ✗",
+                          "Судья назвал, если Executor назвал", "Судья назвал, если Executor не назвал"], rows4))
+        md.append("")
+
     md += ["## 5. Расход", "",
            "Агенты — все трассы эксперимента, включая прерванные (`.part`); smoke и пилоты не входят. Источник: "
            "шаги трасс `runs/<exp>/<provider>/traces/*` (поля `api_requests`, `usage`, `latency_s`, `cached`); "
@@ -223,7 +242,7 @@ def build_summary(cfg, args, exp_dir: Path, judge_rc: int) -> tuple[str, dict]:
     md.append(_table(["Показатель", "Значение"], [
         ["Прогонов завершено / прервано", f"{agents['runs_completed']} / {agents['runs_aborted']}"],
         ["LLM-вызовов агентов (из них из кэша)", f"{agents['llm_calls']} ({agents['cache_hits']})"],
-        ["HTTP-запросов к провайдеру агентов", agents["http_requests"]],
+        ["HTTP-запросов к провайдеру агентов (нижняя оценка¹)", agents["http_requests"]],
         ["Токенов агентов: потрачено (без кэша) / всего в трассах",
          f"{agents['billed_tokens']:,} / {agents['total_tokens']:,}".replace(",", " ")],
         ["Суммарная задержка реальных LLM-вызовов агентов", f"{agents['llm_latency_h']} ч"],
@@ -233,7 +252,8 @@ def build_summary(cfg, args, exp_dir: Path, judge_rc: int) -> tuple[str, dict]:
         *[[f"Судья `{v}`: токенов prompt + completion", f"{c['prompt_tokens']} + {c['completion_tokens']}"]
           for v, c in jcons.items()],
     ]))
-    md.append("")
+    md += ["", "¹ Запросы оборванных попыток не учтены: при перезапуске трасса `.part` заменяется завершённой, "
+           "а её шаги, повторённые из кэша, записаны с `api_requests = 0`.", ""]
     facts = {"grid": grid, "complete_blocks": len(complete), "started_blocks": len(started),
              "rows_used": len(rows), "rows_all": len(all_rows), "agents": agents, "judge": jcons,
              "judge_setups": {v: setup_hash(s) for v, s in jsetups.items()}}

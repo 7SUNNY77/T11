@@ -23,7 +23,8 @@ from mas_drift.infra.errors import InfraError  # noqa: E402
 from mas_drift.infra.llm import build_llm  # noqa: E402
 from mas_drift.judge.compress import TOKEN_BUDGET, VIEWS  # noqa: E402
 from mas_drift.judge.run import (  # noqa: E402
-    categories, failed_traces, judge_one, judge_setup, load_results, save, score, setup_hash, verdict_path,
+    categories, cause_named, failed_traces, judge_one, judge_setup, load_results, save, score, setup_hash,
+    verdict_path,
 )
 
 TRIAL_CONDITIONS = ("v2_units_A0_", "v2_contract_stale_A0_")
@@ -121,13 +122,15 @@ def write_reports(by_view: dict[str, list[dict]], out: Path, setups: dict, hashe
         w = csv.writer(fh)
         w.writerow(["view", "run_id", "api_version", "awareness", "task_id", "fail_reason", "truth_status",
                     "agent_error_step", "drift_entry_step", "blamed_agent", "blamed_step", "error_category",
-                    "confidence", "root_cause", "prompt_tokens", "completion_tokens", "parse_error"])
+                    "confidence", "root_cause", "cause_named", "executor_self_reported", "prompt_tokens",
+                    "completion_tokens", "parse_error"])
         for view, results in by_view.items():
             for r in results:
                 v, t = r["verdict"] or {}, r["truth"]
                 w.writerow([view, r["run_id"], r["api_version"], r["awareness"], r["task_id"], r["fail_reason"],
                             t["status"], t.get("agent_error_step"), t.get("drift_entry_step"), v.get("blamed_agent"),
                             v.get("blamed_step"), v.get("error_category"), v.get("confidence"), v.get("root_cause"),
+                            cause_named(r), r.get("executor_self_reported"),
                             r["usage"]["prompt_tokens"], r["usage"]["completion_tokens"], r["parse_error"]])
 
     # Одни и те же 5 прогонов во всех режимах — чтобы сравнить вердикты на одном входе.

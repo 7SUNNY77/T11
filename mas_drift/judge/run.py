@@ -105,8 +105,43 @@ def load_results(out_dir: Path, traces_dir: Path | None = None) -> list[dict]:
     results = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(Path(out_dir).glob("*.json"))]
     if traces_dir is not None:
         for res in results:
-            res["truth"] = ground_truth(read_trace(Path(traces_dir) / f"{res['run_id']}.jsonl"))
+            recs = read_trace(Path(traces_dir) / f"{res['run_id']}.jsonl")
+            res["truth"] = ground_truth(recs)
+            res["executor_self_reported"] = executor_self_reported(recs, res["api_version"])
     return results
+
+
+def executor_self_reported(records: list[dict], api_version: str) -> bool | None:
+    """Назвал ли Executor причину сам в финальном отчёте — теми же шаблонами, что эвристика
+    «понял, но не сделал» (mas_drift/analysis.py). Нет отчёта (лимит шагов) → False.
+    None — для версий без шаблона."""
+    from mas_drift.analysis import MENTION_PARAM, MENTION_SCHEMA, MENTION_UNITS, _executor_report
+
+    report = _executor_report(records) or ""
+    if api_version == "v2_units":
+        return bool(MENTION_UNITS.search(report))
+    if api_version in ("v2_contract", "v2_contract_stale"):
+        return bool(MENTION_PARAM.search(report) or MENTION_SCHEMA.search(report))
+    return None
+
+
+def cause_named(res: dict) -> bool | None:
+    kw = ROOT_CAUSE_KEYWORDS.get(res["api_version"])
+    if kw is None or res["verdict"] is None:
+        return None
+    return bool(kw.search(res["verdict"]["root_cause"]))
+
+
+def self_report_crosstab(results: list[dict]) -> dict[str, Counter]:
+    """(Executor сам назвал причину, судья назвал причину) → число провалов; по условиям и «ВСЕ»."""
+    out: dict[str, Counter] = defaultdict(Counter)
+    for res in results:
+        self_rep, named = res.get("executor_self_reported"), cause_named(res)
+        if self_rep is None or named is None:
+            continue
+        for key in (f"{res['api_version']}:{res['awareness']}", "ВСЕ"):
+            out[key][(self_rep, named)] += 1
+    return out
 
 
 # --- метрики ---
