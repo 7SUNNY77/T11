@@ -1,0 +1,55 @@
+{
+ "run_id": "v2_contract_stale_A0_T17_r0_3096de8d30",
+ "view": "messages_only",
+ "api_version": "v2_contract_stale",
+ "awareness": "A0",
+ "task_id": "T17",
+ "gold_kind": "pairs",
+ "fail_reason": "false_no_option",
+ "truth": {
+  "status": "ok",
+  "agent": "executor",
+  "drift_entry_step": 2,
+  "agent_error_step": 2,
+  "rule": "rejected_call",
+  "trigger": "output_renamed+tool_error"
+ },
+ "judge": {
+  "view": "messages_only",
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "temperature": 0.0,
+  "reasoning_effort": "low",
+  "json_mode": true,
+  "prompt_version": "j1",
+  "max_items": 5,
+  "max_text": 1500,
+  "token_budget": 3000
+ },
+ "judged_at": "2026-10-24T22:26:48+00:00",
+ "input_text": "ЗАПРОС ПОЛЬЗОВАТЕЛЯ:\nНайди самый дешёвый вариант отель + перелёт из Berlin в Amsterdam на 2026-11-07, 6 ночей, бюджет 539 USD\n\nЭТАЛОННЫЙ ОТВЕТ (прогон провален: финальный ответ системы с эталоном не совпал):\nhotel_id=H154, flight_id=F1918, total_usd=387.13 USD\n\nШАГИ:\n[шаг 1] planner → план:\n{\"origin\": \"Berlin\", \"destination\": \"Amsterdam\", \"date\": \"2026-11-07\", \"nights\": 6, \"budget_usd\": 539, \"goal\": \"Find the cheapest flight and hotel package from Berlin to Amsterdam\", \"steps\": [\"Search for cheapest flights from Berlin to Amsterdam on 2026-11-07\", \"Search for budget hotels in Amsterdam for 6 nights starting 2026-11-07\", \"Combine flight and hotel costs to fit within the 539 USD budget\"]}\n\n[шаг 2] executor → вызывает инструменты:\n  search_flights({\"date\":\"2026-11-07\",\"origin\":\"Berlin\",\"destination\":\"Amsterdam\"})\n  search_hotels({\"nights\":6,\"city\":\"Amsterdam\"})\n\n[шаг 3] executor → вызывает инструменты:\n  search_hotels({\"nights\":6,\"city\":\"Amsterdam\",\"max_results\":10})\n\n[шаг 4] executor → вызывает инструменты:\n  search_hotels({\"nights\":6,\"city\":\"Amsterdam\"})\n\n[шаг 5] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Amsterdam\"})\n\n[шаг 6] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Amsterdam\"})\n\n[шаг 7] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Amsterdam\",\"nights\":6})\n\n[шаг 8] executor → вызывает инструменты:\n  search_hotels({\"nights\":6,\"city\":\"Amsterdam\",\"max_results\":10})\n\n[шаг 9] executor → отчёт для verifier:\n{\"hotels\": [], \"flights\": [{\"id\": \"F1918\", \"price_usd\": 93.73}, {\"id\": \"F1128\", \"price_usd\": 226.94}, {\"id\": \"F1765\", \"price_usd\": 321.77}], \"best\": null, \"notes\": \"Hotel search failed due to API parameter error (num_nights required instead of nights).\"}\n\n[шаг 10] verifier → ответ:\n{\"no_option\": true}\n\nФИНАЛЬНЫЙ ОТВЕТ СИСТЕМЫ:\n{\"no_option\": true}",
+ "input_chars": 1817,
+ "input_est_tokens": 568,
+ "input_text_limit": 1500,
+ "input_leaks": [],
+ "response": "{\"blamed_agent\":\"executor\",\"blamed_step\":2,\"error_category\":\"wrong_tool_call\",\"root_cause\":\"Executor called search_hotels with parameter name \\\"nights\\\" instead of the required \\\"num_nights\\\", causing the API to fail and return no hotels.\",\"confidence\":0.97}",
+ "message_extra": {
+  "reasoning": "We need earliest error. Planner seems fine. Executor calls search_hotels many times with wrong param name: uses \"nights\" but API expects \"num_nights\". At step 2 initial call also wrong. The earliest error is step 2 wrong_tool_call. That caused no hotels, leading to failure. So blame executor step 2, category wrong_tool_call."
+ },
+ "usage": {
+  "prompt_tokens": 1259,
+  "completion_tokens": 146,
+  "reasoning_tokens": 76,
+  "provider_total_tokens": 1405
+ },
+ "latency_s": 0.8,
+ "cached": false,
+ "verdict": {
+  "blamed_agent": "executor",
+  "blamed_step": 2,
+  "error_category": "wrong_tool_call",
+  "root_cause": "Executor called search_hotels with parameter name \"nights\" instead of the required \"num_nights\", causing the API to fail and return no hotels.",
+  "confidence": 0.97
+ },
+ "parse_error": null
+}

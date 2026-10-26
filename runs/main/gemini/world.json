@@ -1,0 +1,8186 @@
+{
+ "seed": 42,
+ "cities": [
+  "Amsterdam",
+  "Berlin",
+  "Budapest",
+  "Copenhagen",
+  "Lisbon",
+  "Prague",
+  "Rome",
+  "Vienna"
+ ],
+ "hotels": [
+  {
+   "id": "H154",
+   "name": "Harbor Amsterdam House",
+   "city": "Amsterdam",
+   "price_per_night": 48.9,
+   "rating": 2.7,
+   "amenities": [
+    "airport_shuttle",
+    "pool"
+   ]
+  },
+  {
+   "id": "H106",
+   "name": "Grand Amsterdam Residence",
+   "city": "Amsterdam",
+   "price_per_night": 240.49,
+   "rating": 4.3,
+   "amenities": [
+    "breakfast",
+    "gym",
+    "parking",
+    "pool"
+   ]
+  },
+  {
+   "id": "H103",
+   "name": "Grand Amsterdam Suites",
+   "city": "Amsterdam",
+   "price_per_night": 235.48,
+   "rating": 3.4,
+   "amenities": [
+    "breakfast",
+    "parking"
+   ]
+  },
+  {
+   "id": "H174",
+   "name": "Royal Amsterdam Inn",
+   "city": "Amsterdam",
+   "price_per_night": 146.38,
+   "rating": 3.4,
+   "amenities": [
+    "parking",
+    "pool",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H158",
+   "name": "Garden Amsterdam Inn",
+   "city": "Amsterdam",
+   "price_per_night": 312.47,
+   "rating": 3.4,
+   "amenities": [
+    "airport_shuttle",
+    "pool",
+    "spa"
+   ]
+  },
+  {
+   "id": "H164",
+   "name": "Old Town Amsterdam Residence",
+   "city": "Amsterdam",
+   "price_per_night": 237.28,
+   "rating": 2.6,
+   "amenities": [
+    "airport_shuttle",
+    "parking"
+   ]
+  },
+  {
+   "id": "H151",
+   "name": "Royal Amsterdam Residence",
+   "city": "Amsterdam",
+   "price_per_night": 282.62,
+   "rating": 3.5,
+   "amenities": [
+    "airport_shuttle",
+    "breakfast",
+    "parking",
+    "spa"
+   ]
+  },
+  {
+   "id": "H128",
+   "name": "Central Amsterdam Inn",
+   "city": "Amsterdam",
+   "price_per_night": 210.56,
+   "rating": 2.9,
+   "amenities": [
+    "breakfast",
+    "gym"
+   ]
+  },
+  {
+   "id": "H131",
+   "name": "River Amsterdam Lodge",
+   "city": "Amsterdam",
+   "price_per_night": 317.07,
+   "rating": 4.1,
+   "amenities": [
+    "parking",
+    "spa"
+   ]
+  },
+  {
+   "id": "H169",
+   "name": "Park Berlin Hotel",
+   "city": "Berlin",
+   "price_per_night": 82.79,
+   "rating": 3.5,
+   "amenities": [
+    "breakfast"
+   ]
+  },
+  {
+   "id": "H121",
+   "name": "Harbor Berlin Palace",
+   "city": "Berlin",
+   "price_per_night": 99.54,
+   "rating": 3.7,
+   "amenities": [
+    "airport_shuttle",
+    "breakfast",
+    "parking",
+    "pool"
+   ]
+  },
+  {
+   "id": "H143",
+   "name": "Star Berlin Lodge",
+   "city": "Berlin",
+   "price_per_night": 249.16,
+   "rating": 3.6,
+   "amenities": [
+    "breakfast",
+    "gym",
+    "parking",
+    "spa"
+   ]
+  },
+  {
+   "id": "H122",
+   "name": "Royal Berlin Hotel",
+   "city": "Berlin",
+   "price_per_night": 281.11,
+   "rating": 2.9,
+   "amenities": [
+    "airport_shuttle",
+    "spa"
+   ]
+  },
+  {
+   "id": "H176",
+   "name": "River Berlin Inn",
+   "city": "Berlin",
+   "price_per_night": 147.73,
+   "rating": 4.0,
+   "amenities": [
+    "airport_shuttle",
+    "parking",
+    "pool",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H129",
+   "name": "Royal Berlin Lodge",
+   "city": "Berlin",
+   "price_per_night": 255.21,
+   "rating": 3.4,
+   "amenities": [
+    "airport_shuttle",
+    "breakfast",
+    "gym"
+   ]
+  },
+  {
+   "id": "H165",
+   "name": "Grand Berlin Lodge",
+   "city": "Berlin",
+   "price_per_night": 312.13,
+   "rating": 4.4,
+   "amenities": [
+    "airport_shuttle"
+   ]
+  },
+  {
+   "id": "H114",
+   "name": "Central Berlin Residence",
+   "city": "Berlin",
+   "price_per_night": 82.79,
+   "rating": 4.4,
+   "amenities": [
+    "pool"
+   ]
+  },
+  {
+   "id": "H141",
+   "name": "Old Town Budapest Lodge",
+   "city": "Budapest",
+   "price_per_night": 107.05,
+   "rating": 3.1,
+   "amenities": [
+    "wifi"
+   ]
+  },
+  {
+   "id": "H125",
+   "name": "Garden Budapest Inn",
+   "city": "Budapest",
+   "price_per_night": 313.84,
+   "rating": 3.8,
+   "amenities": [
+    "breakfast",
+    "spa"
+   ]
+  },
+  {
+   "id": "H124",
+   "name": "Garden Budapest Suites",
+   "city": "Budapest",
+   "price_per_night": 114.22,
+   "rating": 4.7,
+   "amenities": [
+    "airport_shuttle",
+    "breakfast",
+    "parking",
+    "pool"
+   ]
+  },
+  {
+   "id": "H134",
+   "name": "River Budapest Palace",
+   "city": "Budapest",
+   "price_per_night": 162.67,
+   "rating": 3.8,
+   "amenities": [
+    "breakfast"
+   ]
+  },
+  {
+   "id": "H155",
+   "name": "Park Budapest Inn",
+   "city": "Budapest",
+   "price_per_night": 134.66,
+   "rating": 4.0,
+   "amenities": [
+    "breakfast",
+    "pool"
+   ]
+  },
+  {
+   "id": "H163",
+   "name": "Grand Budapest Inn",
+   "city": "Budapest",
+   "price_per_night": 238.2,
+   "rating": 2.6,
+   "amenities": [
+    "wifi"
+   ]
+  },
+  {
+   "id": "H159",
+   "name": "Old Town Budapest Inn",
+   "city": "Budapest",
+   "price_per_night": 183.96,
+   "rating": 3.2,
+   "amenities": [
+    "airport_shuttle",
+    "breakfast",
+    "gym",
+    "pool"
+   ]
+  },
+  {
+   "id": "H127",
+   "name": "Park Budapest Hostel",
+   "city": "Budapest",
+   "price_per_night": 266.1,
+   "rating": 3.0,
+   "amenities": [
+    "spa"
+   ]
+  },
+  {
+   "id": "H170",
+   "name": "River Budapest House",
+   "city": "Budapest",
+   "price_per_night": 170.77,
+   "rating": 4.3,
+   "amenities": [
+    "wifi"
+   ]
+  },
+  {
+   "id": "H153",
+   "name": "Royal Copenhagen Residence",
+   "city": "Copenhagen",
+   "price_per_night": 93.65,
+   "rating": 3.8,
+   "amenities": [
+    "breakfast",
+    "gym"
+   ]
+  },
+  {
+   "id": "H161",
+   "name": "Central Copenhagen Hostel",
+   "city": "Copenhagen",
+   "price_per_night": 109.95,
+   "rating": 4.8,
+   "amenities": [
+    "airport_shuttle",
+    "pool",
+    "spa",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H130",
+   "name": "Star Copenhagen Hotel",
+   "city": "Copenhagen",
+   "price_per_night": 311.32,
+   "rating": 4.8,
+   "amenities": [
+    "breakfast",
+    "gym"
+   ]
+  },
+  {
+   "id": "H147",
+   "name": "Garden Copenhagen Hostel",
+   "city": "Copenhagen",
+   "price_per_night": 99.85,
+   "rating": 3.5,
+   "amenities": [
+    "breakfast"
+   ]
+  },
+  {
+   "id": "H138",
+   "name": "River Copenhagen Hotel",
+   "city": "Copenhagen",
+   "price_per_night": 315.89,
+   "rating": 3.2,
+   "amenities": [
+    "gym",
+    "parking",
+    "pool",
+    "spa"
+   ]
+  },
+  {
+   "id": "H168",
+   "name": "City Copenhagen Residence",
+   "city": "Copenhagen",
+   "price_per_night": 123.08,
+   "rating": 4.9,
+   "amenities": [
+    "spa"
+   ]
+  },
+  {
+   "id": "H157",
+   "name": "Old Town Copenhagen Hotel",
+   "city": "Copenhagen",
+   "price_per_night": 54.04,
+   "rating": 3.7,
+   "amenities": [
+    "pool",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H142",
+   "name": "Royal Copenhagen Suites",
+   "city": "Copenhagen",
+   "price_per_night": 59.19,
+   "rating": 2.7,
+   "amenities": [
+    "gym",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H162",
+   "name": "Harbor Copenhagen Residence",
+   "city": "Copenhagen",
+   "price_per_night": 202.1,
+   "rating": 2.6,
+   "amenities": [
+    "gym"
+   ]
+  },
+  {
+   "id": "H105",
+   "name": "Harbor Copenhagen Palace",
+   "city": "Copenhagen",
+   "price_per_night": 54.04,
+   "rating": 3.0,
+   "amenities": [
+    "breakfast",
+    "gym",
+    "parking"
+   ]
+  },
+  {
+   "id": "H126",
+   "name": "City Copenhagen Lodge",
+   "city": "Copenhagen",
+   "price_per_night": 168.02,
+   "rating": 4.8,
+   "amenities": [
+    "wifi"
+   ]
+  },
+  {
+   "id": "H107",
+   "name": "Garden Copenhagen Inn",
+   "city": "Copenhagen",
+   "price_per_night": 60.51,
+   "rating": 3.0,
+   "amenities": [
+    "breakfast",
+    "parking",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H166",
+   "name": "Park Copenhagen Palace",
+   "city": "Copenhagen",
+   "price_per_night": 119.8,
+   "rating": 3.6,
+   "amenities": [
+    "airport_shuttle",
+    "pool",
+    "spa"
+   ]
+  },
+  {
+   "id": "H177",
+   "name": "Royal Lisbon Suites",
+   "city": "Lisbon",
+   "price_per_night": 114.05,
+   "rating": 4.7,
+   "amenities": [
+    "airport_shuttle",
+    "parking"
+   ]
+  },
+  {
+   "id": "H148",
+   "name": "Harbor Lisbon Residence",
+   "city": "Lisbon",
+   "price_per_night": 240.93,
+   "rating": 3.0,
+   "amenities": [
+    "gym",
+    "parking",
+    "pool"
+   ]
+  },
+  {
+   "id": "H156",
+   "name": "Grand Lisbon Inn",
+   "city": "Lisbon",
+   "price_per_night": 217.6,
+   "rating": 4.6,
+   "amenities": [
+    "wifi"
+   ]
+  },
+  {
+   "id": "H160",
+   "name": "Old Town Lisbon Suites",
+   "city": "Lisbon",
+   "price_per_night": 218.39,
+   "rating": 3.2,
+   "amenities": [
+    "gym",
+    "pool",
+    "spa",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H136",
+   "name": "Royal Lisbon Inn",
+   "city": "Lisbon",
+   "price_per_night": 51.71,
+   "rating": 4.2,
+   "amenities": [
+    "pool",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H109",
+   "name": "River Lisbon Suites",
+   "city": "Lisbon",
+   "price_per_night": 51.71,
+   "rating": 3.4,
+   "amenities": [
+    "parking"
+   ]
+  },
+  {
+   "id": "H146",
+   "name": "Park Lisbon Residence",
+   "city": "Lisbon",
+   "price_per_night": 226.74,
+   "rating": 3.4,
+   "amenities": [
+    "airport_shuttle",
+    "breakfast",
+    "pool",
+    "spa"
+   ]
+  },
+  {
+   "id": "H137",
+   "name": "City Lisbon Suites",
+   "city": "Lisbon",
+   "price_per_night": 286.8,
+   "rating": 2.6,
+   "amenities": [
+    "airport_shuttle",
+    "breakfast",
+    "gym"
+   ]
+  },
+  {
+   "id": "H135",
+   "name": "Central Lisbon Suites",
+   "city": "Lisbon",
+   "price_per_night": 260.46,
+   "rating": 2.8,
+   "amenities": [
+    "airport_shuttle"
+   ]
+  },
+  {
+   "id": "H172",
+   "name": "Garden Lisbon Residence",
+   "city": "Lisbon",
+   "price_per_night": 95.88,
+   "rating": 4.8,
+   "amenities": [
+    "breakfast",
+    "parking",
+    "spa"
+   ]
+  },
+  {
+   "id": "H144",
+   "name": "Grand Lisbon Residence",
+   "city": "Lisbon",
+   "price_per_night": 151.57,
+   "rating": 3.2,
+   "amenities": [
+    "airport_shuttle"
+   ]
+  },
+  {
+   "id": "H171",
+   "name": "Central Lisbon Palace",
+   "city": "Lisbon",
+   "price_per_night": 219.61,
+   "rating": 3.5,
+   "amenities": [
+    "airport_shuttle",
+    "parking",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H117",
+   "name": "Royal Prague House",
+   "city": "Prague",
+   "price_per_night": 136.79,
+   "rating": 4.5,
+   "amenities": [
+    "airport_shuttle",
+    "gym",
+    "pool",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H116",
+   "name": "Harbor Prague Residence",
+   "city": "Prague",
+   "price_per_night": 66.15,
+   "rating": 4.3,
+   "amenities": [
+    "pool"
+   ]
+  },
+  {
+   "id": "H120",
+   "name": "Star Prague Residence",
+   "city": "Prague",
+   "price_per_night": 141.98,
+   "rating": 2.7,
+   "amenities": [
+    "parking",
+    "pool",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H123",
+   "name": "Central Prague Lodge",
+   "city": "Prague",
+   "price_per_night": 226.73,
+   "rating": 3.3,
+   "amenities": [
+    "breakfast",
+    "pool",
+    "spa"
+   ]
+  },
+  {
+   "id": "H118",
+   "name": "River Prague House",
+   "city": "Prague",
+   "price_per_night": 229.65,
+   "rating": 4.8,
+   "amenities": [
+    "gym",
+    "pool",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H119",
+   "name": "Park Prague House",
+   "city": "Prague",
+   "price_per_night": 260.01,
+   "rating": 4.0,
+   "amenities": [
+    "airport_shuttle",
+    "gym",
+    "spa"
+   ]
+  },
+  {
+   "id": "H112",
+   "name": "Park Prague Hostel",
+   "city": "Prague",
+   "price_per_night": 262.25,
+   "rating": 4.9,
+   "amenities": [
+    "spa",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H149",
+   "name": "Central Prague Palace",
+   "city": "Prague",
+   "price_per_night": 66.15,
+   "rating": 4.9,
+   "amenities": [
+    "parking",
+    "spa"
+   ]
+  },
+  {
+   "id": "H110",
+   "name": "Grand Rome Hotel",
+   "city": "Rome",
+   "price_per_night": 108.56,
+   "rating": 3.7,
+   "amenities": [
+    "gym"
+   ]
+  },
+  {
+   "id": "H150",
+   "name": "River Rome Residence",
+   "city": "Rome",
+   "price_per_night": 241.14,
+   "rating": 3.5,
+   "amenities": [
+    "airport_shuttle",
+    "breakfast",
+    "pool",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H139",
+   "name": "City Rome Hostel",
+   "city": "Rome",
+   "price_per_night": 54.06,
+   "rating": 3.1,
+   "amenities": [
+    "gym"
+   ]
+  },
+  {
+   "id": "H113",
+   "name": "Star Rome Palace",
+   "city": "Rome",
+   "price_per_night": 306.01,
+   "rating": 4.7,
+   "amenities": [
+    "airport_shuttle",
+    "breakfast",
+    "gym",
+    "pool"
+   ]
+  },
+  {
+   "id": "H132",
+   "name": "Garden Rome Hostel",
+   "city": "Rome",
+   "price_per_night": 112.57,
+   "rating": 3.1,
+   "amenities": [
+    "airport_shuttle",
+    "gym",
+    "pool"
+   ]
+  },
+  {
+   "id": "H133",
+   "name": "Park Rome Lodge",
+   "city": "Rome",
+   "price_per_night": 163.16,
+   "rating": 4.3,
+   "amenities": [
+    "airport_shuttle",
+    "parking"
+   ]
+  },
+  {
+   "id": "H104",
+   "name": "Old Town Rome Inn",
+   "city": "Rome",
+   "price_per_night": 78.74,
+   "rating": 3.1,
+   "amenities": [
+    "breakfast",
+    "spa"
+   ]
+  },
+  {
+   "id": "H111",
+   "name": "Royal Rome House",
+   "city": "Rome",
+   "price_per_night": 154.13,
+   "rating": 3.9,
+   "amenities": [
+    "breakfast",
+    "gym",
+    "pool",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H152",
+   "name": "Harbor Rome Hotel",
+   "city": "Rome",
+   "price_per_night": 54.06,
+   "rating": 4.4,
+   "amenities": [
+    "gym",
+    "parking",
+    "pool",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H145",
+   "name": "River Rome House",
+   "city": "Rome",
+   "price_per_night": 190.7,
+   "rating": 4.3,
+   "amenities": [
+    "breakfast",
+    "gym"
+   ]
+  },
+  {
+   "id": "H102",
+   "name": "River Vienna Palace",
+   "city": "Vienna",
+   "price_per_night": 227.28,
+   "rating": 4.5,
+   "amenities": [
+    "airport_shuttle",
+    "gym"
+   ]
+  },
+  {
+   "id": "H101",
+   "name": "City Vienna Hotel",
+   "city": "Vienna",
+   "price_per_night": 293.94,
+   "rating": 4.0,
+   "amenities": [
+    "wifi"
+   ]
+  },
+  {
+   "id": "H108",
+   "name": "River Vienna Suites",
+   "city": "Vienna",
+   "price_per_night": 282.72,
+   "rating": 3.0,
+   "amenities": [
+    "breakfast",
+    "gym",
+    "parking"
+   ]
+  },
+  {
+   "id": "H140",
+   "name": "Garden Vienna Palace",
+   "city": "Vienna",
+   "price_per_night": 134.5,
+   "rating": 4.7,
+   "amenities": [
+    "airport_shuttle",
+    "gym",
+    "parking"
+   ]
+  },
+  {
+   "id": "H115",
+   "name": "Royal Vienna Hostel",
+   "city": "Vienna",
+   "price_per_night": 45.43,
+   "rating": 3.8,
+   "amenities": [
+    "breakfast",
+    "spa",
+    "wifi"
+   ]
+  },
+  {
+   "id": "H175",
+   "name": "Grand Vienna Hotel",
+   "city": "Vienna",
+   "price_per_night": 305.89,
+   "rating": 3.0,
+   "amenities": [
+    "pool"
+   ]
+  },
+  {
+   "id": "H167",
+   "name": "City Vienna Residence",
+   "city": "Vienna",
+   "price_per_night": 75.34,
+   "rating": 4.2,
+   "amenities": [
+    "gym",
+    "spa"
+   ]
+  },
+  {
+   "id": "H173",
+   "name": "Central Vienna Palace",
+   "city": "Vienna",
+   "price_per_night": 86.98,
+   "rating": 4.0,
+   "amenities": [
+    "airport_shuttle"
+   ]
+  }
+ ],
+ "flights": [
+  {
+   "id": "F1001",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 359.21
+  },
+  {
+   "id": "F1002",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 358.97
+  },
+  {
+   "id": "F1003",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 338.01
+  },
+  {
+   "id": "F1004",
+   "origin": "Prague",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 381.65
+  },
+  {
+   "id": "F1005",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 242.27
+  },
+  {
+   "id": "F1006",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 219.88
+  },
+  {
+   "id": "F1007",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 158.92
+  },
+  {
+   "id": "F1008",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 239.03
+  },
+  {
+   "id": "F1009",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 427.16
+  },
+  {
+   "id": "F1010",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-07",
+   "price": 250.53
+  },
+  {
+   "id": "F1011",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 291.8
+  },
+  {
+   "id": "F1012",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 340.49
+  },
+  {
+   "id": "F1013",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 244.93
+  },
+  {
+   "id": "F1014",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 348.31
+  },
+  {
+   "id": "F1015",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-03",
+   "price": 246.79
+  },
+  {
+   "id": "F1016",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 117.65
+  },
+  {
+   "id": "F1017",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 166.01
+  },
+  {
+   "id": "F1018",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-04",
+   "price": 175.51
+  },
+  {
+   "id": "F1019",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 176.02
+  },
+  {
+   "id": "F1020",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 132.52
+  },
+  {
+   "id": "F1021",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 357.99
+  },
+  {
+   "id": "F1022",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 98.2
+  },
+  {
+   "id": "F1023",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 74.01
+  },
+  {
+   "id": "F1024",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 181.99
+  },
+  {
+   "id": "F1025",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 120.63
+  },
+  {
+   "id": "F1026",
+   "origin": "Vienna",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 199.27
+  },
+  {
+   "id": "F1027",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 149.87
+  },
+  {
+   "id": "F1028",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-03",
+   "price": 205.47
+  },
+  {
+   "id": "F1029",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 180.87
+  },
+  {
+   "id": "F1030",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 432.03
+  },
+  {
+   "id": "F1031",
+   "origin": "Berlin",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 195.98
+  },
+  {
+   "id": "F1032",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-03",
+   "price": 181.49
+  },
+  {
+   "id": "F1033",
+   "origin": "Prague",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 434.36
+  },
+  {
+   "id": "F1034",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 204.24
+  },
+  {
+   "id": "F1035",
+   "origin": "Rome",
+   "destination": "Amsterdam",
+   "date": "2026-11-04",
+   "price": 73.53
+  },
+  {
+   "id": "F1036",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 450.13
+  },
+  {
+   "id": "F1037",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-04",
+   "price": 177.05
+  },
+  {
+   "id": "F1038",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 310.9
+  },
+  {
+   "id": "F1039",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 153.06
+  },
+  {
+   "id": "F1040",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 477.7
+  },
+  {
+   "id": "F1041",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 202.88
+  },
+  {
+   "id": "F1042",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 116.32
+  },
+  {
+   "id": "F1043",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-07",
+   "price": 150.36
+  },
+  {
+   "id": "F1044",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 72.16
+  },
+  {
+   "id": "F1045",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 127.07
+  },
+  {
+   "id": "F1046",
+   "origin": "Vienna",
+   "destination": "Lisbon",
+   "date": "2026-11-02",
+   "price": 296.55
+  },
+  {
+   "id": "F1047",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 421.53
+  },
+  {
+   "id": "F1048",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 118.46
+  },
+  {
+   "id": "F1049",
+   "origin": "Rome",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 445.1
+  },
+  {
+   "id": "F1050",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 418.17
+  },
+  {
+   "id": "F1051",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 79.03
+  },
+  {
+   "id": "F1052",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-07",
+   "price": 185.99
+  },
+  {
+   "id": "F1053",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 379.41
+  },
+  {
+   "id": "F1054",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-02",
+   "price": 412.45
+  },
+  {
+   "id": "F1055",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 99.69
+  },
+  {
+   "id": "F1056",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 431.0
+  },
+  {
+   "id": "F1057",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 385.81
+  },
+  {
+   "id": "F1058",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 98.5
+  },
+  {
+   "id": "F1059",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 214.71
+  },
+  {
+   "id": "F1060",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 133.77
+  },
+  {
+   "id": "F1061",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 244.44
+  },
+  {
+   "id": "F1062",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 210.89
+  },
+  {
+   "id": "F1063",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 207.82
+  },
+  {
+   "id": "F1064",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-08",
+   "price": 164.24
+  },
+  {
+   "id": "F1065",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 240.63
+  },
+  {
+   "id": "F1066",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 65.18
+  },
+  {
+   "id": "F1067",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 248.83
+  },
+  {
+   "id": "F1068",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-04",
+   "price": 75.55
+  },
+  {
+   "id": "F1069",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 305.52
+  },
+  {
+   "id": "F1070",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 467.86
+  },
+  {
+   "id": "F1071",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 400.79
+  },
+  {
+   "id": "F1072",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-07",
+   "price": 106.7
+  },
+  {
+   "id": "F1073",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 202.4
+  },
+  {
+   "id": "F1074",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 430.9
+  },
+  {
+   "id": "F1075",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-04",
+   "price": 343.86
+  },
+  {
+   "id": "F1076",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 365.37
+  },
+  {
+   "id": "F1077",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 436.27
+  },
+  {
+   "id": "F1078",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 435.12
+  },
+  {
+   "id": "F1079",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 66.58
+  },
+  {
+   "id": "F1080",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 211.0
+  },
+  {
+   "id": "F1081",
+   "origin": "Lisbon",
+   "destination": "Budapest",
+   "date": "2026-11-08",
+   "price": 303.87
+  },
+  {
+   "id": "F1082",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 269.93
+  },
+  {
+   "id": "F1083",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 374.05
+  },
+  {
+   "id": "F1084",
+   "origin": "Prague",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 138.25
+  },
+  {
+   "id": "F1085",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-07",
+   "price": 119.12
+  },
+  {
+   "id": "F1086",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 283.53
+  },
+  {
+   "id": "F1087",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 292.81
+  },
+  {
+   "id": "F1088",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 138.46
+  },
+  {
+   "id": "F1089",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-05",
+   "price": 134.61
+  },
+  {
+   "id": "F1090",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-07",
+   "price": 355.99
+  },
+  {
+   "id": "F1091",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-03",
+   "price": 99.08
+  },
+  {
+   "id": "F1092",
+   "origin": "Amsterdam",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 355.25
+  },
+  {
+   "id": "F1093",
+   "origin": "Copenhagen",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 182.33
+  },
+  {
+   "id": "F1094",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 226.59
+  },
+  {
+   "id": "F1095",
+   "origin": "Lisbon",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 187.19
+  },
+  {
+   "id": "F1096",
+   "origin": "Vienna",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 250.03
+  },
+  {
+   "id": "F1097",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 305.84
+  },
+  {
+   "id": "F1098",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 293.68
+  },
+  {
+   "id": "F1099",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 105.94
+  },
+  {
+   "id": "F1100",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 302.02
+  },
+  {
+   "id": "F1101",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 276.46
+  },
+  {
+   "id": "F1102",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 364.17
+  },
+  {
+   "id": "F1103",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-03",
+   "price": 142.77
+  },
+  {
+   "id": "F1104",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 371.21
+  },
+  {
+   "id": "F1105",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 100.05
+  },
+  {
+   "id": "F1106",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 131.22
+  },
+  {
+   "id": "F1107",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-05",
+   "price": 408.8
+  },
+  {
+   "id": "F1108",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 251.24
+  },
+  {
+   "id": "F1109",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 422.76
+  },
+  {
+   "id": "F1110",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 199.88
+  },
+  {
+   "id": "F1111",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-08",
+   "price": 334.57
+  },
+  {
+   "id": "F1112",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 436.11
+  },
+  {
+   "id": "F1113",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-05",
+   "price": 95.23
+  },
+  {
+   "id": "F1114",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 400.42
+  },
+  {
+   "id": "F1115",
+   "origin": "Budapest",
+   "destination": "Lisbon",
+   "date": "2026-11-07",
+   "price": 382.29
+  },
+  {
+   "id": "F1116",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 285.14
+  },
+  {
+   "id": "F1117",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 113.67
+  },
+  {
+   "id": "F1118",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 444.41
+  },
+  {
+   "id": "F1119",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-03",
+   "price": 102.94
+  },
+  {
+   "id": "F1120",
+   "origin": "Prague",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 429.87
+  },
+  {
+   "id": "F1121",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 394.46
+  },
+  {
+   "id": "F1122",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-08",
+   "price": 95.78
+  },
+  {
+   "id": "F1123",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 306.54
+  },
+  {
+   "id": "F1124",
+   "origin": "Copenhagen",
+   "destination": "Prague",
+   "date": "2026-11-08",
+   "price": 384.03
+  },
+  {
+   "id": "F1125",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 86.38
+  },
+  {
+   "id": "F1126",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 191.75
+  },
+  {
+   "id": "F1127",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 133.71
+  },
+  {
+   "id": "F1128",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 226.94
+  },
+  {
+   "id": "F1129",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 270.11
+  },
+  {
+   "id": "F1130",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 176.46
+  },
+  {
+   "id": "F1131",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 66.45
+  },
+  {
+   "id": "F1132",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 411.41
+  },
+  {
+   "id": "F1133",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-04",
+   "price": 70.88
+  },
+  {
+   "id": "F1134",
+   "origin": "Amsterdam",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 72.13
+  },
+  {
+   "id": "F1135",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-03",
+   "price": 136.56
+  },
+  {
+   "id": "F1136",
+   "origin": "Amsterdam",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 332.04
+  },
+  {
+   "id": "F1137",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 115.51
+  },
+  {
+   "id": "F1138",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-03",
+   "price": 300.53
+  },
+  {
+   "id": "F1139",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 86.16
+  },
+  {
+   "id": "F1140",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 108.82
+  },
+  {
+   "id": "F1141",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 465.55
+  },
+  {
+   "id": "F1142",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 96.43
+  },
+  {
+   "id": "F1143",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 153.06
+  },
+  {
+   "id": "F1144",
+   "origin": "Rome",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 207.91
+  },
+  {
+   "id": "F1145",
+   "origin": "Copenhagen",
+   "destination": "Prague",
+   "date": "2026-11-07",
+   "price": 204.82
+  },
+  {
+   "id": "F1146",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 117.65
+  },
+  {
+   "id": "F1147",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 75.8
+  },
+  {
+   "id": "F1148",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 297.69
+  },
+  {
+   "id": "F1149",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 300.22
+  },
+  {
+   "id": "F1150",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 303.38
+  },
+  {
+   "id": "F1151",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 232.54
+  },
+  {
+   "id": "F1152",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 118.71
+  },
+  {
+   "id": "F1153",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 144.07
+  },
+  {
+   "id": "F1154",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 123.4
+  },
+  {
+   "id": "F1155",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 378.06
+  },
+  {
+   "id": "F1156",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 166.87
+  },
+  {
+   "id": "F1157",
+   "origin": "Lisbon",
+   "destination": "Berlin",
+   "date": "2026-11-03",
+   "price": 110.97
+  },
+  {
+   "id": "F1158",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 209.1
+  },
+  {
+   "id": "F1159",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 346.08
+  },
+  {
+   "id": "F1160",
+   "origin": "Lisbon",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 358.96
+  },
+  {
+   "id": "F1161",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 84.25
+  },
+  {
+   "id": "F1162",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 251.86
+  },
+  {
+   "id": "F1163",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 269.32
+  },
+  {
+   "id": "F1164",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-04",
+   "price": 424.41
+  },
+  {
+   "id": "F1165",
+   "origin": "Lisbon",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 256.31
+  },
+  {
+   "id": "F1166",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 392.01
+  },
+  {
+   "id": "F1167",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-04",
+   "price": 200.01
+  },
+  {
+   "id": "F1168",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 105.34
+  },
+  {
+   "id": "F1169",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 350.67
+  },
+  {
+   "id": "F1170",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 476.06
+  },
+  {
+   "id": "F1171",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 432.72
+  },
+  {
+   "id": "F1172",
+   "origin": "Prague",
+   "destination": "Vienna",
+   "date": "2026-11-03",
+   "price": 474.18
+  },
+  {
+   "id": "F1173",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 180.49
+  },
+  {
+   "id": "F1174",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 385.99
+  },
+  {
+   "id": "F1175",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 396.48
+  },
+  {
+   "id": "F1176",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 108.77
+  },
+  {
+   "id": "F1177",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 121.51
+  },
+  {
+   "id": "F1178",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 397.94
+  },
+  {
+   "id": "F1179",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 172.21
+  },
+  {
+   "id": "F1180",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-03",
+   "price": 471.94
+  },
+  {
+   "id": "F1181",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 82.55
+  },
+  {
+   "id": "F1182",
+   "origin": "Vienna",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 101.0
+  },
+  {
+   "id": "F1183",
+   "origin": "Copenhagen",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 373.87
+  },
+  {
+   "id": "F1184",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 258.77
+  },
+  {
+   "id": "F1185",
+   "origin": "Budapest",
+   "destination": "Lisbon",
+   "date": "2026-11-05",
+   "price": 344.85
+  },
+  {
+   "id": "F1186",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 300.83
+  },
+  {
+   "id": "F1187",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 233.85
+  },
+  {
+   "id": "F1188",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-05",
+   "price": 162.56
+  },
+  {
+   "id": "F1189",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 403.72
+  },
+  {
+   "id": "F1190",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 469.2
+  },
+  {
+   "id": "F1191",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 348.15
+  },
+  {
+   "id": "F1192",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 203.18
+  },
+  {
+   "id": "F1193",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 177.49
+  },
+  {
+   "id": "F1194",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 70.51
+  },
+  {
+   "id": "F1195",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 142.4
+  },
+  {
+   "id": "F1196",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 62.18
+  },
+  {
+   "id": "F1197",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-08",
+   "price": 233.56
+  },
+  {
+   "id": "F1198",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 305.52
+  },
+  {
+   "id": "F1199",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-05",
+   "price": 257.15
+  },
+  {
+   "id": "F1200",
+   "origin": "Lisbon",
+   "destination": "Berlin",
+   "date": "2026-11-03",
+   "price": 273.68
+  },
+  {
+   "id": "F1201",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-02",
+   "price": 186.82
+  },
+  {
+   "id": "F1202",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 229.85
+  },
+  {
+   "id": "F1203",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-08",
+   "price": 193.85
+  },
+  {
+   "id": "F1204",
+   "origin": "Vienna",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 224.28
+  },
+  {
+   "id": "F1205",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 379.29
+  },
+  {
+   "id": "F1206",
+   "origin": "Prague",
+   "destination": "Budapest",
+   "date": "2026-11-06",
+   "price": 478.81
+  },
+  {
+   "id": "F1207",
+   "origin": "Amsterdam",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 188.26
+  },
+  {
+   "id": "F1208",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 129.69
+  },
+  {
+   "id": "F1209",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 175.28
+  },
+  {
+   "id": "F1210",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 183.96
+  },
+  {
+   "id": "F1211",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 165.04
+  },
+  {
+   "id": "F1212",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 129.87
+  },
+  {
+   "id": "F1213",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-06",
+   "price": 397.95
+  },
+  {
+   "id": "F1214",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 433.38
+  },
+  {
+   "id": "F1215",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 231.48
+  },
+  {
+   "id": "F1216",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-03",
+   "price": 184.23
+  },
+  {
+   "id": "F1217",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-07",
+   "price": 372.12
+  },
+  {
+   "id": "F1218",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 91.52
+  },
+  {
+   "id": "F1219",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 420.17
+  },
+  {
+   "id": "F1220",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 175.56
+  },
+  {
+   "id": "F1221",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 230.11
+  },
+  {
+   "id": "F1222",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 447.7
+  },
+  {
+   "id": "F1223",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 324.97
+  },
+  {
+   "id": "F1224",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 422.89
+  },
+  {
+   "id": "F1225",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 373.94
+  },
+  {
+   "id": "F1226",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 343.09
+  },
+  {
+   "id": "F1227",
+   "origin": "Amsterdam",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 253.81
+  },
+  {
+   "id": "F1228",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 423.43
+  },
+  {
+   "id": "F1229",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 88.24
+  },
+  {
+   "id": "F1230",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 391.22
+  },
+  {
+   "id": "F1231",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 298.47
+  },
+  {
+   "id": "F1232",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 225.72
+  },
+  {
+   "id": "F1233",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 148.05
+  },
+  {
+   "id": "F1234",
+   "origin": "Lisbon",
+   "destination": "Budapest",
+   "date": "2026-11-05",
+   "price": 455.18
+  },
+  {
+   "id": "F1235",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 179.34
+  },
+  {
+   "id": "F1236",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 212.84
+  },
+  {
+   "id": "F1237",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 216.25
+  },
+  {
+   "id": "F1238",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 225.16
+  },
+  {
+   "id": "F1239",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 314.41
+  },
+  {
+   "id": "F1240",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 197.52
+  },
+  {
+   "id": "F1241",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 214.57
+  },
+  {
+   "id": "F1242",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 341.96
+  },
+  {
+   "id": "F1243",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 452.24
+  },
+  {
+   "id": "F1244",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 261.28
+  },
+  {
+   "id": "F1245",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 121.51
+  },
+  {
+   "id": "F1246",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 369.7
+  },
+  {
+   "id": "F1247",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 160.45
+  },
+  {
+   "id": "F1248",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-02",
+   "price": 406.6
+  },
+  {
+   "id": "F1249",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 175.21
+  },
+  {
+   "id": "F1250",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 415.8
+  },
+  {
+   "id": "F1251",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 151.25
+  },
+  {
+   "id": "F1252",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-04",
+   "price": 87.59
+  },
+  {
+   "id": "F1253",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 288.33
+  },
+  {
+   "id": "F1254",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 221.16
+  },
+  {
+   "id": "F1255",
+   "origin": "Lisbon",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 408.2
+  },
+  {
+   "id": "F1256",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 439.23
+  },
+  {
+   "id": "F1257",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 184.92
+  },
+  {
+   "id": "F1258",
+   "origin": "Amsterdam",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 421.27
+  },
+  {
+   "id": "F1259",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 72.16
+  },
+  {
+   "id": "F1260",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 262.52
+  },
+  {
+   "id": "F1261",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 265.38
+  },
+  {
+   "id": "F1262",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 382.12
+  },
+  {
+   "id": "F1263",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 166.13
+  },
+  {
+   "id": "F1264",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 344.92
+  },
+  {
+   "id": "F1265",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 286.7
+  },
+  {
+   "id": "F1266",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 420.99
+  },
+  {
+   "id": "F1267",
+   "origin": "Lisbon",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 383.05
+  },
+  {
+   "id": "F1268",
+   "origin": "Budapest",
+   "destination": "Lisbon",
+   "date": "2026-11-05",
+   "price": 281.31
+  },
+  {
+   "id": "F1269",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-02",
+   "price": 469.31
+  },
+  {
+   "id": "F1270",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 467.23
+  },
+  {
+   "id": "F1271",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 196.24
+  },
+  {
+   "id": "F1272",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 475.43
+  },
+  {
+   "id": "F1273",
+   "origin": "Rome",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 287.7
+  },
+  {
+   "id": "F1274",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 191.27
+  },
+  {
+   "id": "F1275",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 247.55
+  },
+  {
+   "id": "F1276",
+   "origin": "Copenhagen",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 138.67
+  },
+  {
+   "id": "F1277",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 233.7
+  },
+  {
+   "id": "F1278",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-08",
+   "price": 105.15
+  },
+  {
+   "id": "F1279",
+   "origin": "Berlin",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 280.96
+  },
+  {
+   "id": "F1280",
+   "origin": "Rome",
+   "destination": "Lisbon",
+   "date": "2026-11-02",
+   "price": 465.93
+  },
+  {
+   "id": "F1281",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-03",
+   "price": 116.64
+  },
+  {
+   "id": "F1282",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 129.99
+  },
+  {
+   "id": "F1283",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 395.18
+  },
+  {
+   "id": "F1284",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 193.0
+  },
+  {
+   "id": "F1285",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 370.66
+  },
+  {
+   "id": "F1286",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 132.19
+  },
+  {
+   "id": "F1287",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 301.05
+  },
+  {
+   "id": "F1288",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-05",
+   "price": 443.66
+  },
+  {
+   "id": "F1289",
+   "origin": "Amsterdam",
+   "destination": "Copenhagen",
+   "date": "2026-11-02",
+   "price": 385.79
+  },
+  {
+   "id": "F1290",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 74.01
+  },
+  {
+   "id": "F1291",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-02",
+   "price": 460.26
+  },
+  {
+   "id": "F1292",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-08",
+   "price": 116.25
+  },
+  {
+   "id": "F1293",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 187.96
+  },
+  {
+   "id": "F1294",
+   "origin": "Lisbon",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 128.03
+  },
+  {
+   "id": "F1295",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 214.49
+  },
+  {
+   "id": "F1296",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 99.27
+  },
+  {
+   "id": "F1297",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 238.21
+  },
+  {
+   "id": "F1298",
+   "origin": "Budapest",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 63.25
+  },
+  {
+   "id": "F1299",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 348.04
+  },
+  {
+   "id": "F1300",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-06",
+   "price": 98.52
+  },
+  {
+   "id": "F1301",
+   "origin": "Lisbon",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 405.8
+  },
+  {
+   "id": "F1302",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 309.4
+  },
+  {
+   "id": "F1303",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 140.0
+  },
+  {
+   "id": "F1304",
+   "origin": "Rome",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 456.98
+  },
+  {
+   "id": "F1305",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 459.49
+  },
+  {
+   "id": "F1306",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 188.78
+  },
+  {
+   "id": "F1307",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 77.77
+  },
+  {
+   "id": "F1308",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 253.24
+  },
+  {
+   "id": "F1309",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 345.35
+  },
+  {
+   "id": "F1310",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 228.24
+  },
+  {
+   "id": "F1311",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 401.77
+  },
+  {
+   "id": "F1312",
+   "origin": "Lisbon",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 280.79
+  },
+  {
+   "id": "F1313",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 310.73
+  },
+  {
+   "id": "F1314",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-08",
+   "price": 167.24
+  },
+  {
+   "id": "F1315",
+   "origin": "Prague",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 441.33
+  },
+  {
+   "id": "F1316",
+   "origin": "Berlin",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 309.34
+  },
+  {
+   "id": "F1317",
+   "origin": "Amsterdam",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 190.52
+  },
+  {
+   "id": "F1318",
+   "origin": "Budapest",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 377.08
+  },
+  {
+   "id": "F1319",
+   "origin": "Prague",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 194.89
+  },
+  {
+   "id": "F1320",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 362.85
+  },
+  {
+   "id": "F1321",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 409.14
+  },
+  {
+   "id": "F1322",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 327.38
+  },
+  {
+   "id": "F1323",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 335.51
+  },
+  {
+   "id": "F1324",
+   "origin": "Prague",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 153.53
+  },
+  {
+   "id": "F1325",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-07",
+   "price": 414.68
+  },
+  {
+   "id": "F1326",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 294.06
+  },
+  {
+   "id": "F1327",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 380.21
+  },
+  {
+   "id": "F1328",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 419.53
+  },
+  {
+   "id": "F1329",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-08",
+   "price": 377.71
+  },
+  {
+   "id": "F1330",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 197.96
+  },
+  {
+   "id": "F1331",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 326.33
+  },
+  {
+   "id": "F1332",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 116.03
+  },
+  {
+   "id": "F1333",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 214.38
+  },
+  {
+   "id": "F1334",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-03",
+   "price": 440.49
+  },
+  {
+   "id": "F1335",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-05",
+   "price": 137.43
+  },
+  {
+   "id": "F1336",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 95.99
+  },
+  {
+   "id": "F1337",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 213.69
+  },
+  {
+   "id": "F1338",
+   "origin": "Prague",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 206.06
+  },
+  {
+   "id": "F1339",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 301.82
+  },
+  {
+   "id": "F1340",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 92.8
+  },
+  {
+   "id": "F1341",
+   "origin": "Amsterdam",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 448.04
+  },
+  {
+   "id": "F1342",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 228.19
+  },
+  {
+   "id": "F1343",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 276.42
+  },
+  {
+   "id": "F1344",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-08",
+   "price": 308.74
+  },
+  {
+   "id": "F1345",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 232.76
+  },
+  {
+   "id": "F1346",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 333.38
+  },
+  {
+   "id": "F1347",
+   "origin": "Berlin",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 474.76
+  },
+  {
+   "id": "F1348",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-06",
+   "price": 405.29
+  },
+  {
+   "id": "F1349",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-07",
+   "price": 150.36
+  },
+  {
+   "id": "F1350",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 179.52
+  },
+  {
+   "id": "F1351",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 61.08
+  },
+  {
+   "id": "F1352",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 425.34
+  },
+  {
+   "id": "F1353",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-02",
+   "price": 457.0
+  },
+  {
+   "id": "F1354",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 110.21
+  },
+  {
+   "id": "F1355",
+   "origin": "Amsterdam",
+   "destination": "Rome",
+   "date": "2026-11-03",
+   "price": 449.62
+  },
+  {
+   "id": "F1356",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 412.24
+  },
+  {
+   "id": "F1357",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 421.26
+  },
+  {
+   "id": "F1358",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 328.35
+  },
+  {
+   "id": "F1359",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 85.55
+  },
+  {
+   "id": "F1360",
+   "origin": "Lisbon",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 112.57
+  },
+  {
+   "id": "F1361",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 306.47
+  },
+  {
+   "id": "F1362",
+   "origin": "Lisbon",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 113.9
+  },
+  {
+   "id": "F1363",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 180.57
+  },
+  {
+   "id": "F1364",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 360.01
+  },
+  {
+   "id": "F1365",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 112.28
+  },
+  {
+   "id": "F1366",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 254.2
+  },
+  {
+   "id": "F1367",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-03",
+   "price": 102.94
+  },
+  {
+   "id": "F1368",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 216.74
+  },
+  {
+   "id": "F1369",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 292.91
+  },
+  {
+   "id": "F1370",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 345.91
+  },
+  {
+   "id": "F1371",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 177.48
+  },
+  {
+   "id": "F1372",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 244.63
+  },
+  {
+   "id": "F1373",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-05",
+   "price": 214.37
+  },
+  {
+   "id": "F1374",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 422.12
+  },
+  {
+   "id": "F1375",
+   "origin": "Lisbon",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 284.06
+  },
+  {
+   "id": "F1376",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 397.78
+  },
+  {
+   "id": "F1377",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 379.88
+  },
+  {
+   "id": "F1378",
+   "origin": "Rome",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 163.96
+  },
+  {
+   "id": "F1379",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 100.45
+  },
+  {
+   "id": "F1380",
+   "origin": "Prague",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 374.58
+  },
+  {
+   "id": "F1381",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 257.03
+  },
+  {
+   "id": "F1382",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 358.01
+  },
+  {
+   "id": "F1383",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 147.01
+  },
+  {
+   "id": "F1384",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-05",
+   "price": 240.89
+  },
+  {
+   "id": "F1385",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 326.24
+  },
+  {
+   "id": "F1386",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 222.15
+  },
+  {
+   "id": "F1387",
+   "origin": "Budapest",
+   "destination": "Lisbon",
+   "date": "2026-11-02",
+   "price": 319.49
+  },
+  {
+   "id": "F1388",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 73.26
+  },
+  {
+   "id": "F1389",
+   "origin": "Lisbon",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 417.57
+  },
+  {
+   "id": "F1390",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 407.74
+  },
+  {
+   "id": "F1391",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 139.73
+  },
+  {
+   "id": "F1392",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 94.11
+  },
+  {
+   "id": "F1393",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-02",
+   "price": 363.61
+  },
+  {
+   "id": "F1394",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 357.67
+  },
+  {
+   "id": "F1395",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 479.42
+  },
+  {
+   "id": "F1396",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 184.93
+  },
+  {
+   "id": "F1397",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 320.77
+  },
+  {
+   "id": "F1398",
+   "origin": "Lisbon",
+   "destination": "Budapest",
+   "date": "2026-11-05",
+   "price": 205.33
+  },
+  {
+   "id": "F1399",
+   "origin": "Rome",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 88.55
+  },
+  {
+   "id": "F1400",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 387.23
+  },
+  {
+   "id": "F1401",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 425.57
+  },
+  {
+   "id": "F1402",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 248.82
+  },
+  {
+   "id": "F1403",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 275.23
+  },
+  {
+   "id": "F1404",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 221.22
+  },
+  {
+   "id": "F1405",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 254.34
+  },
+  {
+   "id": "F1406",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-08",
+   "price": 431.87
+  },
+  {
+   "id": "F1407",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 300.86
+  },
+  {
+   "id": "F1408",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 209.44
+  },
+  {
+   "id": "F1409",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-08",
+   "price": 107.83
+  },
+  {
+   "id": "F1410",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 458.51
+  },
+  {
+   "id": "F1411",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 211.57
+  },
+  {
+   "id": "F1412",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 159.03
+  },
+  {
+   "id": "F1413",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 455.47
+  },
+  {
+   "id": "F1414",
+   "origin": "Lisbon",
+   "destination": "Budapest",
+   "date": "2026-11-08",
+   "price": 303.87
+  },
+  {
+   "id": "F1415",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 475.42
+  },
+  {
+   "id": "F1416",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 362.23
+  },
+  {
+   "id": "F1417",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-03",
+   "price": 419.29
+  },
+  {
+   "id": "F1418",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-08",
+   "price": 148.96
+  },
+  {
+   "id": "F1419",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 472.55
+  },
+  {
+   "id": "F1420",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-08",
+   "price": 296.82
+  },
+  {
+   "id": "F1421",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 201.28
+  },
+  {
+   "id": "F1422",
+   "origin": "Vienna",
+   "destination": "Lisbon",
+   "date": "2026-11-05",
+   "price": 70.32
+  },
+  {
+   "id": "F1423",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 158.28
+  },
+  {
+   "id": "F1424",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 66.45
+  },
+  {
+   "id": "F1425",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 315.78
+  },
+  {
+   "id": "F1426",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 386.98
+  },
+  {
+   "id": "F1427",
+   "origin": "Amsterdam",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 171.15
+  },
+  {
+   "id": "F1428",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 183.98
+  },
+  {
+   "id": "F1429",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 304.92
+  },
+  {
+   "id": "F1430",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-03",
+   "price": 260.98
+  },
+  {
+   "id": "F1431",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-05",
+   "price": 282.96
+  },
+  {
+   "id": "F1432",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 215.7
+  },
+  {
+   "id": "F1433",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 290.68
+  },
+  {
+   "id": "F1434",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 444.07
+  },
+  {
+   "id": "F1435",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 156.15
+  },
+  {
+   "id": "F1436",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 423.41
+  },
+  {
+   "id": "F1437",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 345.77
+  },
+  {
+   "id": "F1438",
+   "origin": "Rome",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 228.95
+  },
+  {
+   "id": "F1439",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 230.12
+  },
+  {
+   "id": "F1440",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-04",
+   "price": 345.91
+  },
+  {
+   "id": "F1441",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-05",
+   "price": 93.79
+  },
+  {
+   "id": "F1442",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 444.75
+  },
+  {
+   "id": "F1443",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-03",
+   "price": 479.99
+  },
+  {
+   "id": "F1444",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 455.42
+  },
+  {
+   "id": "F1445",
+   "origin": "Amsterdam",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 390.89
+  },
+  {
+   "id": "F1446",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 390.53
+  },
+  {
+   "id": "F1447",
+   "origin": "Amsterdam",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 157.22
+  },
+  {
+   "id": "F1448",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 109.5
+  },
+  {
+   "id": "F1449",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 344.4
+  },
+  {
+   "id": "F1450",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 188.26
+  },
+  {
+   "id": "F1451",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 413.48
+  },
+  {
+   "id": "F1452",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 288.07
+  },
+  {
+   "id": "F1453",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-06",
+   "price": 431.54
+  },
+  {
+   "id": "F1454",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 97.64
+  },
+  {
+   "id": "F1455",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 380.12
+  },
+  {
+   "id": "F1456",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-06",
+   "price": 182.41
+  },
+  {
+   "id": "F1457",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 426.58
+  },
+  {
+   "id": "F1458",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 288.14
+  },
+  {
+   "id": "F1459",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 177.48
+  },
+  {
+   "id": "F1460",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-08",
+   "price": 226.22
+  },
+  {
+   "id": "F1461",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 327.91
+  },
+  {
+   "id": "F1462",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-04",
+   "price": 315.48
+  },
+  {
+   "id": "F1463",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 97.93
+  },
+  {
+   "id": "F1464",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-02",
+   "price": 323.86
+  },
+  {
+   "id": "F1465",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 219.55
+  },
+  {
+   "id": "F1466",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 207.82
+  },
+  {
+   "id": "F1467",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 75.53
+  },
+  {
+   "id": "F1468",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 257.4
+  },
+  {
+   "id": "F1469",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 185.68
+  },
+  {
+   "id": "F1470",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 364.33
+  },
+  {
+   "id": "F1471",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 81.92
+  },
+  {
+   "id": "F1472",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 390.84
+  },
+  {
+   "id": "F1473",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 184.42
+  },
+  {
+   "id": "F1474",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 252.74
+  },
+  {
+   "id": "F1475",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 196.87
+  },
+  {
+   "id": "F1476",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 123.4
+  },
+  {
+   "id": "F1477",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 386.81
+  },
+  {
+   "id": "F1478",
+   "origin": "Prague",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 73.33
+  },
+  {
+   "id": "F1479",
+   "origin": "Prague",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 206.06
+  },
+  {
+   "id": "F1480",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 213.01
+  },
+  {
+   "id": "F1481",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 280.7
+  },
+  {
+   "id": "F1482",
+   "origin": "Amsterdam",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 125.74
+  },
+  {
+   "id": "F1483",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 433.58
+  },
+  {
+   "id": "F1484",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-06",
+   "price": 403.02
+  },
+  {
+   "id": "F1485",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 172.28
+  },
+  {
+   "id": "F1486",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 256.57
+  },
+  {
+   "id": "F1487",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 269.02
+  },
+  {
+   "id": "F1488",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 212.59
+  },
+  {
+   "id": "F1489",
+   "origin": "Prague",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 194.89
+  },
+  {
+   "id": "F1490",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 247.28
+  },
+  {
+   "id": "F1491",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 333.47
+  },
+  {
+   "id": "F1492",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-08",
+   "price": 355.58
+  },
+  {
+   "id": "F1493",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 451.17
+  },
+  {
+   "id": "F1494",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 169.53
+  },
+  {
+   "id": "F1495",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-08",
+   "price": 397.95
+  },
+  {
+   "id": "F1496",
+   "origin": "Rome",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 367.76
+  },
+  {
+   "id": "F1497",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 332.15
+  },
+  {
+   "id": "F1498",
+   "origin": "Vienna",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 101.0
+  },
+  {
+   "id": "F1499",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-02",
+   "price": 288.72
+  },
+  {
+   "id": "F1500",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 336.19
+  },
+  {
+   "id": "F1501",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 173.86
+  },
+  {
+   "id": "F1502",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 359.51
+  },
+  {
+   "id": "F1503",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 224.62
+  },
+  {
+   "id": "F1504",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 316.75
+  },
+  {
+   "id": "F1505",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 373.88
+  },
+  {
+   "id": "F1506",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-03",
+   "price": 262.65
+  },
+  {
+   "id": "F1507",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 119.17
+  },
+  {
+   "id": "F1508",
+   "origin": "Amsterdam",
+   "destination": "Copenhagen",
+   "date": "2026-11-02",
+   "price": 219.76
+  },
+  {
+   "id": "F1509",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 139.23
+  },
+  {
+   "id": "F1510",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 460.74
+  },
+  {
+   "id": "F1511",
+   "origin": "Rome",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 205.39
+  },
+  {
+   "id": "F1512",
+   "origin": "Budapest",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 226.01
+  },
+  {
+   "id": "F1513",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 232.36
+  },
+  {
+   "id": "F1514",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 420.34
+  },
+  {
+   "id": "F1515",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-02",
+   "price": 64.8
+  },
+  {
+   "id": "F1516",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 183.86
+  },
+  {
+   "id": "F1517",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 82.05
+  },
+  {
+   "id": "F1518",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 402.5
+  },
+  {
+   "id": "F1519",
+   "origin": "Rome",
+   "destination": "Lisbon",
+   "date": "2026-11-02",
+   "price": 168.08
+  },
+  {
+   "id": "F1520",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 117.79
+  },
+  {
+   "id": "F1521",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-05",
+   "price": 93.79
+  },
+  {
+   "id": "F1522",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 199.99
+  },
+  {
+   "id": "F1523",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 189.72
+  },
+  {
+   "id": "F1524",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 398.9
+  },
+  {
+   "id": "F1525",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 213.86
+  },
+  {
+   "id": "F1526",
+   "origin": "Rome",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 162.79
+  },
+  {
+   "id": "F1527",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 164.18
+  },
+  {
+   "id": "F1528",
+   "origin": "Rome",
+   "destination": "Lisbon",
+   "date": "2026-11-07",
+   "price": 381.02
+  },
+  {
+   "id": "F1529",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 137.47
+  },
+  {
+   "id": "F1530",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 235.84
+  },
+  {
+   "id": "F1531",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 390.53
+  },
+  {
+   "id": "F1532",
+   "origin": "Amsterdam",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 171.15
+  },
+  {
+   "id": "F1533",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 120.63
+  },
+  {
+   "id": "F1534",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 426.92
+  },
+  {
+   "id": "F1535",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-03",
+   "price": 355.19
+  },
+  {
+   "id": "F1536",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 390.04
+  },
+  {
+   "id": "F1537",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 361.42
+  },
+  {
+   "id": "F1538",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 95.99
+  },
+  {
+   "id": "F1539",
+   "origin": "Berlin",
+   "destination": "Vienna",
+   "date": "2026-11-03",
+   "price": 337.64
+  },
+  {
+   "id": "F1540",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 185.7
+  },
+  {
+   "id": "F1541",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 447.18
+  },
+  {
+   "id": "F1542",
+   "origin": "Budapest",
+   "destination": "Lisbon",
+   "date": "2026-11-02",
+   "price": 126.11
+  },
+  {
+   "id": "F1543",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 81.99
+  },
+  {
+   "id": "F1544",
+   "origin": "Rome",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 247.51
+  },
+  {
+   "id": "F1545",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 96.43
+  },
+  {
+   "id": "F1546",
+   "origin": "Rome",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 254.46
+  },
+  {
+   "id": "F1547",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 138.02
+  },
+  {
+   "id": "F1548",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 401.48
+  },
+  {
+   "id": "F1549",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 327.91
+  },
+  {
+   "id": "F1550",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 389.44
+  },
+  {
+   "id": "F1551",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 162.19
+  },
+  {
+   "id": "F1552",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-06",
+   "price": 131.39
+  },
+  {
+   "id": "F1553",
+   "origin": "Berlin",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 212.06
+  },
+  {
+   "id": "F1554",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 97.93
+  },
+  {
+   "id": "F1555",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 77.79
+  },
+  {
+   "id": "F1556",
+   "origin": "Lisbon",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 241.7
+  },
+  {
+   "id": "F1557",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 207.97
+  },
+  {
+   "id": "F1558",
+   "origin": "Berlin",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 371.52
+  },
+  {
+   "id": "F1559",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 215.42
+  },
+  {
+   "id": "F1560",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-02",
+   "price": 403.74
+  },
+  {
+   "id": "F1561",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 454.92
+  },
+  {
+   "id": "F1562",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 67.02
+  },
+  {
+   "id": "F1563",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 146.27
+  },
+  {
+   "id": "F1564",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-05",
+   "price": 426.92
+  },
+  {
+   "id": "F1565",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-03",
+   "price": 259.92
+  },
+  {
+   "id": "F1566",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 66.61
+  },
+  {
+   "id": "F1567",
+   "origin": "Budapest",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 314.97
+  },
+  {
+   "id": "F1568",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 466.73
+  },
+  {
+   "id": "F1569",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 202.19
+  },
+  {
+   "id": "F1570",
+   "origin": "Vienna",
+   "destination": "Lisbon",
+   "date": "2026-11-07",
+   "price": 206.3
+  },
+  {
+   "id": "F1571",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 124.79
+  },
+  {
+   "id": "F1572",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 81.25
+  },
+  {
+   "id": "F1573",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 109.46
+  },
+  {
+   "id": "F1574",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-03",
+   "price": 101.73
+  },
+  {
+   "id": "F1575",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 368.36
+  },
+  {
+   "id": "F1576",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 239.42
+  },
+  {
+   "id": "F1577",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 74.62
+  },
+  {
+   "id": "F1578",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 402.61
+  },
+  {
+   "id": "F1579",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 357.2
+  },
+  {
+   "id": "F1580",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 85.39
+  },
+  {
+   "id": "F1581",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 191.26
+  },
+  {
+   "id": "F1582",
+   "origin": "Budapest",
+   "destination": "Lisbon",
+   "date": "2026-11-07",
+   "price": 380.95
+  },
+  {
+   "id": "F1583",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 426.66
+  },
+  {
+   "id": "F1584",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 135.33
+  },
+  {
+   "id": "F1585",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 177.76
+  },
+  {
+   "id": "F1586",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 85.43
+  },
+  {
+   "id": "F1587",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 103.09
+  },
+  {
+   "id": "F1588",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 211.67
+  },
+  {
+   "id": "F1589",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-08",
+   "price": 294.39
+  },
+  {
+   "id": "F1590",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-02",
+   "price": 439.43
+  },
+  {
+   "id": "F1591",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-05",
+   "price": 233.06
+  },
+  {
+   "id": "F1592",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 392.1
+  },
+  {
+   "id": "F1593",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 392.56
+  },
+  {
+   "id": "F1594",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 392.27
+  },
+  {
+   "id": "F1595",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-06",
+   "price": 351.88
+  },
+  {
+   "id": "F1596",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-07",
+   "price": 252.78
+  },
+  {
+   "id": "F1597",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 185.91
+  },
+  {
+   "id": "F1598",
+   "origin": "Amsterdam",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 291.84
+  },
+  {
+   "id": "F1599",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 327.85
+  },
+  {
+   "id": "F1600",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 288.19
+  },
+  {
+   "id": "F1601",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 149.08
+  },
+  {
+   "id": "F1602",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 388.82
+  },
+  {
+   "id": "F1603",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 368.36
+  },
+  {
+   "id": "F1604",
+   "origin": "Prague",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 452.52
+  },
+  {
+   "id": "F1605",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 246.3
+  },
+  {
+   "id": "F1606",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-06",
+   "price": 306.79
+  },
+  {
+   "id": "F1607",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 243.58
+  },
+  {
+   "id": "F1608",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 122.56
+  },
+  {
+   "id": "F1609",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 186.88
+  },
+  {
+   "id": "F1610",
+   "origin": "Prague",
+   "destination": "Budapest",
+   "date": "2026-11-05",
+   "price": 235.51
+  },
+  {
+   "id": "F1611",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 197.08
+  },
+  {
+   "id": "F1612",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 330.76
+  },
+  {
+   "id": "F1613",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 67.2
+  },
+  {
+   "id": "F1614",
+   "origin": "Copenhagen",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 273.08
+  },
+  {
+   "id": "F1615",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 370.51
+  },
+  {
+   "id": "F1616",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 420.25
+  },
+  {
+   "id": "F1617",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 194.03
+  },
+  {
+   "id": "F1618",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 177.73
+  },
+  {
+   "id": "F1619",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 70.86
+  },
+  {
+   "id": "F1620",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 478.85
+  },
+  {
+   "id": "F1621",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 259.19
+  },
+  {
+   "id": "F1622",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 356.52
+  },
+  {
+   "id": "F1623",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-07",
+   "price": 97.01
+  },
+  {
+   "id": "F1624",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 266.53
+  },
+  {
+   "id": "F1625",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 117.17
+  },
+  {
+   "id": "F1626",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-03",
+   "price": 218.41
+  },
+  {
+   "id": "F1627",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 296.86
+  },
+  {
+   "id": "F1628",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 137.23
+  },
+  {
+   "id": "F1629",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 476.93
+  },
+  {
+   "id": "F1630",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 219.98
+  },
+  {
+   "id": "F1631",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 385.49
+  },
+  {
+   "id": "F1632",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 359.62
+  },
+  {
+   "id": "F1633",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 254.86
+  },
+  {
+   "id": "F1634",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 479.22
+  },
+  {
+   "id": "F1635",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 418.4
+  },
+  {
+   "id": "F1636",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 250.57
+  },
+  {
+   "id": "F1637",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 61.27
+  },
+  {
+   "id": "F1638",
+   "origin": "Prague",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 333.23
+  },
+  {
+   "id": "F1639",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 232.53
+  },
+  {
+   "id": "F1640",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 156.65
+  },
+  {
+   "id": "F1641",
+   "origin": "Budapest",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 246.11
+  },
+  {
+   "id": "F1642",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 89.99
+  },
+  {
+   "id": "F1643",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 213.55
+  },
+  {
+   "id": "F1644",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 117.56
+  },
+  {
+   "id": "F1645",
+   "origin": "Copenhagen",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 88.43
+  },
+  {
+   "id": "F1646",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 195.15
+  },
+  {
+   "id": "F1647",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 392.38
+  },
+  {
+   "id": "F1648",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-05",
+   "price": 152.76
+  },
+  {
+   "id": "F1649",
+   "origin": "Berlin",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 248.28
+  },
+  {
+   "id": "F1650",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 256.85
+  },
+  {
+   "id": "F1651",
+   "origin": "Berlin",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 115.36
+  },
+  {
+   "id": "F1652",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 378.71
+  },
+  {
+   "id": "F1653",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 191.78
+  },
+  {
+   "id": "F1654",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-07",
+   "price": 479.82
+  },
+  {
+   "id": "F1655",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 362.9
+  },
+  {
+   "id": "F1656",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 126.92
+  },
+  {
+   "id": "F1657",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 331.33
+  },
+  {
+   "id": "F1658",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 421.94
+  },
+  {
+   "id": "F1659",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 148.05
+  },
+  {
+   "id": "F1660",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-08",
+   "price": 63.95
+  },
+  {
+   "id": "F1661",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 295.79
+  },
+  {
+   "id": "F1662",
+   "origin": "Vienna",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 247.23
+  },
+  {
+   "id": "F1663",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 228.19
+  },
+  {
+   "id": "F1664",
+   "origin": "Budapest",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 238.09
+  },
+  {
+   "id": "F1665",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 384.47
+  },
+  {
+   "id": "F1666",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 342.29
+  },
+  {
+   "id": "F1667",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 269.02
+  },
+  {
+   "id": "F1668",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 234.66
+  },
+  {
+   "id": "F1669",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 395.79
+  },
+  {
+   "id": "F1670",
+   "origin": "Lisbon",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 472.87
+  },
+  {
+   "id": "F1671",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 123.6
+  },
+  {
+   "id": "F1672",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 226.7
+  },
+  {
+   "id": "F1673",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 124.79
+  },
+  {
+   "id": "F1674",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-05",
+   "price": 248.71
+  },
+  {
+   "id": "F1675",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 235.84
+  },
+  {
+   "id": "F1676",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 212.59
+  },
+  {
+   "id": "F1677",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-07",
+   "price": 345.74
+  },
+  {
+   "id": "F1678",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 415.06
+  },
+  {
+   "id": "F1679",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 314.14
+  },
+  {
+   "id": "F1680",
+   "origin": "Rome",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 253.55
+  },
+  {
+   "id": "F1681",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-05",
+   "price": 270.2
+  },
+  {
+   "id": "F1682",
+   "origin": "Amsterdam",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 475.81
+  },
+  {
+   "id": "F1683",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-07",
+   "price": 457.31
+  },
+  {
+   "id": "F1684",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 101.65
+  },
+  {
+   "id": "F1685",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 110.21
+  },
+  {
+   "id": "F1686",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 380.51
+  },
+  {
+   "id": "F1687",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 478.31
+  },
+  {
+   "id": "F1688",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 307.63
+  },
+  {
+   "id": "F1689",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 326.61
+  },
+  {
+   "id": "F1690",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 144.67
+  },
+  {
+   "id": "F1691",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 409.79
+  },
+  {
+   "id": "F1692",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 91.07
+  },
+  {
+   "id": "F1693",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 195.04
+  },
+  {
+   "id": "F1694",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 415.27
+  },
+  {
+   "id": "F1695",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 90.65
+  },
+  {
+   "id": "F1696",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 330.27
+  },
+  {
+   "id": "F1697",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 228.34
+  },
+  {
+   "id": "F1698",
+   "origin": "Budapest",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 226.01
+  },
+  {
+   "id": "F1699",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 285.93
+  },
+  {
+   "id": "F1700",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 188.78
+  },
+  {
+   "id": "F1701",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 291.0
+  },
+  {
+   "id": "F1702",
+   "origin": "Prague",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 217.27
+  },
+  {
+   "id": "F1703",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-08",
+   "price": 63.43
+  },
+  {
+   "id": "F1704",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 458.25
+  },
+  {
+   "id": "F1705",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 396.46
+  },
+  {
+   "id": "F1706",
+   "origin": "Berlin",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 159.93
+  },
+  {
+   "id": "F1707",
+   "origin": "Vienna",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 104.5
+  },
+  {
+   "id": "F1708",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 190.02
+  },
+  {
+   "id": "F1709",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 156.61
+  },
+  {
+   "id": "F1710",
+   "origin": "Berlin",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 159.93
+  },
+  {
+   "id": "F1711",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 407.19
+  },
+  {
+   "id": "F1712",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 117.99
+  },
+  {
+   "id": "F1713",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 174.77
+  },
+  {
+   "id": "F1714",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 273.57
+  },
+  {
+   "id": "F1715",
+   "origin": "Berlin",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 466.3
+  },
+  {
+   "id": "F1716",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 380.5
+  },
+  {
+   "id": "F1717",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 474.45
+  },
+  {
+   "id": "F1718",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 109.46
+  },
+  {
+   "id": "F1719",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 441.94
+  },
+  {
+   "id": "F1720",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 371.21
+  },
+  {
+   "id": "F1721",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 349.9
+  },
+  {
+   "id": "F1722",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-05",
+   "price": 137.43
+  },
+  {
+   "id": "F1723",
+   "origin": "Prague",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 390.94
+  },
+  {
+   "id": "F1724",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 124.99
+  },
+  {
+   "id": "F1725",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 213.55
+  },
+  {
+   "id": "F1726",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-03",
+   "price": 212.26
+  },
+  {
+   "id": "F1727",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-03",
+   "price": 181.21
+  },
+  {
+   "id": "F1728",
+   "origin": "Lisbon",
+   "destination": "Budapest",
+   "date": "2026-11-06",
+   "price": 165.25
+  },
+  {
+   "id": "F1729",
+   "origin": "Berlin",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 365.44
+  },
+  {
+   "id": "F1730",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-07",
+   "price": 336.22
+  },
+  {
+   "id": "F1731",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 86.16
+  },
+  {
+   "id": "F1732",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 370.69
+  },
+  {
+   "id": "F1733",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 448.15
+  },
+  {
+   "id": "F1734",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 383.33
+  },
+  {
+   "id": "F1735",
+   "origin": "Budapest",
+   "destination": "Lisbon",
+   "date": "2026-11-05",
+   "price": 309.12
+  },
+  {
+   "id": "F1736",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-03",
+   "price": 271.64
+  },
+  {
+   "id": "F1737",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 296.95
+  },
+  {
+   "id": "F1738",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 353.36
+  },
+  {
+   "id": "F1739",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 97.82
+  },
+  {
+   "id": "F1740",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 338.75
+  },
+  {
+   "id": "F1741",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 158.6
+  },
+  {
+   "id": "F1742",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-03",
+   "price": 234.51
+  },
+  {
+   "id": "F1743",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-08",
+   "price": 138.78
+  },
+  {
+   "id": "F1744",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-08",
+   "price": 335.07
+  },
+  {
+   "id": "F1745",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-07",
+   "price": 181.0
+  },
+  {
+   "id": "F1746",
+   "origin": "Prague",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 443.56
+  },
+  {
+   "id": "F1747",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 172.73
+  },
+  {
+   "id": "F1748",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-04",
+   "price": 270.33
+  },
+  {
+   "id": "F1749",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-06",
+   "price": 93.17
+  },
+  {
+   "id": "F1750",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-03",
+   "price": 348.98
+  },
+  {
+   "id": "F1751",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 469.17
+  },
+  {
+   "id": "F1752",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 432.88
+  },
+  {
+   "id": "F1753",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 293.93
+  },
+  {
+   "id": "F1754",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 410.68
+  },
+  {
+   "id": "F1755",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 418.4
+  },
+  {
+   "id": "F1756",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 162.0
+  },
+  {
+   "id": "F1757",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 388.72
+  },
+  {
+   "id": "F1758",
+   "origin": "Vienna",
+   "destination": "Lisbon",
+   "date": "2026-11-05",
+   "price": 70.32
+  },
+  {
+   "id": "F1759",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 234.97
+  },
+  {
+   "id": "F1760",
+   "origin": "Lisbon",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 449.48
+  },
+  {
+   "id": "F1761",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 133.58
+  },
+  {
+   "id": "F1762",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 242.27
+  },
+  {
+   "id": "F1763",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 346.1
+  },
+  {
+   "id": "F1764",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 350.01
+  },
+  {
+   "id": "F1765",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 321.77
+  },
+  {
+   "id": "F1766",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-04",
+   "price": 200.01
+  },
+  {
+   "id": "F1767",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 323.26
+  },
+  {
+   "id": "F1768",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 297.85
+  },
+  {
+   "id": "F1769",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 103.47
+  },
+  {
+   "id": "F1770",
+   "origin": "Budapest",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 107.8
+  },
+  {
+   "id": "F1771",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 221.11
+  },
+  {
+   "id": "F1772",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 187.19
+  },
+  {
+   "id": "F1773",
+   "origin": "Rome",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 117.75
+  },
+  {
+   "id": "F1774",
+   "origin": "Amsterdam",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 145.49
+  },
+  {
+   "id": "F1775",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 466.43
+  },
+  {
+   "id": "F1776",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 98.5
+  },
+  {
+   "id": "F1777",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 136.23
+  },
+  {
+   "id": "F1778",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 180.17
+  },
+  {
+   "id": "F1779",
+   "origin": "Vienna",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 108.75
+  },
+  {
+   "id": "F1780",
+   "origin": "Prague",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 426.36
+  },
+  {
+   "id": "F1781",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-05",
+   "price": 127.33
+  },
+  {
+   "id": "F1782",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 356.2
+  },
+  {
+   "id": "F1783",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 284.13
+  },
+  {
+   "id": "F1784",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-02",
+   "price": 449.95
+  },
+  {
+   "id": "F1785",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 282.99
+  },
+  {
+   "id": "F1786",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 238.71
+  },
+  {
+   "id": "F1787",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-07",
+   "price": 80.05
+  },
+  {
+   "id": "F1788",
+   "origin": "Prague",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 334.21
+  },
+  {
+   "id": "F1789",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 144.07
+  },
+  {
+   "id": "F1790",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 466.65
+  },
+  {
+   "id": "F1791",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-08",
+   "price": 180.01
+  },
+  {
+   "id": "F1792",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 145.4
+  },
+  {
+   "id": "F1793",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 198.52
+  },
+  {
+   "id": "F1794",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 180.17
+  },
+  {
+   "id": "F1795",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-07",
+   "price": 341.6
+  },
+  {
+   "id": "F1796",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 160.94
+  },
+  {
+   "id": "F1797",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 466.95
+  },
+  {
+   "id": "F1798",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 193.0
+  },
+  {
+   "id": "F1799",
+   "origin": "Amsterdam",
+   "destination": "Rome",
+   "date": "2026-11-03",
+   "price": 244.01
+  },
+  {
+   "id": "F1800",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 298.01
+  },
+  {
+   "id": "F1801",
+   "origin": "Rome",
+   "destination": "Lisbon",
+   "date": "2026-11-02",
+   "price": 405.07
+  },
+  {
+   "id": "F1802",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 157.86
+  },
+  {
+   "id": "F1803",
+   "origin": "Prague",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 231.72
+  },
+  {
+   "id": "F1804",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 256.57
+  },
+  {
+   "id": "F1805",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-05",
+   "price": 462.09
+  },
+  {
+   "id": "F1806",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 363.07
+  },
+  {
+   "id": "F1807",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-03",
+   "price": 305.15
+  },
+  {
+   "id": "F1808",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-03",
+   "price": 140.64
+  },
+  {
+   "id": "F1809",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-02",
+   "price": 238.56
+  },
+  {
+   "id": "F1810",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 172.73
+  },
+  {
+   "id": "F1811",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 132.74
+  },
+  {
+   "id": "F1812",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 156.5
+  },
+  {
+   "id": "F1813",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 76.44
+  },
+  {
+   "id": "F1814",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 226.14
+  },
+  {
+   "id": "F1815",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 464.89
+  },
+  {
+   "id": "F1816",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-03",
+   "price": 318.3
+  },
+  {
+   "id": "F1817",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 140.75
+  },
+  {
+   "id": "F1818",
+   "origin": "Rome",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 123.43
+  },
+  {
+   "id": "F1819",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-03",
+   "price": 241.39
+  },
+  {
+   "id": "F1820",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-02",
+   "price": 91.02
+  },
+  {
+   "id": "F1821",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 236.33
+  },
+  {
+   "id": "F1822",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-03",
+   "price": 443.09
+  },
+  {
+   "id": "F1823",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 120.56
+  },
+  {
+   "id": "F1824",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 104.93
+  },
+  {
+   "id": "F1825",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 70.51
+  },
+  {
+   "id": "F1826",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 175.9
+  },
+  {
+   "id": "F1827",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 293.17
+  },
+  {
+   "id": "F1828",
+   "origin": "Copenhagen",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 223.99
+  },
+  {
+   "id": "F1829",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 476.09
+  },
+  {
+   "id": "F1830",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-08",
+   "price": 438.51
+  },
+  {
+   "id": "F1831",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-04",
+   "price": 268.04
+  },
+  {
+   "id": "F1832",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 176.13
+  },
+  {
+   "id": "F1833",
+   "origin": "Copenhagen",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 216.79
+  },
+  {
+   "id": "F1834",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 302.54
+  },
+  {
+   "id": "F1835",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-03",
+   "price": 394.64
+  },
+  {
+   "id": "F1836",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 360.97
+  },
+  {
+   "id": "F1837",
+   "origin": "Amsterdam",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 182.33
+  },
+  {
+   "id": "F1838",
+   "origin": "Amsterdam",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 356.92
+  },
+  {
+   "id": "F1839",
+   "origin": "Prague",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 346.75
+  },
+  {
+   "id": "F1840",
+   "origin": "Prague",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 259.79
+  },
+  {
+   "id": "F1841",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-03",
+   "price": 206.74
+  },
+  {
+   "id": "F1842",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 322.92
+  },
+  {
+   "id": "F1843",
+   "origin": "Copenhagen",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 214.29
+  },
+  {
+   "id": "F1844",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 117.9
+  },
+  {
+   "id": "F1845",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 120.55
+  },
+  {
+   "id": "F1846",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-03",
+   "price": 218.41
+  },
+  {
+   "id": "F1847",
+   "origin": "Lisbon",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 241.7
+  },
+  {
+   "id": "F1848",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-07",
+   "price": 162.19
+  },
+  {
+   "id": "F1849",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 312.17
+  },
+  {
+   "id": "F1850",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 347.46
+  },
+  {
+   "id": "F1851",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 219.69
+  },
+  {
+   "id": "F1852",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 319.29
+  },
+  {
+   "id": "F1853",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 425.42
+  },
+  {
+   "id": "F1854",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 158.62
+  },
+  {
+   "id": "F1855",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 363.41
+  },
+  {
+   "id": "F1856",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 270.84
+  },
+  {
+   "id": "F1857",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 124.74
+  },
+  {
+   "id": "F1858",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-03",
+   "price": 125.08
+  },
+  {
+   "id": "F1859",
+   "origin": "Lisbon",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 211.58
+  },
+  {
+   "id": "F1860",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 157.38
+  },
+  {
+   "id": "F1861",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 313.56
+  },
+  {
+   "id": "F1862",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 214.87
+  },
+  {
+   "id": "F1863",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 475.42
+  },
+  {
+   "id": "F1864",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 460.94
+  },
+  {
+   "id": "F1865",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 73.26
+  },
+  {
+   "id": "F1866",
+   "origin": "Copenhagen",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 222.49
+  },
+  {
+   "id": "F1867",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-07",
+   "price": 379.98
+  },
+  {
+   "id": "F1868",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-06",
+   "price": 266.22
+  },
+  {
+   "id": "F1869",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 280.71
+  },
+  {
+   "id": "F1870",
+   "origin": "Rome",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 88.55
+  },
+  {
+   "id": "F1871",
+   "origin": "Rome",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 453.22
+  },
+  {
+   "id": "F1872",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 259.96
+  },
+  {
+   "id": "F1873",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 164.27
+  },
+  {
+   "id": "F1874",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 77.77
+  },
+  {
+   "id": "F1875",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 93.15
+  },
+  {
+   "id": "F1876",
+   "origin": "Copenhagen",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 280.94
+  },
+  {
+   "id": "F1877",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 437.63
+  },
+  {
+   "id": "F1878",
+   "origin": "Prague",
+   "destination": "Budapest",
+   "date": "2026-11-08",
+   "price": 63.89
+  },
+  {
+   "id": "F1879",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 341.41
+  },
+  {
+   "id": "F1880",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 151.52
+  },
+  {
+   "id": "F1881",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 443.69
+  },
+  {
+   "id": "F1882",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 78.35
+  },
+  {
+   "id": "F1883",
+   "origin": "Amsterdam",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 190.52
+  },
+  {
+   "id": "F1884",
+   "origin": "Rome",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 238.13
+  },
+  {
+   "id": "F1885",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 185.95
+  },
+  {
+   "id": "F1886",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 280.18
+  },
+  {
+   "id": "F1887",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 341.46
+  },
+  {
+   "id": "F1888",
+   "origin": "Copenhagen",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 299.68
+  },
+  {
+   "id": "F1889",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 345.14
+  },
+  {
+   "id": "F1890",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 271.22
+  },
+  {
+   "id": "F1891",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-03",
+   "price": 305.15
+  },
+  {
+   "id": "F1892",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 366.44
+  },
+  {
+   "id": "F1893",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 185.9
+  },
+  {
+   "id": "F1894",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 235.66
+  },
+  {
+   "id": "F1895",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-03",
+   "price": 373.64
+  },
+  {
+   "id": "F1896",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-03",
+   "price": 194.91
+  },
+  {
+   "id": "F1897",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 67.66
+  },
+  {
+   "id": "F1898",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 233.59
+  },
+  {
+   "id": "F1899",
+   "origin": "Rome",
+   "destination": "Lisbon",
+   "date": "2026-11-05",
+   "price": 280.06
+  },
+  {
+   "id": "F1900",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-03",
+   "price": 142.77
+  },
+  {
+   "id": "F1901",
+   "origin": "Vienna",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 456.05
+  },
+  {
+   "id": "F1902",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 371.33
+  },
+  {
+   "id": "F1903",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 133.79
+  },
+  {
+   "id": "F1904",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 195.91
+  },
+  {
+   "id": "F1905",
+   "origin": "Berlin",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 72.16
+  },
+  {
+   "id": "F1906",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 252.38
+  },
+  {
+   "id": "F1907",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 467.38
+  },
+  {
+   "id": "F1908",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-05",
+   "price": 261.18
+  },
+  {
+   "id": "F1909",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 128.25
+  },
+  {
+   "id": "F1910",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 425.27
+  },
+  {
+   "id": "F1911",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 163.54
+  },
+  {
+   "id": "F1912",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-07",
+   "price": 352.84
+  },
+  {
+   "id": "F1913",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 306.32
+  },
+  {
+   "id": "F1914",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 103.38
+  },
+  {
+   "id": "F1915",
+   "origin": "Copenhagen",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 457.79
+  },
+  {
+   "id": "F1916",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 403.72
+  },
+  {
+   "id": "F1917",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 90.67
+  },
+  {
+   "id": "F1918",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 93.73
+  },
+  {
+   "id": "F1919",
+   "origin": "Amsterdam",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 154.37
+  },
+  {
+   "id": "F1920",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-02",
+   "price": 109.27
+  },
+  {
+   "id": "F1921",
+   "origin": "Prague",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 291.15
+  },
+  {
+   "id": "F1922",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 389.09
+  },
+  {
+   "id": "F1923",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-04",
+   "price": 70.88
+  },
+  {
+   "id": "F1924",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 401.53
+  },
+  {
+   "id": "F1925",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 433.0
+  },
+  {
+   "id": "F1926",
+   "origin": "Vienna",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 394.42
+  },
+  {
+   "id": "F1927",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-02",
+   "price": 414.97
+  },
+  {
+   "id": "F1928",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-04",
+   "price": 276.72
+  },
+  {
+   "id": "F1929",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 128.25
+  },
+  {
+   "id": "F1930",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 355.54
+  },
+  {
+   "id": "F1931",
+   "origin": "Vienna",
+   "destination": "Lisbon",
+   "date": "2026-11-08",
+   "price": 363.24
+  },
+  {
+   "id": "F1932",
+   "origin": "Lisbon",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 189.9
+  },
+  {
+   "id": "F1933",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 380.82
+  },
+  {
+   "id": "F1934",
+   "origin": "Vienna",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 136.88
+  },
+  {
+   "id": "F1935",
+   "origin": "Lisbon",
+   "destination": "Berlin",
+   "date": "2026-11-03",
+   "price": 110.97
+  },
+  {
+   "id": "F1936",
+   "origin": "Vienna",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 142.13
+  },
+  {
+   "id": "F1937",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 85.16
+  },
+  {
+   "id": "F1938",
+   "origin": "Amsterdam",
+   "destination": "Lisbon",
+   "date": "2026-11-04",
+   "price": 187.72
+  },
+  {
+   "id": "F1939",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 98.83
+  },
+  {
+   "id": "F1940",
+   "origin": "Vienna",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 233.8
+  },
+  {
+   "id": "F1941",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-02",
+   "price": 464.07
+  },
+  {
+   "id": "F1942",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 186.92
+  },
+  {
+   "id": "F1943",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 302.54
+  },
+  {
+   "id": "F1944",
+   "origin": "Berlin",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 264.94
+  },
+  {
+   "id": "F1945",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 118.71
+  },
+  {
+   "id": "F1946",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 301.42
+  },
+  {
+   "id": "F1947",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 82.37
+  },
+  {
+   "id": "F1948",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 305.08
+  },
+  {
+   "id": "F1949",
+   "origin": "Lisbon",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 270.03
+  },
+  {
+   "id": "F1950",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-08",
+   "price": 176.9
+  },
+  {
+   "id": "F1951",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 100.45
+  },
+  {
+   "id": "F1952",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-07",
+   "price": 422.98
+  },
+  {
+   "id": "F1953",
+   "origin": "Prague",
+   "destination": "Budapest",
+   "date": "2026-11-05",
+   "price": 411.79
+  },
+  {
+   "id": "F1954",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 268.9
+  },
+  {
+   "id": "F1955",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-03",
+   "price": 122.94
+  },
+  {
+   "id": "F1956",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 261.35
+  },
+  {
+   "id": "F1957",
+   "origin": "Berlin",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 478.29
+  },
+  {
+   "id": "F1958",
+   "origin": "Berlin",
+   "destination": "Vienna",
+   "date": "2026-11-02",
+   "price": 286.89
+  },
+  {
+   "id": "F1959",
+   "origin": "Rome",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 425.18
+  },
+  {
+   "id": "F1960",
+   "origin": "Rome",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 161.08
+  },
+  {
+   "id": "F1961",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 352.95
+  },
+  {
+   "id": "F1962",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-07",
+   "price": 162.15
+  },
+  {
+   "id": "F1963",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-05",
+   "price": 67.98
+  },
+  {
+   "id": "F1964",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-08",
+   "price": 211.95
+  },
+  {
+   "id": "F1965",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 226.59
+  },
+  {
+   "id": "F1966",
+   "origin": "Rome",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 402.39
+  },
+  {
+   "id": "F1967",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-06",
+   "price": 296.77
+  },
+  {
+   "id": "F1968",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-06",
+   "price": 354.75
+  },
+  {
+   "id": "F1969",
+   "origin": "Copenhagen",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 182.33
+  },
+  {
+   "id": "F1970",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 129.03
+  },
+  {
+   "id": "F1971",
+   "origin": "Rome",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 297.66
+  },
+  {
+   "id": "F1972",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 62.56
+  },
+  {
+   "id": "F1973",
+   "origin": "Berlin",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 212.06
+  },
+  {
+   "id": "F1974",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-08",
+   "price": 287.29
+  },
+  {
+   "id": "F1975",
+   "origin": "Prague",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 316.23
+  },
+  {
+   "id": "F1976",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 66.81
+  },
+  {
+   "id": "F1977",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 85.94
+  },
+  {
+   "id": "F1978",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-03",
+   "price": 258.33
+  },
+  {
+   "id": "F1979",
+   "origin": "Copenhagen",
+   "destination": "Budapest",
+   "date": "2026-11-06",
+   "price": 442.41
+  },
+  {
+   "id": "F1980",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 454.4
+  },
+  {
+   "id": "F1981",
+   "origin": "Lisbon",
+   "destination": "Budapest",
+   "date": "2026-11-02",
+   "price": 291.55
+  },
+  {
+   "id": "F1982",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-06",
+   "price": 290.5
+  },
+  {
+   "id": "F1983",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 109.65
+  },
+  {
+   "id": "F1984",
+   "origin": "Prague",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 248.39
+  },
+  {
+   "id": "F1985",
+   "origin": "Amsterdam",
+   "destination": "Copenhagen",
+   "date": "2026-11-04",
+   "price": 457.99
+  },
+  {
+   "id": "F1986",
+   "origin": "Prague",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 382.97
+  },
+  {
+   "id": "F1987",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 255.72
+  },
+  {
+   "id": "F1988",
+   "origin": "Lisbon",
+   "destination": "Berlin",
+   "date": "2026-11-07",
+   "price": 90.98
+  },
+  {
+   "id": "F1989",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 195.04
+  },
+  {
+   "id": "F1990",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 397.18
+  },
+  {
+   "id": "F1991",
+   "origin": "Lisbon",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 248.99
+  },
+  {
+   "id": "F1992",
+   "origin": "Rome",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 161.08
+  },
+  {
+   "id": "F1993",
+   "origin": "Budapest",
+   "destination": "Amsterdam",
+   "date": "2026-11-08",
+   "price": 227.47
+  },
+  {
+   "id": "F1994",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 199.62
+  },
+  {
+   "id": "F1995",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 120.34
+  },
+  {
+   "id": "F1996",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-07",
+   "price": 263.42
+  },
+  {
+   "id": "F1997",
+   "origin": "Lisbon",
+   "destination": "Amsterdam",
+   "date": "2026-11-04",
+   "price": 192.04
+  },
+  {
+   "id": "F1998",
+   "origin": "Lisbon",
+   "destination": "Budapest",
+   "date": "2026-11-04",
+   "price": 187.73
+  },
+  {
+   "id": "F1999",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 208.07
+  },
+  {
+   "id": "F2000",
+   "origin": "Prague",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 153.53
+  },
+  {
+   "id": "F2001",
+   "origin": "Rome",
+   "destination": "Amsterdam",
+   "date": "2026-11-05",
+   "price": 318.27
+  },
+  {
+   "id": "F2002",
+   "origin": "Prague",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 250.44
+  },
+  {
+   "id": "F2003",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 186.88
+  },
+  {
+   "id": "F2004",
+   "origin": "Copenhagen",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 78.28
+  },
+  {
+   "id": "F2005",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 376.84
+  },
+  {
+   "id": "F2006",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-06",
+   "price": 175.28
+  },
+  {
+   "id": "F2007",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 380.29
+  },
+  {
+   "id": "F2008",
+   "origin": "Lisbon",
+   "destination": "Berlin",
+   "date": "2026-11-05",
+   "price": 114.5
+  },
+  {
+   "id": "F2009",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-04",
+   "price": 175.87
+  },
+  {
+   "id": "F2010",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-04",
+   "price": 400.94
+  },
+  {
+   "id": "F2011",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 123.73
+  },
+  {
+   "id": "F2012",
+   "origin": "Budapest",
+   "destination": "Copenhagen",
+   "date": "2026-11-02",
+   "price": 317.7
+  },
+  {
+   "id": "F2013",
+   "origin": "Berlin",
+   "destination": "Rome",
+   "date": "2026-11-02",
+   "price": 349.92
+  },
+  {
+   "id": "F2014",
+   "origin": "Prague",
+   "destination": "Vienna",
+   "date": "2026-11-05",
+   "price": 445.19
+  },
+  {
+   "id": "F2015",
+   "origin": "Rome",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 137.23
+  },
+  {
+   "id": "F2016",
+   "origin": "Amsterdam",
+   "destination": "Budapest",
+   "date": "2026-11-07",
+   "price": 302.35
+  },
+  {
+   "id": "F2017",
+   "origin": "Lisbon",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 289.14
+  },
+  {
+   "id": "F2018",
+   "origin": "Amsterdam",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 108.69
+  },
+  {
+   "id": "F2019",
+   "origin": "Berlin",
+   "destination": "Copenhagen",
+   "date": "2026-11-05",
+   "price": 184.0
+  },
+  {
+   "id": "F2020",
+   "origin": "Copenhagen",
+   "destination": "Vienna",
+   "date": "2026-11-03",
+   "price": 194.91
+  },
+  {
+   "id": "F2021",
+   "origin": "Copenhagen",
+   "destination": "Lisbon",
+   "date": "2026-11-07",
+   "price": 186.48
+  },
+  {
+   "id": "F2022",
+   "origin": "Rome",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 118.78
+  },
+  {
+   "id": "F2023",
+   "origin": "Prague",
+   "destination": "Copenhagen",
+   "date": "2026-11-07",
+   "price": 341.09
+  },
+  {
+   "id": "F2024",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-08",
+   "price": 142.4
+  },
+  {
+   "id": "F2025",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-02",
+   "price": 69.49
+  },
+  {
+   "id": "F2026",
+   "origin": "Rome",
+   "destination": "Copenhagen",
+   "date": "2026-11-03",
+   "price": 355.58
+  },
+  {
+   "id": "F2027",
+   "origin": "Vienna",
+   "destination": "Prague",
+   "date": "2026-11-05",
+   "price": 462.55
+  },
+  {
+   "id": "F2028",
+   "origin": "Rome",
+   "destination": "Amsterdam",
+   "date": "2026-11-02",
+   "price": 362.02
+  },
+  {
+   "id": "F2029",
+   "origin": "Copenhagen",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 355.19
+  },
+  {
+   "id": "F2030",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-02",
+   "price": 259.19
+  },
+  {
+   "id": "F2031",
+   "origin": "Vienna",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 104.5
+  },
+  {
+   "id": "F2032",
+   "origin": "Amsterdam",
+   "destination": "Berlin",
+   "date": "2026-11-08",
+   "price": 310.65
+  },
+  {
+   "id": "F2033",
+   "origin": "Prague",
+   "destination": "Lisbon",
+   "date": "2026-11-03",
+   "price": 86.09
+  },
+  {
+   "id": "F2034",
+   "origin": "Amsterdam",
+   "destination": "Vienna",
+   "date": "2026-11-06",
+   "price": 202.75
+  },
+  {
+   "id": "F2035",
+   "origin": "Vienna",
+   "destination": "Amsterdam",
+   "date": "2026-11-07",
+   "price": 455.28
+  },
+  {
+   "id": "F2036",
+   "origin": "Lisbon",
+   "destination": "Vienna",
+   "date": "2026-11-04",
+   "price": 466.17
+  },
+  {
+   "id": "F2037",
+   "origin": "Budapest",
+   "destination": "Vienna",
+   "date": "2026-11-08",
+   "price": 445.53
+  },
+  {
+   "id": "F2038",
+   "origin": "Budapest",
+   "destination": "Berlin",
+   "date": "2026-11-06",
+   "price": 424.6
+  },
+  {
+   "id": "F2039",
+   "origin": "Lisbon",
+   "destination": "Prague",
+   "date": "2026-11-03",
+   "price": 111.46
+  },
+  {
+   "id": "F2040",
+   "origin": "Vienna",
+   "destination": "Lisbon",
+   "date": "2026-11-07",
+   "price": 204.09
+  },
+  {
+   "id": "F2041",
+   "origin": "Budapest",
+   "destination": "Prague",
+   "date": "2026-11-06",
+   "price": 458.0
+  },
+  {
+   "id": "F2042",
+   "origin": "Budapest",
+   "destination": "Rome",
+   "date": "2026-11-05",
+   "price": 134.4
+  }
+ ]
+}

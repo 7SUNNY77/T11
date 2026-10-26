@@ -1,0 +1,55 @@
+{
+ "run_id": "v2_contract_stale_A0_T01_r0_b2b8962bfd",
+ "view": "full",
+ "api_version": "v2_contract_stale",
+ "awareness": "A0",
+ "task_id": "T01",
+ "gold_kind": "pairs",
+ "fail_reason": "false_no_option",
+ "truth": {
+  "status": "ok",
+  "agent": "executor",
+  "drift_entry_step": 2,
+  "agent_error_step": 2,
+  "rule": "rejected_call",
+  "trigger": "output_renamed+tool_error"
+ },
+ "judge": {
+  "view": "full",
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "temperature": 0.0,
+  "reasoning_effort": "low",
+  "json_mode": true,
+  "prompt_version": "j1",
+  "max_items": 5,
+  "max_text": 1500,
+  "token_budget": 3000
+ },
+ "judged_at": "2026-10-23T19:36:01+00:00",
+ "input_text": "ЗАПРОС ПОЛЬЗОВАТЕЛЯ:\nНайди самый дешёвый вариант отель + перелёт из Lisbon в Vienna на 2026-11-02, 4 ночи, бюджет 409 USD\n\nЭТАЛОННЫЙ ОТВЕТ (прогон провален: финальный ответ системы с эталоном не совпал):\nhotel_id=H115, flight_id=F1597, total_usd=367.63 USD\n\nШАГИ:\n[шаг 1] planner → план:\n{\"origin\": \"Lisbon\", \"destination\": \"Vienna\", \"date\": \"2026-11-02\", \"nights\": 4, \"budget_usd\": 409, \"goal\": \"Find the cheapest flight and hotel package\", \"steps\": [\"Search for flights from Lisbon to Vienna on 2026-11-02\", \"Search for hotels in Vienna for 4 nights starting 2026-11-02\", \"Combine flight and hotel options to fit within the 409 USD budget\", \"Select the cheapest available combination\"]}\n\n[шаг 2] executor → вызывает инструменты:\n  search_flights({\"destination\":\"Vienna\",\"origin\":\"Lisbon\",\"date\":\"2026-11-02\"})\n    ответ: список из 4 элементов:\n      {\"id\": \"F1597\", \"origin\": \"Lisbon\", \"destination\": \"Vienna\", \"date\": \"2026-11-02\", \"price_total\": 185.91}\n      {\"id\": \"F1059\", \"origin\": \"Lisbon\", \"destination\": \"Vienna\", \"date\": \"2026-11-02\", \"price_total\": 214.71}\n      {\"id\": \"F1394\", \"origin\": \"Lisbon\", \"destination\": \"Vienna\", \"date\": \"2026-11-02\", \"price_total\": 357.67}\n      {\"id\": \"F1578\", \"origin\": \"Lisbon\", \"destination\": \"Vienna\", \"date\": \"2026-11-02\", \"price_total\": 402.61}\n  search_hotels({\"city\":\"Vienna\",\"nights\":4})\n    ответ: ОШИБКА {\"error\": \"Unprocessable Entity\", \"status\": 422, \"detail\": [{\"type\": \"missing\", \"loc\": [\"body\", \"num_nights\"], \"msg\": \"Field required\"}, {\"type\": \"extra_forbidden\", \"loc\": [\"body\", \"nights\"], \"msg\": \"Extra inputs are not permitted\", \"input\": 4}]}\n\n[шаг 3] executor → вызывает инструменты:\n  search_hotels({\"nights\":4,\"max_results\":10,\"city\":\"Vienna\"})\n    ответ: ОШИБКА {\"error\": \"Unprocessable Entity\", \"status\": 422, \"detail\": [{\"type\": \"missing\", \"loc\": [\"body\", \"num_nights\"], \"msg\": \"Field required\"}, {\"type\": \"extra_forbidden\", \"loc\": [\"body\", \"nights\"], \"msg\": \"Extra inputs are not permitted\", \"input\": 4}]}\n\n[шаг 4] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Vienna\"})\n    ответ: ОШИБКА {\"error\": \"Unprocessable Entity\", \"status\": 422, \"detail\": [{\"type\": \"missing\", \"loc\": [\"body\", \"num_nights\"], \"msg\": \"Field required\"}]}\n\n[шаг 5] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Vienna\"})\n    ответ: ОШИБКА {\"error\": \"Unprocessable Entity\", \"status\": 422, \"detail\": [{\"type\": \"missing\", \"loc\": [\"body\", \"num_nights\"], \"msg\": \"Field required\"}]}\n\n[шаг 6] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Vienna\"})\n    ответ: ОШИБКА {\"error\": \"Unprocessable Entity\", \"status\": 422, \"detail\": [{\"type\": \"missing\", \"loc\": [\"body\", \"num_nights\"], \"msg\": \"Field required\"}]}\n\n[шаг 7] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Vienna\"})\n    ответ: ОШИБКА {\"error\": \"Unprocessable Entity\", \"status\": 422, \"detail\": [{\"type\": \"missing\", \"loc\": [\"body\", \"num_nights\"], \"msg\": \"Field required\"}]}\n\n[шаг 8] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Vienna\"})\n    ответ: ОШИБКА {\"error\": \"Unprocessable Entity\", \"status\": 422, \"detail\": [{\"type\": \"missing\", \"loc\": [\"body\", \"num_nights\"], \"msg\": \"Field required\"}]}\n\n[шаг 9] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Vienna\"})\n    ответ: ОШИБКА {\"error\": \"Unprocessable Entity\", \"status\": 422, \"detail\": [{\"type\": \"missing\", \"loc\": [\"body\", \"num_nights\"], \"msg\": \"Field required\"}]}\n\n[система] executor исчерпал лимит шагов и не сформировал отчёт; verifier получил сообщение об этом вместо отчёта.\n\n[шаг 10] verifier → ответ:\n{\"no_option\": true}\n\nФИНАЛЬНЫЙ ОТВЕТ СИСТЕМЫ:\n{\"no_option\": true}",
+ "input_chars": 3581,
+ "input_est_tokens": 1119,
+ "input_text_limit": 1500,
+ "input_leaks": [],
+ "response": "{\"blamed_agent\":\"executor\",\"blamed_step\":2,\"error_category\":\"wrong_tool_call\",\"root_cause\":\"Executor called search_hotels with parameter 'nights' instead of required 'num_nights', causing repeated 422 errors and no hotel data.\",\"confidence\":0.97}",
+ "message_extra": {
+  "reasoning": "We need earliest error causing failure. The executor repeatedly called search_hotels with wrong param name; correct param is num_nights. The first wrong call at step2: used \"nights\":4 instead of required \"num_nights\". That's wrong_tool_call. That's earliest. So blame executor step2."
+ },
+ "usage": {
+  "prompt_tokens": 1772,
+  "completion_tokens": 131,
+  "reasoning_tokens": 63,
+  "provider_total_tokens": 1903
+ },
+ "latency_s": 1.029,
+ "cached": true,
+ "verdict": {
+  "blamed_agent": "executor",
+  "blamed_step": 2,
+  "error_category": "wrong_tool_call",
+  "root_cause": "Executor called search_hotels with parameter 'nights' instead of required 'num_nights', causing repeated 422 errors and no hotel data.",
+  "confidence": 0.97
+ },
+ "parse_error": null
+}

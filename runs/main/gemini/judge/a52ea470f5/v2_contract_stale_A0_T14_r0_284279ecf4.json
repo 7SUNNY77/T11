@@ -1,0 +1,55 @@
+{
+ "run_id": "v2_contract_stale_A0_T14_r0_284279ecf4",
+ "view": "full",
+ "api_version": "v2_contract_stale",
+ "awareness": "A0",
+ "task_id": "T14",
+ "gold_kind": "pairs",
+ "fail_reason": "false_no_option",
+ "truth": {
+  "status": "ok",
+  "agent": "executor",
+  "drift_entry_step": 2,
+  "agent_error_step": 2,
+  "rule": "rejected_call",
+  "trigger": "output_renamed+tool_error"
+ },
+ "judge": {
+  "view": "full",
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "temperature": 0.0,
+  "reasoning_effort": "low",
+  "json_mode": true,
+  "prompt_version": "j1",
+  "max_items": 5,
+  "max_text": 1500,
+  "token_budget": 3000
+ },
+ "judged_at": "2026-10-23T19:37:29+00:00",
+ "input_text": "ЗАПРОС ПОЛЬЗОВАТЕЛЯ:\nНайди самый дешёвый вариант отель + перелёт из Lisbon в Amsterdam на 2026-11-07, 7 ночей, бюджет 552 USD\n\nЭТАЛОННЫЙ ОТВЕТ (прогон провален: финальный ответ системы с эталоном не совпал):\nhotel_id=H154, flight_id=F1020, total_usd=474.82 USD\n\nШАГИ:\n[шаг 1] planner → план:\n{\"origin\": \"Lisbon\", \"destination\": \"Amsterdam\", \"date\": \"2026-11-07\", \"nights\": 7, \"budget_usd\": 552, \"goal\": \"Find the cheapest flight and hotel package\", \"steps\": [\"Search flights from Lisbon to Amsterdam for 2026-11-07\", \"Search hotels in Amsterdam for 7 nights starting 2026-11-07\", \"Combine and filter options within the 552 USD budget\"]}\n\n[шаг 2] executor → вызывает инструменты:\n  search_flights({\"destination\":\"Amsterdam\",\"origin\":\"Lisbon\",\"date\":\"2026-11-07\"})\n    ответ: список из 4 элементов:\n      {\"id\": \"F1020\", \"origin\": \"Lisbon\", \"destination\": \"Amsterdam\", \"date\": \"2026-11-07\", \"price_total\": 132.52}\n      {\"id\": \"F1632\", \"origin\": \"Lisbon\", \"destination\": \"Amsterdam\", \"date\": \"2026-11-07\", \"price_total\": 359.62}\n      {\"id\": \"F1114\", \"origin\": \"Lisbon\", \"destination\": \"Amsterdam\", \"date\": \"2026-11-07\", \"price_total\": 400.42}\n      {\"id\": \"F1620\", \"origin\": \"Lisbon\", \"destination\": \"Amsterdam\", \"date\": \"2026-11-07\", \"price_total\": 478.85}\n  search_hotels({\"nights\":7,\"city\":\"Amsterdam\"})\n    ответ: ОШИБКА {\"error\": \"Unprocessable Entity\", \"status\": 422, \"detail\": [{\"type\": \"missing\", \"loc\": [\"body\", \"num_nights\"], \"msg\": \"Field required\"}, {\"type\": \"extra_forbidden\", \"loc\": [\"body\", \"nights\"], \"msg\": \"Extra inputs are not permitted\", \"input\": 7}]}\n\n[шаг 3] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Amsterdam\",\"nights\":7,\"max_results\":10})\n    ответ: ОШИБКА {\"error\": \"Unprocessable Entity\", \"status\": 422, \"detail\": [{\"type\": \"missing\", \"loc\": [\"body\", \"num_nights\"], \"msg\": \"Field required\"}, {\"type\": \"extra_forbidden\", \"loc\": [\"body\", \"nights\"], \"msg\": \"Extra inputs are not permitted\", \"input\": 7}]}\n\n[шаг 4] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Amsterdam\"})\n    ответ: ОШИБКА {\"error\": \"Unprocessable Entity\", \"status\": 422, \"detail\": [{\"type\": \"missing\", \"loc\": [\"body\", \"num_nights\"], \"msg\": \"Field required\"}]}\n\n[шаг 5] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Amsterdam\",\"nights\":7})\n    ответ: ОШИБКА {\"error\": \"Unprocessable Entity\", \"status\": 422, \"detail\": [{\"type\": \"missing\", \"loc\": [\"body\", \"num_nights\"], \"msg\": \"Field required\"}, {\"type\": \"extra_forbidden\", \"loc\": [\"body\", \"nights\"], \"msg\": \"Extra inputs are not permitted\", \"input\": 7}]}\n\n[шаг 6] executor → отчёт для verifier:\n\n\n[шаг 7] verifier → ответ:\n{\"no_option\": true}\n\nФИНАЛЬНЫЙ ОТВЕТ СИСТЕМЫ:\n{\"no_option\": true}",
+ "input_chars": 2669,
+ "input_est_tokens": 834,
+ "input_text_limit": 1500,
+ "input_leaks": [],
+ "response": "{\"blamed_agent\":\"executor\",\"blamed_step\":2,\"error_category\":\"wrong_tool_call\",\"root_cause\":\"Executor called search_hotels with parameter 'nights' instead of required 'num_nights', causing repeated 422 errors and no hotel options.\",\"confidence\":0.97}",
+ "message_extra": {
+  "reasoning": "We need earliest error causing failure. The executor never got hotel data due to wrong parameter name. Should use num_nights not nights. So wrong_tool_call at step 2 (first hotel call). That's earliest."
+ },
+ "usage": {
+  "prompt_tokens": 1484,
+  "completion_tokens": 112,
+  "reasoning_tokens": 44,
+  "provider_total_tokens": 1596
+ },
+ "latency_s": 0.71,
+ "cached": false,
+ "verdict": {
+  "blamed_agent": "executor",
+  "blamed_step": 2,
+  "error_category": "wrong_tool_call",
+  "root_cause": "Executor called search_hotels with parameter 'nights' instead of required 'num_nights', causing repeated 422 errors and no hotel options.",
+  "confidence": 0.97
+ },
+ "parse_error": null
+}

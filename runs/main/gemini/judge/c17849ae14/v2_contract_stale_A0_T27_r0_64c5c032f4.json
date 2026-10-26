@@ -1,0 +1,55 @@
+{
+ "run_id": "v2_contract_stale_A0_T27_r0_64c5c032f4",
+ "view": "messages_only",
+ "api_version": "v2_contract_stale",
+ "awareness": "A0",
+ "task_id": "T27",
+ "gold_kind": "pairs",
+ "fail_reason": "false_no_option",
+ "truth": {
+  "status": "ok",
+  "agent": "executor",
+  "drift_entry_step": 2,
+  "agent_error_step": 2,
+  "rule": "rejected_call",
+  "trigger": "output_renamed+tool_error"
+ },
+ "judge": {
+  "view": "messages_only",
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "temperature": 0.0,
+  "reasoning_effort": "low",
+  "json_mode": true,
+  "prompt_version": "j1",
+  "max_items": 5,
+  "max_text": 1500,
+  "token_budget": 3000
+ },
+ "judged_at": "2026-10-23T19:43:38+00:00",
+ "input_text": "ЗАПРОС ПОЛЬЗОВАТЕЛЯ:\nНайди самый дешёвый вариант отель + перелёт из Prague в Budapest на 2026-11-08, 1 ночь, бюджет 210 USD\n\nЭТАЛОННЫЙ ОТВЕТ (прогон провален: финальный ответ системы с эталоном не совпал):\nhotel_id=H141, flight_id=F1878, total_usd=170.94 USD\n\nШАГИ:\n[шаг 1] planner → план:\n{\"origin\": \"Prague\", \"destination\": \"Budapest\", \"date\": \"2026-11-08\", \"nights\": 1, \"budget_usd\": 210, \"goal\": \"Find the cheapest flight and hotel package from Prague to Budapest\", \"steps\": [\"Search for flights from Prague to Budapest on 2026-11-08\", \"Search for budget hotels in Budapest for 1 night starting 2026-11-08\", \"Combine flight and hotel options to find the cheapest total within the 210 USD budget\"]}\n\n[шаг 2] executor → вызывает инструменты:\n  search_flights({\"origin\":\"Prague\",\"date\":\"2026-11-08\",\"destination\":\"Budapest\"})\n  search_hotels({\"city\":\"Budapest\",\"nights\":1})\n\n[шаг 3] executor → вызывает инструменты:\n  search_hotels({\"nights\":1,\"max_results\":10,\"city\":\"Budapest\"})\n\n[шаг 4] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Budapest\"})\n\n[шаг 5] executor → отчёт для verifier:\n```json\n{\"hotels\": [], \"flights\": [{\"id\": \"F1878\", \"price_usd\": 63.89}], \"best\": null, \"notes\": \"Could not search hotels due to schema mismatch (num_nights required instead of nights). Found flight F1878 at 63.89 USD.\"}\n```\n\n[шаг 6] verifier → ответ:\n{\"no_option\": true}\n\nФИНАЛЬНЫЙ ОТВЕТ СИСТЕМЫ:\n{\"no_option\": true}",
+ "input_chars": 1417,
+ "input_est_tokens": 443,
+ "input_text_limit": 1500,
+ "input_leaks": [],
+ "response": "{\"blamed_agent\":\"executor\",\"blamed_step\":2,\"error_category\":\"wrong_tool_call\",\"root_cause\":\"Executor called search_hotels with parameter \\\"nights\\\" instead of the required \\\"num_nights\\\", causing the tool to fail and no hotels to be retrieved.\",\"confidence\":0.97}",
+ "message_extra": {
+  "reasoning": "We need earliest error. Planner step fine. Executor step2 calls search_flights correct, search_hotels missing required param num_nights. That's wrong_tool_call. That leads to later failures. So earliest error is step2 executor wrong_tool_call."
+ },
+ "usage": {
+  "prompt_tokens": 1142,
+  "completion_tokens": 122,
+  "reasoning_tokens": 51,
+  "provider_total_tokens": 1264
+ },
+ "latency_s": 0.664,
+ "cached": false,
+ "verdict": {
+  "blamed_agent": "executor",
+  "blamed_step": 2,
+  "error_category": "wrong_tool_call",
+  "root_cause": "Executor called search_hotels with parameter \"nights\" instead of the required \"num_nights\", causing the tool to fail and no hotels to be retrieved.",
+  "confidence": 0.97
+ },
+ "parse_error": null
+}

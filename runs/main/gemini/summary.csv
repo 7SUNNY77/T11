@@ -1,0 +1,11 @@
+condition,runs,success,success_solvable,success_no_option,fail_reasons,tool_errors,drift_affected,step_limit,mean_llm_calls,mean_tokens,mean_latency_s
+v1:A0,30,30/30,25/25,5/5,,0,0,0,4.0,3471,8.8
+v1:A1,30,30/30,25/25,5/5,,0,0,0,4.0,3625,8.7
+v2_contract:A0,30,30/30,25/25,5/5,,0,60,0,4.0,3561,10.0
+v2_contract:A1,30,30/30,25/25,5/5,,0,60,0,4.0,3719,9.2
+v2_contract_stale:A0,30,5/30,0/25,5/5,false_no_option=25,130,163,4,7.3,7911,18.5
+v2_contract_stale:A1,30,30/30,25/25,5/5,,0,60,0,4.0,3635,9.9
+v2_units:A0,30,9/30,4/25,5/5,false_no_option=21,0,60,0,4.0,3474,9.3
+v2_units:A1,30,30/30,25/25,5/5,,0,60,0,4.0,3632,10.0
+v2_benign:A0,30,30/30,25/25,5/5,,0,30,0,4.0,3822,8.7
+v2_benign:A1,30,30/30,25/25,5/5,,0,30,0,4.0,3962,10.1

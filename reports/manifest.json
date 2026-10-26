@@ -1,0 +1,150 @@
+{
+  "generated_at": "2026-10-26T14:54:42+00:00",
+  "experiment": "main",
+  "git": {
+    "commit": "1a13c318286d1e983aee6b551fcc8b51b7cc26db",
+    "branch": "master",
+    "dirty_files": []
+  },
+  "config": {
+    "path": "config/default.toml",
+    "sha256": "25abab22f6c50ff5610841d429cc3a5c50f44c9ed15c4f11d400738d3ed2547f"
+  },
+  "agents": {
+    "name": "gemini",
+    "kind": "openai_compat",
+    "model": "gemini-3.5-flash-lite",
+    "base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
+    "temperature": 0.7,
+    "reasoning_effort": "low",
+    "json_mode": false,
+    "est_completion_tokens": 0,
+    "rpm": 10,
+    "tpm": 250000,
+    "tpd": 0,
+    "rpd": 500,
+    "cache": true,
+    "timeout_s": 60.0,
+    "max_retries": 6,
+    "backoff_base_s": 2.0,
+    "backoff_max_s": 120.0,
+    "models_reported": [
+      "gemini-3.5-flash-lite"
+    ]
+  },
+  "judge": {
+    "name": "groq",
+    "kind": "openai_compat",
+    "model": "openai/gpt-oss-120b",
+    "base_url": "https://api.groq.com/openai/v1",
+    "temperature": 0.0,
+    "reasoning_effort": "low",
+    "json_mode": true,
+    "est_completion_tokens": 1500,
+    "rpm": 30,
+    "tpm": 8000,
+    "tpd": 200000,
+    "rpd": 0,
+    "cache": true,
+    "timeout_s": 120.0,
+    "max_retries": 6,
+    "backoff_base_s": 2.0,
+    "backoff_max_s": 120.0
+  },
+  "experiment_config": {
+    "name": "main",
+    "fake_name": "fake",
+    "seed": 42,
+    "task_pool": 30,
+    "api_versions": [
+      "v1",
+      "v2_contract",
+      "v2_contract_stale",
+      "v2_units",
+      "v2_benign"
+    ],
+    "awareness": [
+      "A0",
+      "A1"
+    ],
+    "executor_max_steps": 8,
+    "workers": 3,
+    "order_seed": 7
+  },
+  "awareness": {
+    "A0": [],
+    "A1": [
+      "executor"
+    ]
+  },
+  "prompts": {
+    "agents": "p1",
+    "judge": "j1"
+  },
+  "api_version_fingerprints": {
+    "v1": "e4a7110050e266e0",
+    "v2_contract": "cb2eaa24ce1277af",
+    "v2_contract_stale": "914bfe1986407826",
+    "v2_units": "1b9518379c3c93fb",
+    "v2_benign": "cd7671b1d631769e"
+  },
+  "data": {
+    "seed": 42,
+    "world_json": {
+      "path": "runs/main/gemini/world.json",
+      "sha256": "a45b34b640dae9a3d88e54893358c13f5248fb50da7ec966032ece9aca6be7ca",
+      "fingerprint": "12aec5e96ba8fc06"
+    },
+    "tasks_json": {
+      "path": "runs/main/gemini/tasks.json",
+      "sha256": "60f8c74f6e9d6e0400718a32d314d645d89e77975e3e95404ed86ff05128668b",
+      "fingerprint": "14f0ff12af72f998"
+    }
+  },
+  "analysis": {
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20261023,
+    "complete_blocks_only": true,
+    "complete_blocks": 30,
+    "rows_used": 300
+  },
+  "runs": {
+    "first": "2026-10-23T18:22:09.656+00:00",
+    "last": "2026-10-25T11:28:36.362+00:00",
+    "dates_utc": [
+      "2026-10-23",
+      "2026-10-24",
+      "2026-10-25"
+    ],
+    "runs_completed": 300,
+    "runs_aborted": 0
+  },
+  "judge_runs": {
+    "setups": {
+      "full": "a52ea470f5",
+      "messages_only": "c17849ae14"
+    },
+    "full": {
+      "first": "2026-10-23T19:36:01+00:00",
+      "last": "2026-10-25T11:28:56+00:00",
+      "verdicts": 46
+    },
+    "messages_only": {
+      "first": "2026-10-23T19:36:10+00:00",
+      "last": "2026-10-25T11:28:57+00:00",
+      "verdicts": 46
+    }
+  },
+  "environment": {
+    "python": "3.11.15",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "packages": {
+      "openai": "3.37.0",
+      "pydantic": "2.14.1",
+      "python-dotenv": "1.2.4",
+      "numpy": "2.4.6",
+      "matplotlib": "3.11.2",
+      "pytest": "9.1.1"
+    }
+  }
+}

@@ -4,4 +4,6 @@ __pycache__/
 *.pyc
 .pytest_cache/
 cache/
-runs/
+# Данные основного эксперимента коммитятся; smoke, пилоты и fake — нет.
+runs/*
+!runs/main/

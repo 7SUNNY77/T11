@@ -1,0 +1,6 @@
+{
+  "seed": 42,
+  "world_fp": "12aec5e96ba8fc06",
+  "tasks_fp": "14f0ff12af72f998",
+  "provider_kind": "openai_compat"
+}

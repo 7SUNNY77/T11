@@ -1,0 +1,55 @@
+{
+ "run_id": "v2_contract_stale_A0_T25_r0_a25b75f7a6",
+ "view": "messages_only",
+ "api_version": "v2_contract_stale",
+ "awareness": "A0",
+ "task_id": "T25",
+ "gold_kind": "pairs",
+ "fail_reason": "false_no_option",
+ "truth": {
+  "status": "ok",
+  "agent": "executor",
+  "drift_entry_step": 2,
+  "agent_error_step": 2,
+  "rule": "rejected_call",
+  "trigger": "output_renamed+tool_error"
+ },
+ "judge": {
+  "view": "messages_only",
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "temperature": 0.0,
+  "reasoning_effort": "low",
+  "json_mode": true,
+  "prompt_version": "j1",
+  "max_items": 5,
+  "max_text": 1500,
+  "token_budget": 3000
+ },
+ "judged_at": "2026-10-24T22:28:49+00:00",
+ "input_text": "ЗАПРОС ПОЛЬЗОВАТЕЛЯ:\nНайди самый дешёвый вариант отель + перелёт из Copenhagen в Amsterdam на 2026-11-08, 3 ночи, бюджет 603 USD\n\nЭТАЛОННЫЙ ОТВЕТ (прогон провален: финальный ответ системы с эталоном не совпал):\nhotel_id=H154, flight_id=F1657, total_usd=478.03 USD\n\nШАГИ:\n[шаг 1] planner → план:\n{\"origin\": \"Copenhagen\", \"destination\": \"Amsterdam\", \"date\": \"2026-11-08\", \"nights\": 3, \"budget_usd\": 603, \"goal\": \"Find the cheapest flight and hotel package\", \"steps\": [\"Search for flights from Copenhagen to Amsterdam on 2026-11-08\", \"Search for hotels in Amsterdam for 3 nights starting 2026-11-08\", \"Combine and filter options to stay under 603 USD\", \"Select the cheapest available option\"]}\n\n[шаг 2] executor → вызывает инструменты:\n  search_flights({\"origin\":\"Copenhagen\",\"destination\":\"Amsterdam\",\"date\":\"2026-11-08\"})\n  search_hotels({\"nights\":3,\"city\":\"Amsterdam\"})\n\n[шаг 3] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Amsterdam\",\"max_results\":10,\"nights\":3})\n\n[шаг 4] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Amsterdam\"})\n\n[шаг 5] executor → вызывает инструменты:\n  search_hotels({\"nights\":3,\"city\":\"Amsterdam\"})\n\n[шаг 6] executor → отчёт для verifier:\n```json\n{\n  \"hotels\": [],\n  \"flights\": [\n    {\"id\": \"F1657\", \"price_usd\": 331.33}\n  ],\n  \"best\": null,\n  \"notes\": \"Hotel search failed due to API parameter error ('num_nights' required instead of 'nights').\"\n}\n```\n\n[шаг 7] verifier → ответ:\n{\"no_option\": true}\n\nФИНАЛЬНЫЙ ОТВЕТ СИСТЕМЫ:\n{\"no_option\": true}",
+ "input_chars": 1495,
+ "input_est_tokens": 467,
+ "input_text_limit": 1500,
+ "input_leaks": [],
+ "response": "{\"blamed_agent\":\"executor\",\"blamed_step\":4,\"error_category\":\"wrong_tool_call\",\"root_cause\":\"Executor called search_hotels without the required 'nights' (or correct parameter name), causing the hotel search to fail and later report no options.\",\"confidence\":0.97}",
+ "message_extra": {
+  "reasoning": "We need earliest error. Planner step fine. Executor step2 calls correct tools. Step3 calls search_hotels with extra param max_results - maybe okay. Step4 calls search_hotels missing nights. Step5 repeats correct. The error: step4 wrong tool call missing required param causing failure. That leads to no hotels. The earliest error that caused failure is step4 wrong_tool_call. So blame executor step4."
+ },
+ "usage": {
+  "prompt_tokens": 1162,
+  "completion_tokens": 154,
+  "reasoning_tokens": 85,
+  "provider_total_tokens": 1316
+ },
+ "latency_s": 0.968,
+ "cached": false,
+ "verdict": {
+  "blamed_agent": "executor",
+  "blamed_step": 4,
+  "error_category": "wrong_tool_call",
+  "root_cause": "Executor called search_hotels without the required 'nights' (or correct parameter name), causing the hotel search to fail and later report no options.",
+  "confidence": 0.97
+ },
+ "parse_error": null
+}

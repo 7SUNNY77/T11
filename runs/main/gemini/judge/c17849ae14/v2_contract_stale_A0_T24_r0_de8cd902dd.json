@@ -1,0 +1,55 @@
+{
+ "run_id": "v2_contract_stale_A0_T24_r0_de8cd902dd",
+ "view": "messages_only",
+ "api_version": "v2_contract_stale",
+ "awareness": "A0",
+ "task_id": "T24",
+ "gold_kind": "pairs",
+ "fail_reason": "false_no_option",
+ "truth": {
+  "status": "ok",
+  "agent": "executor",
+  "drift_entry_step": 2,
+  "agent_error_step": 2,
+  "rule": "rejected_call",
+  "trigger": "output_renamed+tool_error"
+ },
+ "judge": {
+  "view": "messages_only",
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "temperature": 0.0,
+  "reasoning_effort": "low",
+  "json_mode": true,
+  "prompt_version": "j1",
+  "max_items": 5,
+  "max_text": 1500,
+  "token_budget": 3000
+ },
+ "judged_at": "2026-10-24T22:27:50+00:00",
+ "input_text": "ЗАПРОС ПОЛЬЗОВАТЕЛЯ:\nНайди самый дешёвый вариант отель + перелёт из Lisbon в Amsterdam на 2026-11-08, 4 ночи, бюджет 593 USD\n\nЭТАЛОННЫЙ ОТВЕТ (прогон провален: финальный ответ системы с эталоном не совпал):\nhotel_id=H154, flight_id=F1701, total_usd=486.60 USD\n\nШАГИ:\n[шаг 1] planner → план:\n{\"origin\": \"Lisbon\", \"destination\": \"Amsterdam\", \"date\": \"2026-11-08\", \"nights\": 4, \"budget_usd\": 593, \"goal\": \"Find the cheapest flight and hotel package\", \"steps\": [\"Search flights from Lisbon to Amsterdam for 2026-11-08\", \"Search hotels in Amsterdam for 4 nights starting 2026-11-08\", \"Combine and filter options within the 593 USD budget\"]}\n\n[шаг 2] executor → вызывает инструменты:\n  search_flights({\"date\":\"2026-11-08\",\"origin\":\"Lisbon\",\"destination\":\"Amsterdam\"})\n  search_hotels({\"nights\":4,\"city\":\"Amsterdam\"})\n\n[шаг 3] executor → вызывает инструменты:\n  search_hotels({\"max_results\":10,\"city\":\"Amsterdam\",\"nights\":4})\n\n[шаг 4] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Amsterdam\",\"max_results\":10})\n\n[шаг 5] executor → вызывает инструменты:\n  search_hotels({\"city\":\"Amsterdam\"})\n\n[шаг 6] executor → отчёт для verifier:\n```json\n{\"hotels\": [],\n \"flights\": [{\"id\": \"F1701\", \"price_usd\": 291.0}, {\"id\": \"F1012\", \"price_usd\": 340.49}, {\"id\": \"F1382\", \"price_usd\": 358.01}],\n \"best\": null,\n \"notes\": \"Hotel search failed due to API schema mismatch (requires 'num_nights' instead of 'nights').\"}\n```\n\n[шаг 7] verifier → ответ:\n{\"no_option\": true}\n\nФИНАЛЬНЫЙ ОТВЕТ СИСТЕМЫ:\n{\"no_option\": true}",
+ "input_chars": 1502,
+ "input_est_tokens": 469,
+ "input_text_limit": 1500,
+ "input_leaks": [],
+ "response": "{\"blamed_agent\":\"executor\",\"blamed_step\":2,\"error_category\":\"wrong_tool_call\",\"root_cause\":\"Executor called search_hotels with parameter name 'nights' instead of the required 'num_nights', causing the hotel search to fail and produce no results.\",\"confidence\":0.97}",
+ "message_extra": {
+  "reasoning": "We need earliest error. Planner step fine. Executor step2 calls both tools correctly. Step3-5 redundant wrong calls: using wrong params. The first hotel call likely failed due to schema mismatch, but executor kept trying wrong schemas. The root cause is wrong tool call at step3 (or step2?). Actually step2 call had correct schema? We don't know schema; later note says requires 'num_nights' instead of 'nights'. So step2 used \"nights\":4 which is wrong, causing failure. So earliest error is step2 wrong_tool_call. That leads to no hotel data, verifier says no_option. So blame executor step2. Category wrong_tool_call. Confidence high."
+ },
+ "usage": {
+  "prompt_tokens": 1179,
+  "completion_tokens": 214,
+  "reasoning_tokens": 143,
+  "provider_total_tokens": 1393
+ },
+ "latency_s": 0.747,
+ "cached": false,
+ "verdict": {
+  "blamed_agent": "executor",
+  "blamed_step": 2,
+  "error_category": "wrong_tool_call",
+  "root_cause": "Executor called search_hotels with parameter name 'nights' instead of the required 'num_nights', causing the hotel search to fail and produce no results.",
+  "confidence": 0.97
+ },
+ "parse_error": null
+}
